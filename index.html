@@ -113,6 +113,36 @@
   .work li span:first-child { color: var(--muted); }
   @media (max-width: 900px) { .work { grid-template-columns: 1fr; gap: 32px; } .device { width: 44%; } .device.back { width: 38%; left: 8%; } }
 
+
+  /* global */
+  .global { background: var(--dark); color: #fff; }
+  .global .label { color: rgba(255,255,255,.5); }
+  .global .label::before { background: rgba(255,255,255,.5); }
+  .global .grid { display: grid; grid-template-columns: 6fr 5fr; gap: 72px; align-items: center; }
+  .global .hello { font-family: "Cormorant Garamond", "Noto Serif JP", serif; font-size: clamp(30px, 4.4vw, 54px); line-height: 1.35; font-weight: 400; }
+  .global .hello span { display: block; }
+  .global .hello span:nth-child(2n) { color: var(--accent); font-style: italic; }
+  .global p { color: rgba(255,255,255,.75); font-size: 15px; margin-top: 24px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+  .chips span { border: 1px solid rgba(255,255,255,.3); padding: 6px 16px; font-size: 13px; letter-spacing: .08em; }
+  .global .btn { margin-top: 36px; }
+  .global .shot { position: relative; aspect-ratio: 1; display: grid; place-items: center; }
+  .global .device { width: 52%; }
+  .global .device.back { width: 46%; left: 0; top: 10%; }
+  @media (max-width: 900px) { .global .grid { grid-template-columns: 1fr; gap: 48px; } }
+
+  /* compare */
+  .compare { width: 100%; border-collapse: collapse; margin-top: 64px; font-size: 15px; background: #fff; }
+  .compare th, .compare td { padding: 22px 20px; border-bottom: 1px solid var(--line); text-align: center; }
+  .compare thead th { font-weight: 400; font-size: 13px; letter-spacing: .1em; color: var(--muted); }
+  .compare tbody th { text-align: left; font-weight: 500; font-size: 14px; color: var(--ink-2); white-space: nowrap; }
+  .compare .us { background: var(--dark); color: #fff; }
+  .compare thead .us { color: #fff; font-family: "Cormorant Garamond", serif; font-size: 26px; letter-spacing: 0; }
+  .compare td.us { font-weight: 500; }
+  .compare td.us strong { font-family: "Cormorant Garamond", serif; font-size: 26px; font-weight: 500; }
+  .table-scroll { overflow-x: auto; }
+  @media (max-width: 700px) { .compare { font-size: 11px; } .compare th, .compare td { padding: 14px 6px; } .compare tbody th { white-space: normal; font-size: 12px; } .compare thead .us, .compare td.us strong { font-size: 18px; } }
+
   /* price */
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin-top: 72px; background: #fff; }
   .plan { padding: 48px 40px; border-right: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
@@ -192,6 +222,7 @@
     <a href="#top" class="logo">Mise<b>+</b></a>
     <nav>
       <a class="link" href="#concept">CONCEPT</a>
+      <a class="link" href="#global">GLOBAL</a>
       <a class="link" href="#works">WORKS</a>
       <a class="link" href="#price">PRICE</a>
       <a class="link" href="#flow">FLOW</a>
@@ -250,7 +281,23 @@
       <div class="feature reveal"><div class="n">03</div><h3>維持費は0円</h3><p>毎月の管理費はいただきません。かかるのはサイトの住所（ドメイン）の実費だけです。</p></div>
       <div class="feature reveal"><div class="n">04</div><h3>修正はLINEで送るだけ</h3><p>「営業時間を変えて」とLINEで送るだけ。パソコンが苦手でも大丈夫です。1回10,000円。</p></div>
       <div class="feature reveal"><div class="n">05</div><h3>Googleマップも整えます</h3><p>写真・営業時間・メニューの登録まで。お客さんがお店を見つける入口を、まとめて整えます。</p></div>
-      <div class="feature reveal"><div class="n">06</div><h3>英語ページにも対応</h3><p>ボタンひとつで日本語と英語を切り替え。増えている海外からのお客さんにも伝わります。</p></div>
+      <div class="feature reveal"><div class="n">06</div><h3>5つの言語に対応</h3><p>日本語・英語・韓国語・中国語（簡体字／繁体字）を、お客さんがボタンひとつで切り替え。海外からのお客さんにも伝わります。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="global" id="global">
+  <div class="wrap grid">
+    <div class="reveal">
+      <div class="label">INBOUND</div>
+      <div class="hello"><span>いらっしゃいませ。</span><span>Welcome.</span><span>어서 오세요.</span><span>欢迎光临。</span></div>
+      <p>福岡は、韓国・台湾・中国など、海外からのお客さんがとても多い街です。でも、外国語でメニューや営業時間がわかるお店は、まだ多くありません。Mise+のホームページなら、お客さんが自分の言葉を選んで、お店のことを知ることができます。</p>
+      <div class="chips"><span>日本語</span><span>English</span><span>한국어</span><span>简体中文</span><span>繁體中文</span></div>
+      <a class="btn btn-light" href="work/taiwan/?lang=ko" style="color:#fff">実際に切り替えてみる <span class="arrow"></span></a>
+    </div>
+    <div class="shot reveal">
+      <div class="device back"><div class="screen"><img src="img/work-taiwan-ko.jpg" alt="韓国語に切り替えた画面"></div></div>
+      <div class="device" style="margin-left:30%"><div class="screen"><img src="img/work-taiwan-zh.jpg" alt="中国語に切り替えた画面"></div></div>
     </div>
   </div>
 </section>
@@ -261,21 +308,43 @@
     <h2 class="reveal">制作例</h2>
     <div class="work reveal">
       <div class="stage">
-        <div class="device back"><div class="screen"><img src="img/work-taiwan-2.png" alt=""></div></div>
-        <div class="device" style="margin-left:24%"><div class="screen"><img src="img/work-taiwan-1.png" alt="台湾料理店のホームページ制作例"></div></div>
+        <div class="device back"><div class="screen"><img src="img/work-taiwan-menu.jpg" alt=""></div></div>
+        <div class="device" style="margin-left:24%"><div class="screen"><img src="img/work-taiwan-ja.jpg" alt="台湾料理店のホームページ制作例"></div></div>
       </div>
       <div>
         <div class="cat">RESTAURANT</div>
         <h3>台湾料理店</h3>
-        <p style="font-size:14px;color:var(--ink-2)">看板の赤と金をそのままサイトの色に。忘年会の予約とオードブルの注文を、ワンタップの電話につなげる設計にしました。</p>
+        <p style="font-size:14px;color:var(--ink-2)">料理の写真を主役に、黒と赤で本場の雰囲気を。忘年会の予約とオードブルの注文を、ワンタップの電話につなげる設計にしました。</p>
         <ul>
-          <li><span>プラン</span><span>スタンダード</span></li>
+          <li><span>プラン</span><span>Premium</span></li>
           <li><span>ページ</span><span>メニュー／宴会／テイクアウト／店舗情報</span></li>
-          <li><span>対応</span><span>日本語・英語</span></li>
+          <li><span>言語</span><span>日・英・韓・中（簡／繁）</span></li>
         </ul>
+        <a class="btn btn-solid" href="work/taiwan/" style="margin-top:28px">実際のサイトを見る <span class="arrow"></span></a>
       </div>
     </div>
-    <p class="note reveal">※掲載している制作例はデザインのサンプルです。</p>
+    <p class="note reveal">※掲載している制作例は、架空の店舗で作ったデザインのサンプルです。</p>
+  </div>
+</section>
+
+<section id="compare">
+  <div class="wrap">
+    <div class="label reveal">COMPARE</div>
+    <h2 class="reveal">一般的な相場と、くらべてください。</h2>
+    <p class="lead reveal">ホームページ制作は、制作会社に頼むと数十万円かかることも珍しくありません。Mise+は、小さなお店でも始めやすい価格にしています。</p>
+    <div class="table-scroll reveal">
+      <table class="compare">
+        <thead><tr><th></th><th class="us">Mise+</th><th>制作会社</th><th>フリーランス</th></tr></thead>
+        <tbody>
+          <tr><th>制作費</th><td class="us"><strong>5万〜10万円</strong></td><td>30万〜100万円</td><td>10万〜30万円</td></tr>
+          <tr><th>毎月の費用</th><td class="us"><strong>0円</strong></td><td>5,000〜30,000円</td><td>3,000〜10,000円</td></tr>
+          <tr><th>契約前の見本</th><td class="us">無料で作成</td><td>なし</td><td>なし</td></tr>
+          <tr><th>外国語ページ</th><td class="us">最大5言語をプランに込み</td><td>別料金</td><td>別料金</td></tr>
+          <tr><th>公開まで</th><td class="us">最短7日</td><td>1〜3か月</td><td>2週間〜1か月</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note reveal">※制作会社・フリーランスの金額は一般的な目安です。依頼先や内容によって異なります。</p>
   </div>
 </section>
 
@@ -308,7 +377,7 @@
           <li>Basicの内容すべて</li>
           <li>最大5ページ</li>
           <li>メニュー・料金ページ</li>
-          <li>日本語／英語の切り替え</li>
+          <li>日本語・英語の2言語</li>
           <li>Googleマップの情報整備</li>
         </ul>
         <a class="btn" href="#contact">相談する <span class="arrow"></span></a>
@@ -320,6 +389,7 @@
         <div class="muted">維持費 0円</div>
         <ul>
           <li>Standardの内容すべて</li>
+          <li>5言語（日・英・韓・中 簡体／繁体）</li>
           <li>予約・お問い合わせフォーム</li>
           <li>Instagramとの連携</li>
           <li>季節のキャンペーンページ</li>
