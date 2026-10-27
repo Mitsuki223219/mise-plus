@@ -204,6 +204,28 @@
   .src a { text-decoration: underline; }
   @media (max-width: 900px) { .stats { grid-template-columns: 1fr; } }
 
+
+  /* monitor */
+  .hero .offer { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; background: rgba(154,107,63,.92); padding: 10px 18px; font-size: 13px; letter-spacing: .08em; }
+  .hero .offer b { font-weight: 500; }
+  .hero .offer .left { border-left: 1px solid rgba(255,255,255,.5); padding-left: 12px; }
+  .monitor-box { margin-top: 56px; border: 1px solid var(--accent); background: #fff; display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center; padding: 32px 40px; }
+  .monitor-box .tag { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 22px; color: var(--accent); line-height: 1.2; }
+  .monitor-box .tag b { display: block; font-family: "Noto Serif JP", serif; font-style: normal; font-weight: 500; font-size: 26px; color: var(--ink); }
+  .monitor-box p { font-size: 14px; color: var(--ink-2); }
+  .monitor-box .count { text-align: center; }
+  .monitor-box .count strong { font-family: "Cormorant Garamond", serif; font-size: 64px; font-weight: 400; line-height: 1; color: var(--accent); }
+  .monitor-box .count span { display: block; font-size: 12px; color: var(--muted); letter-spacing: .1em; }
+  @media (max-width: 800px) { .monitor-box { grid-template-columns: 1fr; gap: 16px; padding: 28px 24px; } .monitor-box .count { text-align: left; } }
+  .plan .was { font-size: 13px; color: var(--muted); margin-top: 28px; }
+  .plan .was s { font-family: "Cormorant Garamond", serif; font-size: 22px; }
+  .plan.rec .was { color: rgba(255,255,255,.6); }
+  .plan .was + .price { margin-top: 0; color: var(--accent); }
+  .plan .off { font-family: "Noto Sans JP", sans-serif; font-size: 12px; background: var(--accent); color: #fff; padding: 2px 8px; margin-right: 8px; vertical-align: middle; letter-spacing: .05em; }
+  html.no-monitor .monitor { display: none !important; }
+  html.no-monitor .plan .monitor-price { display: none; }
+  html:not(.no-monitor) .plan .normal-price { display: none; }
+
   /* price */
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin-top: 72px; background: #fff; }
   .plan { padding: 48px 40px; border-right: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
@@ -302,6 +324,7 @@
     <div class="actions">
       <a class="btn btn-light" href="#contact">無料で見本を作ってもらう <span class="arrow"></span></a>
     </div>
+    <a class="offer monitor" href="#price"><b>先着5店舗限定　全プラン半額</b><span class="left">残り <span class="left-count">5</span> 店舗</span></a>
   </div>
   <div class="meta">
     <strong>¥0</strong>維持費<br>
@@ -490,11 +513,18 @@
     <div class="label reveal">PRICE</div>
     <h2 class="reveal">料金プラン</h2>
     <p class="lead reveal">どのプランにするかは、見本を見てから決められます。</p>
+    <div class="monitor-box monitor reveal">
+      <div class="tag">Monitor Price<b>全プラン半額</b></div>
+      <p>Mise+の立ち上げにあたり、先着5店舗さまをモニター価格でお受けします。条件は、公開後に「お客様の声」をお寄せいただくことと、完成したサイトを制作例として掲載させていただくことの2つだけです。</p>
+      <div class="count"><strong class="left-count">5</strong><span>残り店舗数</span></div>
+    </div>
     <div class="plans reveal">
       <div class="plan">
         <div class="name">Basic</div>
         <div class="muted">まずはお店の情報をネットに</div>
-        <div class="price">50,000<small>円（税込）</small></div>
+        <div class="price normal-price">50,000<small>円（税込）</small></div>
+        <div class="was monitor-price"><span class="off">モニター価格</span> 通常 <s>50,000円</s></div>
+        <div class="price monitor-price">25,000<small>円（税込）</small></div>
         <div class="muted">維持費 0円</div>
         <ul>
           <li>1ページのホームページ</li>
@@ -508,7 +538,9 @@
         <div class="tag">Recommended</div>
         <div class="name">Standard</div>
         <div class="muted">お客さんを増やしたいお店に</div>
-        <div class="price">70,000<small>円（税込）</small></div>
+        <div class="price normal-price">70,000<small>円（税込）</small></div>
+        <div class="was monitor-price"><span class="off">モニター価格</span> 通常 <s>70,000円</s></div>
+        <div class="price monitor-price">35,000<small>円（税込）</small></div>
         <div class="muted">維持費 0円</div>
         <ul>
           <li>Basicの内容すべて</li>
@@ -522,7 +554,9 @@
       <div class="plan">
         <div class="name">Premium</div>
         <div class="muted">予約や集客までしっかりと</div>
-        <div class="price">100,000<small>円（税込）</small></div>
+        <div class="price normal-price">100,000<small>円（税込）</small></div>
+        <div class="was monitor-price"><span class="off">モニター価格</span> 通常 <s>100,000円</s></div>
+        <div class="price monitor-price">50,000<small>円（税込）</small></div>
         <div class="muted">維持費 0円</div>
         <ul>
           <li>Standardの内容すべて</li>
@@ -606,6 +640,7 @@
     <div class="h2-en">Let's talk.</div>
     <h2>まずは無料で、<br>あなたのお店の見本を。</h2>
     <p>「ちょっと話を聞いてみたい」だけでも大歓迎です。</p>
+    <p class="monitor">いまなら先着5店舗、全プラン半額のモニター価格でお受けしています（残り <span class="left-count">5</span> 店舗）。</p>
     <div class="actions">
       <a class="btn btn-white" href="#">LINEで相談する <span class="arrow"></span></a>
       <a class="btn btn-light" href="#">電話で相談する <span class="arrow"></span></a>
@@ -621,6 +656,14 @@
 </footer>
 
 <script>
+  // モニター価格の残り店舗数。決まるたびにここの数字を1つ減らす。0にするとモニター表示はすべて消える。
+  var MONITOR_LEFT = 5;
+  if (MONITOR_LEFT > 0) {
+    document.querySelectorAll(".left-count").forEach(function (el) { el.textContent = MONITOR_LEFT; });
+  } else {
+    document.documentElement.classList.add("no-monitor");
+  }
+
   var hd = document.getElementById("hd");
   function onScroll() { hd.classList.toggle("solid", window.scrollY > window.innerHeight * 0.6); }
   window.addEventListener("scroll", onScroll); onScroll();
