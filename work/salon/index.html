@@ -2,79 +2,151 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NOIR hair｜制作例</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root { --bk: #0e0e0e; --wh: #fafafa; --gray: #8a8a8a; --line: #e5e5e5; --soft: #f2f1ef; }
+  /* 白と黒だけのサロン。大きな英字と細い罫線、予約の空き状況表で「予約につながる」サイトにする */
+  :root {
+    --bk: #0e0e0e;
+    --wh: #fafaf9;
+    --soft: #f1f0ee;
+    --gray: #8a8a88;
+    --gray-2: #4a4a48;
+    --line: #e4e3e0;
+    --sans: "Noto Sans JP", "Hiragino Sans", sans-serif;
+    --latin: "Jost", "Noto Sans JP", sans-serif;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: "Noto Sans JP", sans-serif; font-weight: 300; background: var(--wh); color: var(--bk); line-height: 2; letter-spacing: .05em; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--sans); font-weight: 300; background: var(--wh); color: var(--bk); line-height: 2; letter-spacing: .05em; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
-  img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 22px; }
-  .jost { font-family: "Jost", sans-serif; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; max-width: 100%; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
+  h1, h2, h3 { text-wrap: balance; }
+  :focus-visible { outline: 2px solid var(--bk); outline-offset: 3px; }
 
-  header { position: fixed; inset: 0 0 auto 0; z-index: 20; mix-blend-mode: difference; color: #fff; }
+  header { position: fixed; inset: 0 0 auto 0; z-index: 20; mix-blend-mode: difference; color: #fff; padding-top: env(safe-area-inset-top, 0px); }
   header .wrap { display: flex; justify-content: space-between; align-items: center; height: 76px; }
-  .logo { font-family: "Jost", sans-serif; font-weight: 500; font-size: 22px; letter-spacing: .35em; }
-  .right { display: flex; gap: 28px; align-items: center; font-family: "Jost", sans-serif; font-size: 12px; letter-spacing: .2em; }
+  .logo { font-family: var(--latin); font-weight: 500; font-size: 22px; letter-spacing: .4em; }
+  .right { display: flex; gap: 28px; align-items: center; font-family: var(--latin); font-size: 12px; letter-spacing: .2em; }
   .right nav { display: flex; gap: 26px; }
   .lang button { background: none; border: 0; color: #fff; font: inherit; cursor: pointer; opacity: .5; padding: 2px 4px; }
   .lang button.on { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
-  @media (max-width: 760px) { .right nav { display: none; } }
+  @media (max-width: 860px) { .right nav { display: none; } }
 
-  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
-  .hero .l { background: var(--bk); color: #fff; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 56px 72px; }
-  .hero .l small { font-family: "Jost", sans-serif; font-size: 12px; letter-spacing: .3em; color: var(--gray); }
-  .hero h1 { font-family: "Jost", sans-serif; font-weight: 300; font-size: clamp(54px, 8vw, 110px); line-height: 1; letter-spacing: .08em; margin: 16px 0 28px; }
-  .hero p { font-size: 15px; color: #cfcfcf; max-width: 380px; }
-  .hero .r { position: relative; min-height: 50vh; }
-  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .hero .r { order: -1; min-height: 58vh; } .hero .l { padding: 48px 22px 56px; } }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: min(100vh, 920px); }
+  .hero .l { background: var(--bk); color: #fff; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px 56px 72px; }
+  .hero small { font-family: var(--latin); font-size: 12px; letter-spacing: .3em; color: var(--gray); }
+  .hero h1 { font-family: var(--latin); font-weight: 300; font-size: clamp(60px, 8.5vw, 120px); line-height: 1; letter-spacing: .08em; margin: 18px 0 28px; }
+  .hero p { font-size: 15px; color: #cfcfcd; max-width: 400px; }
+  .hero .r { position: relative; min-height: 50vh; overflow: hidden; }
+  .hero .r img { position: absolute; inset: 0; animation: slow 14s ease-out both; }
+  @keyframes slow { from { transform: scale(1.06); } to { transform: scale(1); } }
+  .hero .first { margin-top: 32px; display: inline-flex; gap: 14px; align-items: center; border: 1px solid rgba(255,255,255,.4); padding: 10px 16px; font-size: 13px; }
+  .hero .first b { font-family: var(--latin); font-weight: 400; font-size: 20px; }
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .hero .r { order: -1; min-height: 56vh; } .hero .l { padding: 48px 22px 56px; } }
+  @media (prefers-reduced-motion: reduce) { .hero .r img { animation: none; } }
 
-  .btn { display: inline-block; margin-top: 32px; padding: 15px 36px; font-family: "Jost", "Noto Sans JP", sans-serif; font-size: 13px; letter-spacing: .2em; background: #fff; color: var(--bk); }
+  .btn { display: inline-block; margin-top: 28px; padding: 15px 36px; font-family: var(--latin), var(--sans); font-size: 13px; letter-spacing: .2em; background: #fff; color: var(--bk); transition: opacity .2s; }
+  .btn:hover { opacity: .8; }
   .btn.dark { background: var(--bk); color: #fff; }
 
-  section { padding: 130px 0; }
-  .h { display: flex; align-items: baseline; gap: 20px; margin-bottom: 56px; border-bottom: 1px solid var(--bk); padding-bottom: 16px; }
-  .h .en { font-family: "Jost", sans-serif; font-size: clamp(34px, 5vw, 56px); font-weight: 300; letter-spacing: .1em; line-height: 1; }
+  section { padding-block: 130px; }
+  .h { display: flex; align-items: baseline; gap: 20px; margin-bottom: 56px; border-bottom: 1px solid var(--bk); padding-bottom: 16px; flex-wrap: wrap; }
+  .h .en { font-family: var(--latin); font-size: clamp(36px, 5vw, 60px); font-weight: 300; letter-spacing: .1em; line-height: 1; }
   .h .ja { font-size: 13px; color: var(--gray); }
+  @media (max-width: 700px) { section { padding-block: 90px; } }
 
-  .concept .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: center; }
+  .concept .grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: center; }
   .concept .ph { aspect-ratio: 3/4; }
   .concept h2 { font-weight: 400; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.9; }
-  .concept p { margin-top: 24px; font-size: 15px; color: #444; }
-  @media (max-width: 860px) { .concept .wrap { grid-template-columns: 1fr; gap: 40px; } }
+  .concept p { margin-top: 22px; font-size: 15px; color: var(--gray-2); }
+  .concept .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; border-top: 1px solid var(--line); padding-top: 24px; }
+  .concept .three strong { font-family: var(--latin); font-weight: 300; font-size: 40px; line-height: 1; display: block; }
+  .concept .three span { font-size: 12px; color: var(--gray); }
+  @media (max-width: 860px) { .concept .grid { grid-template-columns: 1fr; gap: 44px; } .concept .ph { max-width: 440px; } }
 
-  .price { background: var(--soft); }
+  .stylists { background: var(--soft); }
+  .people { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .person { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: start; }
+  .person .ph { aspect-ratio: 3/4; filter: grayscale(1); }
+  .person .role { font-family: var(--latin); font-size: 12px; letter-spacing: .25em; color: var(--gray); }
+  .person h3 { font-family: var(--latin); font-weight: 400; font-size: 30px; letter-spacing: .12em; line-height: 1.2; }
+  .person h3 small { display: block; font-family: var(--sans); font-size: 13px; letter-spacing: .1em; color: var(--gray-2); }
+  .person p { font-size: 14px; color: var(--gray-2); margin-top: 14px; }
+  .person .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .person .tags span { font-size: 12px; border: 1px solid var(--bk); padding: 0 10px; }
+  @media (max-width: 900px) { .people { grid-template-columns: 1fr; } .person { grid-template-columns: 140px 1fr; gap: 20px; } }
+
   .plist { display: grid; grid-template-columns: 1fr 1fr; gap: 0 72px; }
-  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 22px 0; border-bottom: 1px solid #dcdad6; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
   .row h3 { font-weight: 400; font-size: 16px; }
   .row h3 small { display: block; font-size: 12px; color: var(--gray); }
-  .row .yen { font-family: "Jost", sans-serif; font-size: 22px; font-weight: 300; white-space: nowrap; }
-  .first { margin-top: 48px; background: var(--bk); color: #fff; display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: center; padding: 32px 40px; }
-  .first .tag { font-family: "Jost", sans-serif; font-size: 12px; letter-spacing: .3em; border: 1px solid #fff; padding: 4px 12px; }
-  .first .yen { font-family: "Jost", sans-serif; font-size: 34px; font-weight: 300; }
-  @media (max-width: 860px) { .plist { grid-template-columns: 1fr; } .first { grid-template-columns: 1fr; gap: 8px; padding: 28px 24px; } }
+  .row .yen { font-family: var(--latin); font-size: 22px; font-weight: 300; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .firstbox { margin-top: 48px; background: var(--bk); color: #fff; display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: center; padding: 32px 40px; }
+  .firstbox .tag { font-family: var(--latin); font-size: 12px; letter-spacing: .3em; border: 1px solid #fff; padding: 4px 12px; white-space: nowrap; }
+  .firstbox .yen { font-family: var(--latin); font-size: 36px; font-weight: 300; white-space: nowrap; }
+  .firstbox .yen s { font-size: 16px; color: var(--gray); margin-right: 10px; }
+  .price .note { font-size: 12px; color: var(--gray); margin-top: 16px; }
+  @media (max-width: 860px) { .plist { grid-template-columns: 1fr; } .firstbox { grid-template-columns: 1fr; gap: 8px; padding: 28px 24px; } }
 
-  .gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 12px; }
-  .gallery div:first-child { grid-row: span 2; }
-  @media (max-width: 760px) { .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 300px 200px; } .gallery div:first-child { grid-column: span 2; grid-row: auto; } .gallery div:nth-child(4), .gallery div:nth-child(5) { display: none; } }
+  .styles { background: var(--soft); }
+  .cat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .style .ph { aspect-ratio: 3/4; overflow: hidden; }
+  .style .ph img { transition: transform .6s; }
+  .style:hover .ph img { transform: scale(1.04); }
+  .style h3 { font-family: var(--latin); font-weight: 400; font-size: 16px; letter-spacing: .12em; margin-top: 12px; }
+  .style p { font-size: 12px; color: var(--gray); }
+  @media (max-width: 860px) { .cat { grid-template-columns: 1fr 1fr; } }
 
-  .info .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--bk); }
+  .step { padding: 26px 20px 0 0; }
+  .step .n { font-family: var(--latin); font-weight: 300; font-size: 44px; line-height: 1; }
+  .step h3 { font-weight: 500; font-size: 15px; margin: 14px 0 6px; }
+  .step p { font-size: 13px; color: var(--gray-2); line-height: 1.9; }
+  .step .min { font-family: var(--latin); font-size: 12px; color: var(--gray); letter-spacing: .1em; }
+  @media (max-width: 860px) { .flow { grid-template-columns: 1fr; } .step { display: grid; grid-template-columns: 64px 1fr; padding: 22px 0; border-bottom: 1px solid var(--line); } .step h3 { margin-top: 2px; } }
+
+  .reserve { background: var(--bk); color: #fff; }
+  .reserve .h { border-color: #fff; }
+  .reserve .h .ja { color: var(--gray); }
+  .rgrid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: start; }
+  .rgrid > div, .person > div, .info .grid > div { min-width: 0; }
+  .slots-wrap { overflow-x: auto; }
+  .slots { width: 100%; border-collapse: collapse; font-family: var(--latin); font-size: 14px; min-width: 460px; }
+  .slots th, .slots td { border: 1px solid #333; padding: 10px 6px; text-align: center; }
+  .slots thead th { font-weight: 400; color: #ccc; }
+  .slots thead th small { display: block; font-size: 11px; color: var(--gray); }
+  .slots tbody th { font-weight: 400; color: #ccc; }
+  .slots .o { color: #fff; }
+  .slots .x { color: #555; }
+  .slots .c { color: #555; font-size: 12px; }
+  .legend { font-size: 12px; color: var(--gray); margin-top: 12px; font-family: var(--sans); }
+  .ways { display: grid; gap: 12px; }
+  .way { border: 1px solid #333; padding: 22px 24px; }
+  .way b { font-family: var(--latin); font-weight: 400; font-size: 13px; letter-spacing: .25em; color: var(--gray); display: block; }
+  .way span { font-size: 15px; }
+  .way .num { font-family: var(--latin); font-size: 26px; letter-spacing: .05em; }
+  @media (max-width: 900px) { .rgrid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .info .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
   .info dl { display: grid; grid-template-columns: 8em 1fr; font-size: 15px; }
   .info dt, .info dd { padding: 16px 0; border-bottom: 1px solid var(--line); }
-  .info dt { color: var(--gray); font-family: "Jost", "Noto Sans JP", sans-serif; letter-spacing: .1em; }
-  .reserve { background: var(--bk); color: #fff; padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
-  .reserve .en { font-family: "Jost", sans-serif; font-size: 40px; font-weight: 300; letter-spacing: .1em; }
-  .reserve p { color: #bbb; font-size: 14px; margin-top: 12px; }
-  @media (max-width: 860px) { .info .wrap { grid-template-columns: 1fr; gap: 48px; } .reserve { padding: 44px 24px; } }
+  .info dt { color: var(--gray); font-family: var(--latin); letter-spacing: .12em; }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary { list-style: none; cursor: pointer; padding: 18px 0; display: flex; justify-content: space-between; gap: 12px; font-size: 15px; font-weight: 400; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-family: var(--latin); font-size: 20px; color: var(--gray); }
+  .faq details[open] summary::after { content: "−"; }
+  .faq p { padding-bottom: 18px; font-size: 14px; color: var(--gray-2); }
+  @media (max-width: 860px) { .info .grid { grid-template-columns: 1fr; gap: 48px; } }
 
-  footer { text-align: center; padding: 48px 20px; font-size: 12px; color: var(--gray); }
-  footer .logo { color: var(--bk); display: block; margin-bottom: 6px; }
+  footer { text-align: center; padding: 56px 20px; font-size: 12px; color: var(--gray); border-top: 1px solid var(--line); }
+  footer .logo { color: var(--bk); display: block; margin-bottom: 8px; }
 </style>
 </head>
 <body>
@@ -83,115 +155,219 @@
   <div class="wrap">
     <a href="#top" class="logo">NOIR</a>
     <div class="right">
-      <nav><a href="#concept">CONCEPT</a><a href="#price">PRICE</a><a href="#gallery">GALLERY</a><a href="#info">ACCESS</a></nav>
-      <div class="lang"><button data-set="ja" class="on">JP</button>/<button data-set="en">EN</button></div>
+      <nav><a href="#concept">CONCEPT</a><a href="#stylist">STYLIST</a><a href="#price">PRICE</a><a href="#style">STYLE</a><a href="#reserve">RESERVE</a></nav>
+      <div class="lang"><button type="button" data-set="ja" class="on">JP</button>/<button type="button" data-set="en">EN</button></div>
     </div>
   </div>
 </header>
 
 <div class="hero" id="top">
   <div class="l">
-    <small>HAIR SALON — FUKUOKA</small>
+    <small>HAIR SALON — TENJIN, FUKUOKA</small>
     <h1>NOIR<br>hair</h1>
     <p data-i="catch">あなたの骨格と髪質に合わせた、毎朝ラクになるデザインを。</p>
-    <div><a class="btn" href="#info" data-i="btn_res">ご予約はこちら</a></div>
+    <div><span class="first"><span data-i="first_s">初回限定 カット＋カラー</span><b>¥8,800</b></span></div>
+    <div><a class="btn" href="#reserve" data-i="btn_res">空き状況を見る</a></div>
   </div>
-  <div class="r"><img src="img/hero.jpg" alt="" style="position:absolute;inset:0"></div>
+  <div class="r"><img src="img/hero.jpg" alt=""></div>
 </div>
 
 <section class="concept" id="concept">
-  <div class="wrap">
+  <div class="wrap grid">
     <div class="ph"><img src="img/stylist.jpg" alt=""></div>
     <div>
       <div class="h"><span class="en">CONCEPT</span><span class="ja" data-i="c_ja">コンセプト</span></div>
       <h2 data-i="c_h">「似合う」を、<br>いちばん近くで見つける。</h2>
-      <p data-i="c_p">NOIRは、スタイリスト2名の小さなサロンです。カウンセリングからカット、仕上げまで、最初から最後まで同じスタイリストが担当します。お家でのスタイリングのコツも、丁寧にお伝えします。</p>
+      <p data-i="c_p">NOIRは、スタイリスト2名の小さなサロンです。カウンセリングから仕上げまで、最初から最後まで同じスタイリストが担当します。完全予約制で、同じ時間に担当するのは1人だけ。まわりを気にせず、ゆっくり過ごせます。</p>
+      <div class="three">
+        <div><strong>2</strong><span data-i="t1">スタイリスト</span></div>
+        <div><strong>1:1</strong><span data-i="t2">マンツーマン施術</span></div>
+        <div><strong>5<small style="font-size:16px">min</small></strong><span data-i="t3">天神駅から徒歩</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stylists" id="stylist">
+  <div class="wrap">
+    <div class="h"><span class="en">STYLIST</span><span class="ja" data-i="s_ja">スタイリスト</span></div>
+    <div class="people">
+      <div class="person">
+        <div class="ph"><img src="img/team.jpg" alt=""></div>
+        <div>
+          <div class="role">OWNER / STYLIST</div>
+          <h3>KANA<small data-i="p1n">佐藤 加奈</small></h3>
+          <p data-i="p1d">美容師歴14年。東京・表参道のサロンで店長を務めたあと、地元の福岡でNOIRをオープン。くせ毛を活かしたショートとボブが得意です。</p>
+          <div class="tags"><span data-i="p1a">ショート</span><span data-i="p1b">ボブ</span><span data-i="p1c">くせ毛</span></div>
+        </div>
+      </div>
+      <div class="person">
+        <div class="ph"><img src="img/shampoo.jpg" alt=""></div>
+        <div>
+          <div class="role">STYLIST</div>
+          <h3>RYO<small data-i="p2n">中村 涼</small></h3>
+          <p data-i="p2d">美容師歴8年。透明感のあるカラーと、メンズのショートスタイルが得意。ブリーチなしでも明るく見えるカラーを提案します。</p>
+          <div class="tags"><span data-i="p2a">カラー</span><span data-i="p2b">メンズ</span><span data-i="p2c">髪質改善</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="price" id="price">
   <div class="wrap">
-    <div class="h"><span class="en">PRICE</span><span class="ja" data-i="p_ja">料金</span></div>
+    <div class="h"><span class="en">PRICE</span><span class="ja" data-i="pr_ja">料金</span></div>
     <div class="plist">
-      <div class="row"><h3 data-i="p1">カット<small>シャンプー・ブロー込み</small></h3><span class="yen">¥5,500</span></div>
-      <div class="row"><h3 data-i="p2">カット＋カラー<small>リタッチは −¥1,100</small></h3><span class="yen">¥11,000</span></div>
-      <div class="row"><h3 data-i="p3">カット＋パーマ<small>デジタルパーマ ＋¥2,200</small></h3><span class="yen">¥12,100</span></div>
-      <div class="row"><h3 data-i="p4">髪質改善トリートメント<small>カットと同時で −¥1,100</small></h3><span class="yen">¥8,800</span></div>
-      <div class="row"><h3 data-i="p5">ヘッドスパ<small>30分</small></h3><span class="yen">¥4,400</span></div>
-      <div class="row"><h3 data-i="p6">メンズカット<small>眉カット込み</small></h3><span class="yen">¥4,950</span></div>
+      <div class="row"><h3 data-i="m1">カット<small>シャンプー・ブロー込み</small></h3><span class="yen">¥5,500</span></div>
+      <div class="row"><h3 data-i="m2">カット＋カラー<small>リタッチは −¥1,100</small></h3><span class="yen">¥11,000</span></div>
+      <div class="row"><h3 data-i="m3">カット＋パーマ<small>デジタルパーマ ＋¥2,200</small></h3><span class="yen">¥12,100</span></div>
+      <div class="row"><h3 data-i="m4">髪質改善トリートメント<small>カットと同時で −¥1,100</small></h3><span class="yen">¥8,800</span></div>
+      <div class="row"><h3 data-i="m5">ヘッドスパ<small>30分</small></h3><span class="yen">¥4,400</span></div>
+      <div class="row"><h3 data-i="m6">メンズカット<small>眉カット込み</small></h3><span class="yen">¥4,950</span></div>
     </div>
-    <div class="first">
+    <div class="firstbox">
       <span class="tag">FIRST VISIT</span>
-      <span data-i="first">初回限定｜カット＋カラー＋トリートメント</span>
-      <span class="yen">¥9,900</span>
+      <span data-i="first">初回限定｜カット＋カラー（トリートメント付き）</span>
+      <span class="yen"><s>¥13,200</s>¥8,800</span>
+    </div>
+    <p class="note" data-i="price_note">価格はすべて税込です。ロングヘアの方は、カラー・パーマに ＋¥1,100 いただきます。</p>
+  </div>
+</section>
+
+<section class="styles" id="style">
+  <div class="wrap">
+    <div class="h"><span class="en">STYLE</span><span class="ja" data-i="st_ja">スタイル</span></div>
+    <div class="cat">
+      <div class="style"><div class="ph"><img src="img/hair.jpg" alt=""></div><h3>SOFT LAYER</h3><p data-i="st1">ロング・ゆるいレイヤー</p></div>
+      <div class="style"><div class="ph"><img src="img/spa.jpg" alt=""></div><h3>CLEAN BOB</h3><p data-i="st2">ボブ・内巻き</p></div>
+      <div class="style"><div class="ph"><img src="img/pink.jpg" alt=""></div><h3>BEIGE COLOR</h3><p data-i="st3">ブリーチなしのベージュ</p></div>
+      <div class="style"><div class="ph"><img src="img/bw.jpg" alt=""></div><h3>MEN'S SHORT</h3><p data-i="st4">メンズ・ショート</p></div>
     </div>
   </div>
 </section>
 
-<section id="gallery">
+<section id="flow">
   <div class="wrap">
-    <div class="h"><span class="en">GALLERY</span><span class="ja" data-i="g_ja">店内・スタイル</span></div>
-    <div class="gallery">
-      <div><img src="img/interior.jpg" alt=""></div>
-      <div><img src="img/hair.jpg" alt=""></div>
-      <div><img src="img/spa.jpg" alt=""></div>
-      <div><img src="img/stylist.jpg" alt=""></div>
-      <div><img src="img/hero.jpg" alt=""></div>
+    <div class="h"><span class="en">FLOW</span><span class="ja" data-i="f_ja">ご来店の流れ</span></div>
+    <div class="flow">
+      <div class="step"><div class="n">01</div><div><h3 data-i="f1">カウンセリング</h3><p data-i="f1d">なりたいイメージと、毎朝のスタイリングのお悩みをお聞きします。</p><div class="min">15 min</div></div></div>
+      <div class="step"><div class="n">02</div><div><h3 data-i="f2">シャンプー</h3><p data-i="f2d">頭皮をほぐしながら、ていねいに洗います。</p><div class="min">10 min</div></div></div>
+      <div class="step"><div class="n">03</div><div><h3 data-i="f3">カット・カラー</h3><p data-i="f3d">骨格と髪のくせを見ながら、形をつくります。</p><div class="min">60 min〜</div></div></div>
+      <div class="step"><div class="n">04</div><div><h3 data-i="f4">仕上げ</h3><p data-i="f4d">お家で再現しやすいように、乾かし方からお伝えします。</p><div class="min">15 min</div></div></div>
+      <div class="step"><div class="n">05</div><div><h3 data-i="f5">ホームケア</h3><p data-i="f5d">髪質に合うシャンプーやオイルをご提案します（無理なおすすめはしません）。</p><div class="min">5 min</div></div></div>
     </div>
   </div>
 </section>
 
-<section class="info" id="info">
+<section class="reserve" id="reserve">
   <div class="wrap">
-    <div>
-      <div class="h"><span class="en">ACCESS</span><span class="ja" data-i="a_ja">店舗情報</span></div>
-      <dl>
-        <dt>OPEN</dt><dd data-i="v_hours">10:00 – 19:00（最終受付 18:00）</dd>
-        <dt>CLOSED</dt><dd data-i="v_closed">毎週月曜・第3火曜</dd>
-        <dt>ADDRESS</dt><dd data-i="v_addr">福岡県福岡市中央区（サンプル）</dd>
-        <dt>ACCESS</dt><dd data-i="v_access">地下鉄「天神駅」から徒歩5分</dd>
-        <dt>PAYMENT</dt><dd data-i="v_pay">現金・クレジットカード・PayPay</dd>
-      </dl>
+    <div class="h"><span class="en">RESERVE</span><span class="ja" data-i="r_ja">ご予約・空き状況</span></div>
+    <div class="rgrid">
+      <div>
+        <div class="slots-wrap">
+          <table class="slots">
+            <thead><tr><th></th><th>11/4<small data-i="d1">火</small></th><th>11/5<small data-i="d2">水</small></th><th>11/6<small data-i="d3">木</small></th><th>11/7<small data-i="d4">金</small></th><th>11/8<small data-i="d5">土</small></th><th>11/9<small data-i="d6">日</small></th></tr></thead>
+            <tbody>
+              <tr><th>10:00</th><td class="o">○</td><td class="x">×</td><td class="o">○</td><td class="o">○</td><td class="x">×</td><td class="x">×</td></tr>
+              <tr><th>12:00</th><td class="x">×</td><td class="o">○</td><td class="o">○</td><td class="x">×</td><td class="x">×</td><td class="o">○</td></tr>
+              <tr><th>14:00</th><td class="o">○</td><td class="o">○</td><td class="x">×</td><td class="o">○</td><td class="x">×</td><td class="x">×</td></tr>
+              <tr><th>16:00</th><td class="o">○</td><td class="x">×</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="x">×</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="legend" data-i="legend">○ 空きあり　× 満席　（サンプル表示です）</p>
+      </div>
+      <div class="ways">
+        <div class="way"><b>LINE</b><span data-i="w1">24時間いつでも予約できます。いちばんおすすめです。</span></div>
+        <div class="way"><b>TEL</b><span class="num">092-000-0000</span><br><span data-i="w2">営業時間内（施術中は出られないことがあります）</span></div>
+        <div class="way"><b>SAME DAY</b><span data-i="w3">当日のご予約は、お電話で空きをご確認ください。</span></div>
+      </div>
     </div>
-    <div class="reserve">
-      <div class="en">RESERVE</div>
-      <p data-i="r_p">ご予約はお電話またはLINEで受け付けています。当日のご予約もお気軽にどうぞ。</p>
-      <div><a class="btn" href="tel:0920000000" data-i="r_tel">電話で予約する</a></div>
+  </div>
+</section>
+
+<section class="info">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="h"><span class="en">ACCESS</span><span class="ja" data-i="a_ja">店舗情報</span></div>
+        <dl>
+          <dt>OPEN</dt><dd data-i="v_hours">10:00 – 19:00（最終受付 17:30）</dd>
+          <dt>CLOSED</dt><dd data-i="v_closed">毎週月曜・第3火曜</dd>
+          <dt>ADDRESS</dt><dd data-i="v_addr">福岡県福岡市中央区（サンプル）</dd>
+          <dt>ACCESS</dt><dd data-i="v_access">地下鉄「天神駅」から徒歩5分</dd>
+          <dt>SEATS</dt><dd data-i="v_seat">セット面3席・シャンプー台2台</dd>
+          <dt>PAYMENT</dt><dd data-i="v_pay">現金・クレジットカード・PayPay</dd>
+        </dl>
+      </div>
+      <div class="faq">
+        <div class="h"><span class="en">FAQ</span><span class="ja" data-i="q_ja">よくあるご質問</span></div>
+        <details><summary data-i="q1">子ども連れでも大丈夫ですか？</summary><p data-i="a1">はい。ベビーカーのまま入れます。お子さまのカット（小学生まで ¥3,300）もできます。</p></details>
+        <details><summary data-i="q2">駐車場はありますか？</summary><p data-i="a2">専用駐車場はありません。近くのコインパーキングをご利用ください。</p></details>
+        <details><summary data-i="q3">くせ毛でも、縮毛矯正なしでまとまりますか？</summary><p data-i="a3">くせの出方によりますが、カットの工夫でまとまりやすくできることが多いです。カウンセリングでご相談ください。</p></details>
+        <details><summary data-i="q4">キャンセルはいつまでできますか？</summary><p data-i="a4">前日までにご連絡ください。当日のキャンセルはお電話でお願いします。</p></details>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <span class="logo jost" style="letter-spacing:.35em">NOIR hair</span>
-  <div data-i="demo">※このサイトは制作例です。店舗・料金は架空のものです。</div>
+  <span class="logo" style="letter-spacing:.35em">NOIR hair</span>
+  <div data-i="demo">※このサイトは制作例です。店舗・スタッフ・料金は架空のものです。</div>
 </footer>
 
 <script>
 var T = {
   catch: ["あなたの骨格と髪質に合わせた、毎朝ラクになるデザインを。", "Designs tailored to your face shape and hair type — easy to style every morning."],
-  btn_res: ["ご予約はこちら", "Book Now"],
+  first_s: ["初回限定 カット＋カラー", "First visit: Cut + Color"],
+  btn_res: ["空き状況を見る", "Check Availability"],
   c_ja: ["コンセプト", "Concept"],
   c_h: ["「似合う」を、<br>いちばん近くで見つける。", "Finding the style<br>that's truly you."],
-  c_p: ["NOIRは、スタイリスト2名の小さなサロンです。カウンセリングからカット、仕上げまで、最初から最後まで同じスタイリストが担当します。お家でのスタイリングのコツも、丁寧にお伝えします。", "NOIR is a small salon with two stylists. The same stylist takes care of you from consultation to cut and finish, and we'll happily share tips for styling at home."],
-  p_ja: ["料金", "Price"],
-  p1: ["カット<small>シャンプー・ブロー込み</small>", "Cut<small>Includes shampoo & blow-dry</small>"],
-  p2: ["カット＋カラー<small>リタッチは −¥1,100</small>", "Cut + Color<small>Root touch-up −¥1,100</small>"],
-  p3: ["カット＋パーマ<small>デジタルパーマ ＋¥2,200</small>", "Cut + Perm<small>Digital perm +¥2,200</small>"],
-  p4: ["髪質改善トリートメント<small>カットと同時で −¥1,100</small>", "Hair Repair Treatment<small>−¥1,100 with a cut</small>"],
-  p5: ["ヘッドスパ<small>30分</small>", "Head Spa<small>30 min</small>"],
-  p6: ["メンズカット<small>眉カット込み</small>", "Men's Cut<small>Includes eyebrow trim</small>"],
-  first: ["初回限定｜カット＋カラー＋トリートメント", "First visit only | Cut + Color + Treatment"],
-  g_ja: ["店内・スタイル", "Salon & Styles"],
+  c_p: ["NOIRは、スタイリスト2名の小さなサロンです。カウンセリングから仕上げまで、最初から最後まで同じスタイリストが担当します。完全予約制で、同じ時間に担当するのは1人だけ。まわりを気にせず、ゆっくり過ごせます。", "NOIR is a small salon with two stylists. The same stylist takes care of you from consultation to finish. We work by appointment only, one guest at a time, so you can relax without distractions."],
+  t1: ["スタイリスト", "Stylists"], t2: ["マンツーマン施術", "One-on-one service"], t3: ["天神駅から徒歩", "Walk from Tenjin Sta."],
+  s_ja: ["スタイリスト", "Stylists"],
+  p1n: ["佐藤 加奈", "Kana Sato"],
+  p1d: ["美容師歴14年。東京・表参道のサロンで店長を務めたあと、地元の福岡でNOIRをオープン。くせ毛を活かしたショートとボブが得意です。", "14 years as a stylist. After managing a salon in Omotesando, Tokyo, she returned home to Fukuoka and opened NOIR. She specializes in short cuts and bobs that work with natural waves."],
+  p1a: ["ショート", "Short"], p1b: ["ボブ", "Bob"], p1c: ["くせ毛", "Wavy hair"],
+  p2n: ["中村 涼", "Ryo Nakamura"],
+  p2d: ["美容師歴8年。透明感のあるカラーと、メンズのショートスタイルが得意。ブリーチなしでも明るく見えるカラーを提案します。", "8 years as a stylist. He specializes in translucent color and men's short styles, and suggests bright colors that don't need bleach."],
+  p2a: ["カラー", "Color"], p2b: ["メンズ", "Men's"], p2c: ["髪質改善", "Hair repair"],
+  pr_ja: ["料金", "Price"],
+  m1: ["カット<small>シャンプー・ブロー込み</small>", "Cut<small>Includes shampoo & blow-dry</small>"],
+  m2: ["カット＋カラー<small>リタッチは −¥1,100</small>", "Cut + Color<small>Root touch-up −¥1,100</small>"],
+  m3: ["カット＋パーマ<small>デジタルパーマ ＋¥2,200</small>", "Cut + Perm<small>Digital perm +¥2,200</small>"],
+  m4: ["髪質改善トリートメント<small>カットと同時で −¥1,100</small>", "Hair Repair Treatment<small>−¥1,100 with a cut</small>"],
+  m5: ["ヘッドスパ<small>30分</small>", "Head Spa<small>30 min</small>"],
+  m6: ["メンズカット<small>眉カット込み</small>", "Men's Cut<small>Includes eyebrow trim</small>"],
+  first: ["初回限定｜カット＋カラー（トリートメント付き）", "First visit only | Cut + Color (with treatment)"],
+  price_note: ["価格はすべて税込です。ロングヘアの方は、カラー・パーマに ＋¥1,100 いただきます。", "All prices include tax. Long hair: +¥1,100 for color and perm."],
+  st_ja: ["スタイル", "Styles"],
+  st1: ["ロング・ゆるいレイヤー", "Long, soft layers"], st2: ["ボブ・内巻き", "Bob, curled under"], st3: ["ブリーチなしのベージュ", "Beige without bleach"], st4: ["メンズ・ショート", "Men's short"],
+  f_ja: ["ご来店の流れ", "Your Visit"],
+  f1: ["カウンセリング", "Consultation"], f1d: ["なりたいイメージと、毎朝のスタイリングのお悩みをお聞きします。", "We talk about the look you want and your everyday styling."],
+  f2: ["シャンプー", "Shampoo"], f2d: ["頭皮をほぐしながら、ていねいに洗います。", "A careful wash with a scalp massage."],
+  f3: ["カット・カラー", "Cut & Color"], f3d: ["骨格と髪のくせを見ながら、形をつくります。", "We shape the cut around your face and natural texture."],
+  f4: ["仕上げ", "Finish"], f4d: ["お家で再現しやすいように、乾かし方からお伝えします。", "We show you how to dry and style it at home."],
+  f5: ["ホームケア", "Home Care"], f5d: ["髪質に合うシャンプーやオイルをご提案します（無理なおすすめはしません）。", "We suggest products for your hair type — no pressure to buy."],
+  r_ja: ["ご予約・空き状況", "Booking & Availability"],
+  d1: ["火", "Tue"], d2: ["水", "Wed"], d3: ["木", "Thu"], d4: ["金", "Fri"], d5: ["土", "Sat"], d6: ["日", "Sun"],
+  legend: ["○ 空きあり　× 満席　（サンプル表示です）", "○ Available   × Full   (sample display)"],
+  w1: ["24時間いつでも予約できます。いちばんおすすめです。", "Book any time, 24 hours a day. Recommended."],
+  w2: ["営業時間内（施術中は出られないことがあります）", "During opening hours (we may miss calls while with a guest)"],
+  w3: ["当日のご予約は、お電話で空きをご確認ください。", "For same-day bookings, please call to check availability."],
   a_ja: ["店舗情報", "Information"],
-  v_hours: ["10:00 – 19:00（最終受付 18:00）", "10:00 – 19:00 (last booking 18:00)"],
+  v_hours: ["10:00 – 19:00（最終受付 17:30）", "10:00 – 19:00 (last booking 17:30)"],
   v_closed: ["毎週月曜・第3火曜", "Mondays & 3rd Tuesday"],
   v_addr: ["福岡県福岡市中央区（サンプル）", "Chuo-ku, Fukuoka (sample)"],
   v_access: ["地下鉄「天神駅」から徒歩5分", "5 min walk from Tenjin Station"],
+  v_seat: ["セット面3席・シャンプー台2台", "3 styling chairs, 2 shampoo stations"],
   v_pay: ["現金・クレジットカード・PayPay", "Cash, credit cards, PayPay"],
-  r_p: ["ご予約はお電話またはLINEで受け付けています。当日のご予約もお気軽にどうぞ。", "Book by phone or LINE. Same-day bookings are welcome."],
-  r_tel: ["電話で予約する", "Call to Book"],
-  demo: ["※このサイトは制作例です。店舗・料金は架空のものです。", "* This is a sample website. The salon and prices are fictional."]
+  q_ja: ["よくあるご質問", "FAQ"],
+  q1: ["子ども連れでも大丈夫ですか？", "Can I bring my child?"], a1: ["はい。ベビーカーのまま入れます。お子さまのカット（小学生まで ¥3,300）もできます。", "Yes. Strollers are welcome, and we offer kids' cuts (up to elementary school, ¥3,300)."],
+  q2: ["駐車場はありますか？", "Is there parking?"], a2: ["専用駐車場はありません。近くのコインパーキングをご利用ください。", "We don't have our own parking. Please use a nearby coin parking lot."],
+  q3: ["くせ毛でも、縮毛矯正なしでまとまりますか？", "Can my wavy hair look neat without straightening?"], a3: ["くせの出方によりますが、カットの工夫でまとまりやすくできることが多いです。カウンセリングでご相談ください。", "It depends on your waves, but a good cut can often make them easier to manage. Ask us during your consultation."],
+  q4: ["キャンセルはいつまでできますか？", "How late can I cancel?"], a4: ["前日までにご連絡ください。当日のキャンセルはお電話でお願いします。", "Please let us know by the day before. For same-day cancellations, please call."],
+  demo: ["※このサイトは制作例です。店舗・スタッフ・料金は架空のものです。", "* This is a sample website. The salon, staff and prices are fictional."]
 };
 var ORDER = ["ja", "en"];
 function setLang(code) {
@@ -201,7 +377,7 @@ function setLang(code) {
   document.querySelectorAll(".lang button").forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-set") === code); });
 }
 document.querySelectorAll(".lang button").forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-set")); }); });
-var q = new URLSearchParams(location.search).get("lang"); if (q) setLang(q);
+try { var q = new URLSearchParams(location.search).get("lang"); if (q) setLang(q); } catch (e) {}
 </script>
 </body>
 </html>
