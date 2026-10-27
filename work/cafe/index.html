@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>café umiiro｜制作例</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;500&family=Zen+Old+Mincho:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #f7f3ec; --paper: #fffdf9; --ink: #3b352e; --muted: #8c8378; --sea: #4f7d86; --sand: #e8dccb; --line: #e3d9ca; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 300; background: var(--bg); color: var(--ink); line-height: 2.1; letter-spacing: .06em; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+  .min { font-family: "Zen Old Mincho", serif; }
+  .en { font-family: "Cormorant Garamond", serif; }
+
+  header { position: absolute; inset: 0 0 auto 0; z-index: 10; color: #fff; }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+  .logo { font-family: "Cormorant Garamond", serif; font-size: 28px; font-style: italic; letter-spacing: .04em; }
+  .right { display: flex; align-items: center; gap: 28px; font-size: 13px; }
+  .right nav { display: flex; gap: 24px; }
+  .lang { display: flex; border: 1px solid rgba(255,255,255,.7); border-radius: 999px; overflow: hidden; }
+  .lang button { background: none; border: 0; color: #fff; font: inherit; font-size: 12px; padding: 4px 12px; cursor: pointer; }
+  .lang button.on { background: #fff; color: var(--ink); }
+  @media (max-width: 760px) { .right nav { display: none; } }
+
+  .hero { position: relative; height: 92vh; min-height: 560px; color: #fff; display: flex; align-items: center; justify-content: center; text-align: center; }
+  .hero .ph { position: absolute; inset: 0; }
+  .hero .ph::after { content: ""; position: absolute; inset: 0; background: rgba(40,32,24,.38); }
+  .hero .in { position: relative; padding: 0 20px; }
+  .hero .place { font-size: 13px; letter-spacing: .3em; }
+  .hero h1 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 400; font-size: clamp(64px, 12vw, 128px); line-height: 1.1; margin: 10px 0 18px; }
+  .hero p { font-family: "Zen Old Mincho", serif; font-size: clamp(16px, 2.2vw, 20px); }
+  .scroll { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); font-family: "Cormorant Garamond", serif; font-size: 13px; letter-spacing: .3em; }
+
+  section { padding: 120px 0; }
+  .ttl { text-align: center; margin-bottom: 56px; }
+  .ttl .en { font-style: italic; font-size: 20px; color: var(--sea); }
+  .ttl h2 { font-family: "Zen Old Mincho", serif; font-weight: 600; font-size: clamp(24px, 3.4vw, 32px); letter-spacing: .12em; }
+
+  .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .about .ph { aspect-ratio: 4/5; border-radius: 200px 200px 0 0; overflow: hidden; }
+  .about h2 { font-family: "Zen Old Mincho", serif; font-weight: 600; font-size: clamp(24px, 3vw, 30px); line-height: 1.9; letter-spacing: .1em; }
+  .about p { margin-top: 24px; color: #5b5349; font-size: 15px; }
+  @media (max-width: 800px) { .about .wrap { grid-template-columns: 1fr; gap: 40px; } .about .ph { max-width: 420px; margin: 0 auto; width: 100%; } }
+
+  .menu { background: var(--paper); }
+  .items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .item .ph { aspect-ratio: 1; border-radius: 50%; overflow: hidden; }
+  .item h3 { font-family: "Zen Old Mincho", serif; font-weight: 600; font-size: 17px; text-align: center; margin-top: 18px; }
+  .item .price { text-align: center; font-family: "Cormorant Garamond", serif; font-size: 22px; color: var(--sea); }
+  .item p { font-size: 13px; text-align: center; color: var(--muted); line-height: 1.8; }
+  @media (max-width: 860px) { .items { grid-template-columns: repeat(2, 1fr); gap: 36px 20px; } }
+  .more { text-align: center; margin-top: 56px; }
+  .btn { display: inline-block; border: 1px solid var(--ink); padding: 14px 40px; font-size: 13px; letter-spacing: .15em; border-radius: 999px; transition: .2s; }
+  .btn:hover { background: var(--ink); color: #fff; }
+
+  .sea { position: relative; height: 64vh; min-height: 380px; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; }
+  .sea .ph { position: absolute; inset: 0; }
+  .sea .ph::after { content: ""; position: absolute; inset: 0; background: rgba(20,40,50,.25); }
+  .sea .in { position: relative; padding: 0 20px; }
+  .sea .en { font-style: italic; font-size: clamp(36px, 6vw, 64px); line-height: 1.2; }
+  .sea p { font-family: "Zen Old Mincho", serif; margin-top: 12px; }
+
+  .info .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .info dl { display: grid; grid-template-columns: 7em 1fr; font-size: 15px; }
+  .info dt, .info dd { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .info dt { color: var(--sea); }
+  .info .ph { border-radius: 16px; overflow: hidden; min-height: 320px; }
+  @media (max-width: 800px) { .info .wrap { grid-template-columns: 1fr; gap: 40px; } }
+
+  footer { text-align: center; padding: 56px 20px 64px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); }
+  footer .logo { color: var(--ink); display: block; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="logo">café umiiro</a>
+    <div class="right">
+      <nav>
+        <a href="#about" data-i="n_about">私たちについて</a>
+        <a href="#menu" data-i="n_menu">メニュー</a>
+        <a href="#info" data-i="n_info">アクセス</a>
+      </nav>
+      <div class="lang"><button data-set="ja" class="on">JP</button><button data-set="en">EN</button></div>
+    </div>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="ph"><img src="img/hero.jpg" alt=""></div>
+  <div class="in">
+    <div class="place" data-i="place">ITOSHIMA, FUKUOKA</div>
+    <h1>umiiro</h1>
+    <p data-i="catch">海を眺めて、ゆっくりと一杯。</p>
+  </div>
+  <div class="scroll">SCROLL</div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="ph"><img src="img/counter.jpg" alt=""></div>
+    <div>
+      <div class="ttl" style="text-align:left;margin-bottom:24px"><div class="en">About</div></div>
+      <h2 data-i="about_h">波の音が聞こえる、<br>小さなカフェです。</h2>
+      <p data-i="about_p">糸島の海辺にある、席数14の小さなお店。一杯ずつハンドドリップで淹れるコーヒーと、毎朝焼き上げるパン、季節のフルーツを使ったスイーツをご用意しています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="ttl"><div class="en">Menu</div><h2 data-i="menu_h">メニュー</h2></div>
+    <div class="items">
+      <div class="item"><div class="ph"><img src="img/latte.jpg" alt=""></div><h3 data-i="m1">カフェラテ</h3><div class="price">¥600</div><p data-i="m1d">自家焙煎の豆で、やさしい甘さに。</p></div>
+      <div class="item"><div class="ph"><img src="img/drip.jpg" alt=""></div><h3 data-i="m2">ハンドドリップ</h3><div class="price">¥550</div><p data-i="m2d">その日のおすすめの豆で淹れます。</p></div>
+      <div class="item"><div class="ph"><img src="img/pudding.jpg" alt=""></div><h3 data-i="m3">いちごのパンナコッタ</h3><div class="price">¥580</div><p data-i="m3d">糸島産のいちごをたっぷりと。</p></div>
+      <div class="item"><div class="ph"><img src="img/bread.jpg" alt=""></div><h3 data-i="m4">焼きたてパン</h3><div class="price">¥280〜</div><p data-i="m4d">毎朝7時から焼き上げています。</p></div>
+    </div>
+    <div class="more"><a class="btn" href="#info" data-i="more">すべてのメニューを見る</a></div>
+  </div>
+</section>
+
+<div class="sea">
+  <div class="ph"><img src="img/sea.jpg" alt=""></div>
+  <div class="in"><div class="en">Slow down, by the sea.</div><p data-i="sea_p">テラス席からは、玄界灘が一望できます。</p></div>
+</div>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <div>
+      <div class="ttl" style="text-align:left;margin-bottom:28px"><div class="en">Information</div><h2 data-i="info_h">店舗情報</h2></div>
+      <dl>
+        <dt data-i="l_hours">営業時間</dt><dd>9:00 – 18:00 <span data-i="lo">（L.O. 17:30）</span></dd>
+        <dt data-i="l_closed">定休日</dt><dd data-i="v_closed">水曜日</dd>
+        <dt data-i="l_seat">席数</dt><dd data-i="v_seat">14席（テラス6席）</dd>
+        <dt data-i="l_addr">住所</dt><dd data-i="v_addr">福岡県糸島市（サンプル）</dd>
+        <dt data-i="l_park">駐車場</dt><dd data-i="v_park">5台</dd>
+        <dt data-i="l_pet">ペット</dt><dd data-i="v_pet">テラス席のみOK</dd>
+      </dl>
+    </div>
+    <div class="ph"><img src="img/hero.jpg" alt=""></div>
+  </div>
+</section>
+
+<footer>
+  <span class="logo en" style="font-size:24px;font-style:italic">café umiiro</span>
+  <div data-i="demo">※このサイトは制作例です。店舗・料金は架空のものです。</div>
+</footer>
+
+<script>
+var T = {
+  n_about: ["私たちについて", "About"], n_menu: ["メニュー", "Menu"], n_info: ["アクセス", "Access"],
+  place: ["ITOSHIMA, FUKUOKA", "ITOSHIMA, FUKUOKA"],
+  catch: ["海を眺めて、ゆっくりと一杯。", "A slow cup of coffee, overlooking the sea."],
+  about_h: ["波の音が聞こえる、<br>小さなカフェです。", "A small café<br>where you can hear the waves."],
+  about_p: ["糸島の海辺にある、席数14の小さなお店。一杯ずつハンドドリップで淹れるコーヒーと、毎朝焼き上げるパン、季節のフルーツを使ったスイーツをご用意しています。", "A cozy 14-seat café on the Itoshima coast. We serve hand-dripped coffee brewed cup by cup, bread baked fresh every morning, and sweets made with seasonal fruit."],
+  menu_h: ["メニュー", "Menu"],
+  m1: ["カフェラテ", "Café Latte"], m1d: ["自家焙煎の豆で、やさしい甘さに。", "Made with our own roasted beans."],
+  m2: ["ハンドドリップ", "Hand Drip Coffee"], m2d: ["その日のおすすめの豆で淹れます。", "Brewed with today's recommended beans."],
+  m3: ["いちごのパンナコッタ", "Strawberry Panna Cotta"], m3d: ["糸島産のいちごをたっぷりと。", "Topped with plenty of Itoshima strawberries."],
+  m4: ["焼きたてパン", "Fresh Bread"], m4d: ["毎朝7時から焼き上げています。", "Baked fresh from 7 a.m. every morning."],
+  more: ["すべてのメニューを見る", "See the full menu"],
+  sea_p: ["テラス席からは、玄界灘が一望できます。", "Enjoy a sweeping view of the Genkai Sea from our terrace."],
+  info_h: ["店舗情報", "Information"],
+  l_hours: ["営業時間", "Hours"], lo: ["（L.O. 17:30）", "(last order 17:30)"],
+  l_closed: ["定休日", "Closed"], v_closed: ["水曜日", "Wednesdays"],
+  l_seat: ["席数", "Seats"], v_seat: ["14席（テラス6席）", "14 (6 on the terrace)"],
+  l_addr: ["住所", "Address"], v_addr: ["福岡県糸島市（サンプル）", "Itoshima, Fukuoka (sample)"],
+  l_park: ["駐車場", "Parking"], v_park: ["5台", "5 cars"],
+  l_pet: ["ペット", "Pets"], v_pet: ["テラス席のみOK", "Welcome on the terrace"],
+  demo: ["※このサイトは制作例です。店舗・料金は架空のものです。", "* This is a sample website. The café and prices are fictional."]
+};
+var ORDER = ["ja", "en"];
+function setLang(code) {
+  var i = ORDER.indexOf(code); if (i < 0) return;
+  document.documentElement.lang = code;
+  document.querySelectorAll("[data-i]").forEach(function (el) { var t = T[el.getAttribute("data-i")]; if (t) el.innerHTML = t[i]; });
+  document.querySelectorAll(".lang button").forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-set") === code); });
+}
+document.querySelectorAll(".lang button").forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-set")); }); });
+var q = new URLSearchParams(location.search).get("lang"); if (q) setLang(q);
+</script>
+</body>
+</html>

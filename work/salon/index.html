@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOIR hair｜制作例</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bk: #0e0e0e; --wh: #fafafa; --gray: #8a8a8a; --line: #e5e5e5; --soft: #f2f1ef; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Noto Sans JP", sans-serif; font-weight: 300; background: var(--wh); color: var(--bk); line-height: 2; letter-spacing: .05em; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 22px; }
+  .jost { font-family: "Jost", sans-serif; }
+
+  header { position: fixed; inset: 0 0 auto 0; z-index: 20; mix-blend-mode: difference; color: #fff; }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+  .logo { font-family: "Jost", sans-serif; font-weight: 500; font-size: 22px; letter-spacing: .35em; }
+  .right { display: flex; gap: 28px; align-items: center; font-family: "Jost", sans-serif; font-size: 12px; letter-spacing: .2em; }
+  .right nav { display: flex; gap: 26px; }
+  .lang button { background: none; border: 0; color: #fff; font: inherit; cursor: pointer; opacity: .5; padding: 2px 4px; }
+  .lang button.on { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 760px) { .right nav { display: none; } }
+
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+  .hero .l { background: var(--bk); color: #fff; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 56px 72px; }
+  .hero .l small { font-family: "Jost", sans-serif; font-size: 12px; letter-spacing: .3em; color: var(--gray); }
+  .hero h1 { font-family: "Jost", sans-serif; font-weight: 300; font-size: clamp(54px, 8vw, 110px); line-height: 1; letter-spacing: .08em; margin: 16px 0 28px; }
+  .hero p { font-size: 15px; color: #cfcfcf; max-width: 380px; }
+  .hero .r { position: relative; min-height: 50vh; }
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .hero .r { order: -1; min-height: 58vh; } .hero .l { padding: 48px 22px 56px; } }
+
+  .btn { display: inline-block; margin-top: 32px; padding: 15px 36px; font-family: "Jost", "Noto Sans JP", sans-serif; font-size: 13px; letter-spacing: .2em; background: #fff; color: var(--bk); }
+  .btn.dark { background: var(--bk); color: #fff; }
+
+  section { padding: 130px 0; }
+  .h { display: flex; align-items: baseline; gap: 20px; margin-bottom: 56px; border-bottom: 1px solid var(--bk); padding-bottom: 16px; }
+  .h .en { font-family: "Jost", sans-serif; font-size: clamp(34px, 5vw, 56px); font-weight: 300; letter-spacing: .1em; line-height: 1; }
+  .h .ja { font-size: 13px; color: var(--gray); }
+
+  .concept .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: center; }
+  .concept .ph { aspect-ratio: 3/4; }
+  .concept h2 { font-weight: 400; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.9; }
+  .concept p { margin-top: 24px; font-size: 15px; color: #444; }
+  @media (max-width: 860px) { .concept .wrap { grid-template-columns: 1fr; gap: 40px; } }
+
+  .price { background: var(--soft); }
+  .plist { display: grid; grid-template-columns: 1fr 1fr; gap: 0 72px; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 22px 0; border-bottom: 1px solid #dcdad6; }
+  .row h3 { font-weight: 400; font-size: 16px; }
+  .row h3 small { display: block; font-size: 12px; color: var(--gray); }
+  .row .yen { font-family: "Jost", sans-serif; font-size: 22px; font-weight: 300; white-space: nowrap; }
+  .first { margin-top: 48px; background: var(--bk); color: #fff; display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: center; padding: 32px 40px; }
+  .first .tag { font-family: "Jost", sans-serif; font-size: 12px; letter-spacing: .3em; border: 1px solid #fff; padding: 4px 12px; }
+  .first .yen { font-family: "Jost", sans-serif; font-size: 34px; font-weight: 300; }
+  @media (max-width: 860px) { .plist { grid-template-columns: 1fr; } .first { grid-template-columns: 1fr; gap: 8px; padding: 28px 24px; } }
+
+  .gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 12px; }
+  .gallery div:first-child { grid-row: span 2; }
+  @media (max-width: 760px) { .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 300px 200px; } .gallery div:first-child { grid-column: span 2; grid-row: auto; } .gallery div:nth-child(4), .gallery div:nth-child(5) { display: none; } }
+
+  .info .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+  .info dl { display: grid; grid-template-columns: 8em 1fr; font-size: 15px; }
+  .info dt, .info dd { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .info dt { color: var(--gray); font-family: "Jost", "Noto Sans JP", sans-serif; letter-spacing: .1em; }
+  .reserve { background: var(--bk); color: #fff; padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
+  .reserve .en { font-family: "Jost", sans-serif; font-size: 40px; font-weight: 300; letter-spacing: .1em; }
+  .reserve p { color: #bbb; font-size: 14px; margin-top: 12px; }
+  @media (max-width: 860px) { .info .wrap { grid-template-columns: 1fr; gap: 48px; } .reserve { padding: 44px 24px; } }
+
+  footer { text-align: center; padding: 48px 20px; font-size: 12px; color: var(--gray); }
+  footer .logo { color: var(--bk); display: block; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="logo">NOIR</a>
+    <div class="right">
+      <nav><a href="#concept">CONCEPT</a><a href="#price">PRICE</a><a href="#gallery">GALLERY</a><a href="#info">ACCESS</a></nav>
+      <div class="lang"><button data-set="ja" class="on">JP</button>/<button data-set="en">EN</button></div>
+    </div>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="l">
+    <small>HAIR SALON — FUKUOKA</small>
+    <h1>NOIR<br>hair</h1>
+    <p data-i="catch">あなたの骨格と髪質に合わせた、毎朝ラクになるデザインを。</p>
+    <div><a class="btn" href="#info" data-i="btn_res">ご予約はこちら</a></div>
+  </div>
+  <div class="r"><img src="img/hero.jpg" alt="" style="position:absolute;inset:0"></div>
+</div>
+
+<section class="concept" id="concept">
+  <div class="wrap">
+    <div class="ph"><img src="img/stylist.jpg" alt=""></div>
+    <div>
+      <div class="h"><span class="en">CONCEPT</span><span class="ja" data-i="c_ja">コンセプト</span></div>
+      <h2 data-i="c_h">「似合う」を、<br>いちばん近くで見つける。</h2>
+      <p data-i="c_p">NOIRは、スタイリスト2名の小さなサロンです。カウンセリングからカット、仕上げまで、最初から最後まで同じスタイリストが担当します。お家でのスタイリングのコツも、丁寧にお伝えします。</p>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="price">
+  <div class="wrap">
+    <div class="h"><span class="en">PRICE</span><span class="ja" data-i="p_ja">料金</span></div>
+    <div class="plist">
+      <div class="row"><h3 data-i="p1">カット<small>シャンプー・ブロー込み</small></h3><span class="yen">¥5,500</span></div>
+      <div class="row"><h3 data-i="p2">カット＋カラー<small>リタッチは −¥1,100</small></h3><span class="yen">¥11,000</span></div>
+      <div class="row"><h3 data-i="p3">カット＋パーマ<small>デジタルパーマ ＋¥2,200</small></h3><span class="yen">¥12,100</span></div>
+      <div class="row"><h3 data-i="p4">髪質改善トリートメント<small>カットと同時で −¥1,100</small></h3><span class="yen">¥8,800</span></div>
+      <div class="row"><h3 data-i="p5">ヘッドスパ<small>30分</small></h3><span class="yen">¥4,400</span></div>
+      <div class="row"><h3 data-i="p6">メンズカット<small>眉カット込み</small></h3><span class="yen">¥4,950</span></div>
+    </div>
+    <div class="first">
+      <span class="tag">FIRST VISIT</span>
+      <span data-i="first">初回限定｜カット＋カラー＋トリートメント</span>
+      <span class="yen">¥9,900</span>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="h"><span class="en">GALLERY</span><span class="ja" data-i="g_ja">店内・スタイル</span></div>
+    <div class="gallery">
+      <div><img src="img/interior.jpg" alt=""></div>
+      <div><img src="img/hair.jpg" alt=""></div>
+      <div><img src="img/spa.jpg" alt=""></div>
+      <div><img src="img/stylist.jpg" alt=""></div>
+      <div><img src="img/hero.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <div>
+      <div class="h"><span class="en">ACCESS</span><span class="ja" data-i="a_ja">店舗情報</span></div>
+      <dl>
+        <dt>OPEN</dt><dd data-i="v_hours">10:00 – 19:00（最終受付 18:00）</dd>
+        <dt>CLOSED</dt><dd data-i="v_closed">毎週月曜・第3火曜</dd>
+        <dt>ADDRESS</dt><dd data-i="v_addr">福岡県福岡市中央区（サンプル）</dd>
+        <dt>ACCESS</dt><dd data-i="v_access">地下鉄「天神駅」から徒歩5分</dd>
+        <dt>PAYMENT</dt><dd data-i="v_pay">現金・クレジットカード・PayPay</dd>
+      </dl>
+    </div>
+    <div class="reserve">
+      <div class="en">RESERVE</div>
+      <p data-i="r_p">ご予約はお電話またはLINEで受け付けています。当日のご予約もお気軽にどうぞ。</p>
+      <div><a class="btn" href="tel:0920000000" data-i="r_tel">電話で予約する</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="logo jost" style="letter-spacing:.35em">NOIR hair</span>
+  <div data-i="demo">※このサイトは制作例です。店舗・料金は架空のものです。</div>
+</footer>
+
+<script>
+var T = {
+  catch: ["あなたの骨格と髪質に合わせた、毎朝ラクになるデザインを。", "Designs tailored to your face shape and hair type — easy to style every morning."],
+  btn_res: ["ご予約はこちら", "Book Now"],
+  c_ja: ["コンセプト", "Concept"],
+  c_h: ["「似合う」を、<br>いちばん近くで見つける。", "Finding the style<br>that's truly you."],
+  c_p: ["NOIRは、スタイリスト2名の小さなサロンです。カウンセリングからカット、仕上げまで、最初から最後まで同じスタイリストが担当します。お家でのスタイリングのコツも、丁寧にお伝えします。", "NOIR is a small salon with two stylists. The same stylist takes care of you from consultation to cut and finish, and we'll happily share tips for styling at home."],
+  p_ja: ["料金", "Price"],
+  p1: ["カット<small>シャンプー・ブロー込み</small>", "Cut<small>Includes shampoo & blow-dry</small>"],
+  p2: ["カット＋カラー<small>リタッチは −¥1,100</small>", "Cut + Color<small>Root touch-up −¥1,100</small>"],
+  p3: ["カット＋パーマ<small>デジタルパーマ ＋¥2,200</small>", "Cut + Perm<small>Digital perm +¥2,200</small>"],
+  p4: ["髪質改善トリートメント<small>カットと同時で −¥1,100</small>", "Hair Repair Treatment<small>−¥1,100 with a cut</small>"],
+  p5: ["ヘッドスパ<small>30分</small>", "Head Spa<small>30 min</small>"],
+  p6: ["メンズカット<small>眉カット込み</small>", "Men's Cut<small>Includes eyebrow trim</small>"],
+  first: ["初回限定｜カット＋カラー＋トリートメント", "First visit only | Cut + Color + Treatment"],
+  g_ja: ["店内・スタイル", "Salon & Styles"],
+  a_ja: ["店舗情報", "Information"],
+  v_hours: ["10:00 – 19:00（最終受付 18:00）", "10:00 – 19:00 (last booking 18:00)"],
+  v_closed: ["毎週月曜・第3火曜", "Mondays & 3rd Tuesday"],
+  v_addr: ["福岡県福岡市中央区（サンプル）", "Chuo-ku, Fukuoka (sample)"],
+  v_access: ["地下鉄「天神駅」から徒歩5分", "5 min walk from Tenjin Station"],
+  v_pay: ["現金・クレジットカード・PayPay", "Cash, credit cards, PayPay"],
+  r_p: ["ご予約はお電話またはLINEで受け付けています。当日のご予約もお気軽にどうぞ。", "Book by phone or LINE. Same-day bookings are welcome."],
+  r_tel: ["電話で予約する", "Call to Book"],
+  demo: ["※このサイトは制作例です。店舗・料金は架空のものです。", "* This is a sample website. The salon and prices are fictional."]
+};
+var ORDER = ["ja", "en"];
+function setLang(code) {
+  var i = ORDER.indexOf(code); if (i < 0) return;
+  document.documentElement.lang = code;
+  document.querySelectorAll("[data-i]").forEach(function (el) { var t = T[el.getAttribute("data-i")]; if (t) el.innerHTML = t[i]; });
+  document.querySelectorAll(".lang button").forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-set") === code); });
+}
+document.querySelectorAll(".lang button").forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-set")); }); });
+var q = new URLSearchParams(location.search).get("lang"); if (q) setLang(q);
+</script>
+</body>
+</html>

@@ -189,6 +189,21 @@
   @media (max-width: 900px) { .promises { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .promises { grid-template-columns: 1fr; } }
 
+
+  /* data */
+  .data { background: var(--dark); color: #fff; }
+  .data .label { color: rgba(255,255,255,.5); }
+  .data .label::before { background: rgba(255,255,255,.5); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.15); margin-top: 64px; border: 1px solid rgba(255,255,255,.15); }
+  .stat { background: var(--dark); padding: 40px 32px; }
+  .stat strong { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: clamp(56px, 7vw, 84px); line-height: 1; color: var(--accent); display: block; }
+  .stat strong small { font-size: .45em; }
+  .stat h3 { font-family: "Noto Serif JP", serif; font-weight: 500; font-size: 17px; margin: 18px 0 10px; line-height: 1.7; }
+  .stat p { font-size: 13px; color: rgba(255,255,255,.65); }
+  .src { font-size: 11px; color: rgba(255,255,255,.45); margin-top: 24px; line-height: 1.9; }
+  .src a { text-decoration: underline; }
+  @media (max-width: 900px) { .stats { grid-template-columns: 1fr; } }
+
   /* price */
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin-top: 72px; background: #fff; }
   .plan { padding: 48px 40px; border-right: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
@@ -336,6 +351,19 @@
   </div>
 </section>
 
+<section class="data" id="data">
+  <div class="wrap">
+    <div class="label reveal">DATA</div>
+    <h2 class="reveal">情報が見つからないお店は、<br>行く前に「候補から外されて」います。</h2>
+    <div class="stats reveal">
+      <div class="stat"><strong>8<small>割超</small></strong><h3>情報がInstagramにしかないお店で、来店を見送った経験がある人</h3><p>見送った理由の1位は「値段がわからなかった」。メニューと料金がまとまったページがないだけで、お客さんを逃しています。</p></div>
+      <div class="stat"><strong>82<small>%</small></strong><h3>Instagramでお店を見つけても、来店前の最終確認はInstagram以外でする人</h3><p>確認先のトップは「お店の公式サイト」（32%）。グルメサイトやGoogleマップより多く選ばれています。</p></div>
+      <div class="stat"><strong>1<small>位</small></strong><h3>外国人旅行者が「言葉」で最も困った場所は、飲食店（28.5%）</h3><p>駅（17.4%）や小売店（16.2%）を上回り第1位。外国語でメニューや料金がわかるだけで、選ばれるお店になれます。</p></div>
+    </div>
+    <p class="src reveal">出典：SOEL株式会社「飲食店×Instagram調査」（2026年、Instagramで飲食店の投稿を見た全国20〜59歳400名）／観光庁「訪日外国人旅行者の受入環境整備に関するアンケート」（2017年度）。数値は各調査の結果で、すべてのお店に当てはまるものではありません。</p>
+  </div>
+</section>
+
 <section id="strengths">
   <div class="wrap">
     <div class="label reveal">WHY Mise+</div>
@@ -386,6 +414,40 @@
           <li><span>言語</span><span>日・英・韓・中（簡／繁）</span></li>
         </ul>
         <a class="btn btn-solid" href="work/taiwan/" style="margin-top:28px">実際のサイトを見る <span class="arrow"></span></a>
+      </div>
+    </div>
+    <div class="work reveal">
+      <div class="stage" style="background:#ece4d6">
+        <div class="device back"><div class="screen"><img src="img/work-cafe-sub.jpg" alt=""></div></div>
+        <div class="device" style="margin-left:24%"><div class="screen"><img src="img/work-cafe-top.jpg" alt="カフェのホームページ制作例"></div></div>
+      </div>
+      <div>
+        <div class="cat">CAFE</div>
+        <h3>海辺のカフェ</h3>
+        <p style="font-size:14px;color:var(--ink-2)">糸島の海と、ゆったりした時間が伝わるように。やわらかい色と丸い写真で、お店の空気感をそのままサイトにしました。</p>
+        <ul>
+          <li><span>プラン</span><span>Standard</span></li>
+          <li><span>ページ</span><span>コンセプト／メニュー／店舗情報</span></li>
+          <li><span>言語</span><span>日・英</span></li>
+        </ul>
+        <a class="btn btn-solid" href="work/cafe/" style="margin-top:28px">実際のサイトを見る <span class="arrow"></span></a>
+      </div>
+    </div>
+    <div class="work reveal">
+      <div class="stage" style="background:#dcdcdc">
+        <div class="device back"><div class="screen"><img src="img/work-salon-sub.jpg" alt=""></div></div>
+        <div class="device" style="margin-left:24%"><div class="screen"><img src="img/work-salon-top.jpg" alt="美容室のホームページ制作例"></div></div>
+      </div>
+      <div>
+        <div class="cat">HAIR SALON</div>
+        <h3>美容室</h3>
+        <p style="font-size:14px;color:var(--ink-2)">モノトーンで、洗練されたサロンの雰囲気を。料金をわかりやすく並べ、初回限定メニューから予約につながる設計にしました。</p>
+        <ul>
+          <li><span>プラン</span><span>Standard</span></li>
+          <li><span>ページ</span><span>コンセプト／料金／ギャラリー／予約</span></li>
+          <li><span>言語</span><span>日・英</span></li>
+        </ul>
+        <a class="btn btn-solid" href="work/salon/" style="margin-top:28px">実際のサイトを見る <span class="arrow"></span></a>
       </div>
     </div>
     <p class="note reveal">※掲載している制作例は、架空の店舗で作ったデザインのサンプルです。</p>
