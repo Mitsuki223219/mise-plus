@@ -2,127 +2,214 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>台湾料理 龍門｜制作例</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
+  /* 黒い店内に赤い提灯と金の文字。料理写真を主役に、縦書きの漢字で台湾の食堂らしさを出す */
   :root {
-    --bg: #12100e;
-    --bg-2: #1b1714;
+    --bg: #11100e;
+    --bg-2: #1a1714;
+    --bg-3: #221e1a;
     --red: #b8262c;
+    --red-2: #d4363d;
     --gold: #c9a45c;
     --text: #f3ede3;
-    --muted: #a39a8c;
-    --line: rgba(255,255,255,.12);
+    --text-2: #d9cfbf;
+    --muted: #9c9283;
+    --line: rgba(243,237,227,.12);
+    --serif: "Noto Serif JP", "Noto Serif KR", "Songti SC", "Songti TC", serif;
+    --sans: "Noto Sans JP", "Noto Sans KR", "Apple SD Gothic Neo", "PingFang SC", "PingFang TC", "Microsoft YaHei", sans-serif;
+    --latin: "Cormorant Garamond", Georgia, serif;
+    color-scheme: dark;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: "Noto Sans JP", "Noto Sans KR", "Apple SD Gothic Neo", "PingFang SC", "PingFang TC", "Microsoft YaHei", sans-serif; font-weight: 300; background: var(--bg); color: var(--text); line-height: 1.9; letter-spacing: .03em; -webkit-font-smoothing: antialiased; }
-  .serif { font-family: "Noto Serif JP", "Noto Serif KR", "Songti SC", "Songti TC", serif; }
+  body { font-family: var(--sans); font-weight: 300; background: var(--bg); color: var(--text); line-height: 1.9; letter-spacing: .03em; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
-  img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; max-width: 100%; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  .serif { font-family: var(--serif); }
+  h1, h2, h3 { text-wrap: balance; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
   /* 言語バー */
-  .langbar { background: #000; font-size: 12px; }
-  .langbar .wrap { display: flex; justify-content: flex-end; align-items: center; gap: 4px; height: 38px; overflow-x: auto; }
-  .langbar span.lbl { color: var(--muted); margin-right: 8px; letter-spacing: .15em; font-family: "Cormorant Garamond", serif; font-size: 14px; white-space: nowrap; }
-  .langbar button { background: none; border: 1px solid transparent; color: var(--muted); padding: 3px 10px; font: inherit; cursor: pointer; white-space: nowrap; border-radius: 2px; }
+  .langbar { background: #000; font-size: 12px; position: relative; z-index: 31; }
+  .langbar .wrap { display: flex; justify-content: flex-end; align-items: center; gap: 4px; height: 40px; overflow-x: auto; }
+  .langbar .lbl { color: var(--muted); margin-right: 10px; font-family: var(--latin); font-style: italic; font-size: 15px; white-space: nowrap; }
+  .langbar button { background: none; border: 1px solid transparent; color: var(--muted); padding: 3px 10px; font: inherit; cursor: pointer; white-space: nowrap; }
   .langbar button.on { color: var(--text); border-color: var(--gold); }
-  @media (max-width: 600px) { .langbar span.lbl { display: none; } .langbar .wrap { justify-content: space-between; padding: 0 8px; } .langbar button { padding: 3px 6px; } }
+  @media (max-width: 600px) { .langbar .lbl { display: none; } .langbar .wrap { justify-content: space-between; } .langbar button { padding: 3px 5px; } }
 
-  header { position: sticky; top: 0; z-index: 20; background: rgba(18,16,14,.9); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-  header .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-  .logo { display: flex; align-items: baseline; gap: 10px; }
-  .logo .sub { font-size: 11px; color: var(--gold); letter-spacing: .2em; }
-  .logo .name { font-size: 24px; font-weight: 700; letter-spacing: .2em; }
-  nav { display: flex; gap: 28px; font-size: 13px; letter-spacing: .1em; }
-  nav a { color: var(--muted); } nav a:hover { color: var(--text); }
-  @media (max-width: 760px) { nav { display: none; } }
+  header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: rgba(17,16,14,.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; height: 66px; }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .seal { width: 38px; height: 38px; background: var(--red); color: #fff; display: grid; place-items: center; font-family: var(--serif); font-weight: 900; font-size: 20px; border-radius: 4px; }
+  .logo .name { font-family: var(--serif); font-weight: 700; font-size: 22px; letter-spacing: .25em; line-height: 1.1; }
+  .logo .sub { display: block; font-size: 10px; color: var(--gold); letter-spacing: .25em; font-family: var(--sans); font-weight: 400; }
+  nav { display: flex; gap: 26px; font-size: 13px; letter-spacing: .08em; align-items: center; }
+  nav a.l { color: var(--text-2); } nav a.l:hover { color: var(--gold); }
+  nav .tel { background: var(--red); color: #fff; padding: 9px 18px; font-weight: 500; }
+  @media (max-width: 860px) { nav a.l { display: none; } }
 
-  .hero { position: relative; min-height: calc(100vh - 102px); display: flex; align-items: flex-end; }
+  /* ヒーロー */
+  .hero { position: relative; min-height: min(88vh, 860px); display: flex; align-items: flex-end; overflow: hidden; }
   .hero .ph { position: absolute; inset: 0; }
-  .hero .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.25) 40%, rgba(10,8,6,.92)); }
-  .hero .wrap { position: relative; width: 100%; padding-bottom: 72px; }
+  .hero .ph img { animation: zoom 14s ease-out both; }
+  @keyframes zoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+  .hero .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,8,6,.85) 0%, rgba(10,8,6,.35) 55%, rgba(10,8,6,.15)), linear-gradient(0deg, rgba(10,8,6,.9), transparent 45%); }
+  .hero .wrap { position: relative; width: 100%; padding-block: 80px 72px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; }
   .hero .tag { color: var(--gold); font-size: 13px; letter-spacing: .25em; }
-  .hero h1 { font-size: clamp(64px, 13vw, 140px); line-height: 1.1; letter-spacing: .12em; margin: 8px 0 12px; font-weight: 700; }
-  .hero p { font-size: 16px; max-width: 520px; color: #e6dccd; }
-  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
-  .btn { display: inline-block; padding: 14px 30px; font-size: 14px; letter-spacing: .12em; border: 1px solid var(--text); transition: .2s; }
-  .btn-red { background: var(--red); border-color: var(--red); }
-  .btn-red:hover { background: #d1323a; }
-  .btn:not(.btn-red):hover { background: var(--text); color: var(--bg); }
-  .badges { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 28px; font-size: 13px; color: #d9cfbf; }
-  .badges span::before { content: "— "; color: var(--gold); }
+  .hero h1 { font-family: var(--serif); font-weight: 900; font-size: clamp(76px, 15vw, 168px); line-height: 1; letter-spacing: .12em; margin: 14px 0 20px; text-shadow: 0 6px 30px rgba(0,0,0,.4); }
+  .hero p.lead { font-family: var(--serif); font-weight: 500; font-size: clamp(17px, 2.2vw, 22px); color: var(--text); max-width: 560px; line-height: 1.8; }
+  .hero .vert { writing-mode: vertical-rl; font-family: var(--serif); font-weight: 500; font-size: 15px; letter-spacing: .5em; color: var(--text-2); border-right: 1px solid var(--gold); padding-right: 14px; height: 300px; }
+  .hero .vert b { color: var(--gold); font-weight: 500; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 34px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; font-size: 14px; letter-spacing: .12em; border: 1px solid var(--text); transition: background .2s, color .2s, border-color .2s; }
+  .btn-red { background: var(--red); border-color: var(--red); color: #fff; }
+  .btn-red:hover { background: var(--red-2); border-color: var(--red-2); }
+  .btn-ghost:hover { background: var(--text); color: var(--bg); }
+  .hero .meta { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 30px; font-size: 13px; color: var(--text-2); }
+  .hero .meta span::before { content: "— "; color: var(--gold); }
+  .rise { animation: rise 1s ease-out both; }
+  .rise.d1 { animation-delay: .15s; } .rise.d2 { animation-delay: .3s; } .rise.d3 { animation-delay: .45s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 760px) { .hero .vert { display: none; } .hero .wrap { grid-template-columns: 1fr; padding-block: 64px 48px; } }
+  @media (prefers-reduced-motion: reduce) { .hero .ph img, .rise { animation: none; } }
 
+  /* お知らせ帯 */
   .season { background: var(--red); }
-  .season .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-top: 28px; padding-bottom: 28px; flex-wrap: wrap; }
-  .season h2 { font-size: 22px; letter-spacing: .08em; }
-  .season ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 13px; margin-top: 4px; }
+  .season .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px 28px; padding-block: 26px; flex-wrap: wrap; }
+  .season .k { font-family: var(--latin); font-style: italic; font-size: 18px; opacity: .85; }
+  .season h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(19px, 2.4vw, 24px); letter-spacing: .06em; }
+  .season ul { list-style: none; display: flex; flex-wrap: wrap; gap: 2px 20px; font-size: 13px; }
   .season li::before { content: "◆ "; font-size: 9px; vertical-align: 2px; }
-  .season .btn { border-color: #fff; background: #fff; color: var(--red); font-weight: 500; }
+  .season .btn { background: #fff; color: var(--red); border-color: #fff; font-weight: 500; }
 
-  section { padding: 110px 0; }
-  .head { text-align: center; margin-bottom: 56px; }
-  .head .en { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--gold); font-size: 22px; }
-  .head h2 { font-size: clamp(26px, 3.6vw, 36px); letter-spacing: .1em; }
+  section { padding-block: 120px; }
+  .head { margin-bottom: 56px; display: grid; gap: 6px; }
+  .head.c { text-align: center; justify-items: center; }
+  .head .en { font-family: var(--latin); font-style: italic; color: var(--gold); font-size: 24px; line-height: 1; }
+  .head h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 4vw, 42px); letter-spacing: .1em; line-height: 1.4; }
+  .head p { color: var(--muted); font-size: 14px; max-width: 560px; }
+  @media (max-width: 700px) { section { padding-block: 84px; } .head { margin-bottom: 40px; } }
 
-  .dishes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
-  .dish .ph { aspect-ratio: 1; overflow: hidden; }
-  .dish .ph img { transition: transform .6s; }
+  /* こだわり */
+  .story .grid { display: grid; grid-template-columns: 5fr 6fr; gap: 72px; align-items: center; }
+  .story .pics { position: relative; aspect-ratio: 4/5; }
+  .story .pics .a { position: absolute; inset: 0 18% 14% 0; }
+  .story .pics .b { position: absolute; width: 52%; aspect-ratio: 1; right: 0; bottom: 0; border: 8px solid var(--bg); }
+  .story h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.6; letter-spacing: .08em; }
+  .story .txt > p { color: var(--text-2); margin-top: 22px; font-size: 15px; }
+  .points { margin-top: 36px; display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .point { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .point .k { font-family: var(--serif); font-weight: 900; font-size: 30px; color: var(--red-2); line-height: 1.1; text-align: center; }
+  .point h3 { font-family: var(--serif); font-weight: 500; font-size: 17px; }
+  .point p { font-size: 13px; color: var(--muted); }
+  @media (max-width: 860px) { .story .grid { grid-template-columns: 1fr; gap: 48px; } .story .pics { max-width: 480px; width: 100%; } }
+
+  /* 料理 */
+  .menu { background: var(--bg-2); }
+  .dishes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 28px; }
+  .dish { min-width: 0; }
+  .dish .ph { aspect-ratio: 4/3; overflow: hidden; position: relative; }
+  .dish .ph img { transition: transform .7s ease; }
   .dish:hover .ph img { transform: scale(1.05); }
-  .dish .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-top: 16px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
-  .dish h3 { font-size: 18px; letter-spacing: .05em; }
-  .dish .price { font-family: "Cormorant Garamond", serif; font-size: 22px; color: var(--gold); white-space: nowrap; }
+  .dish .no { position: absolute; left: 0; top: 0; background: var(--red); color: #fff; font-family: var(--latin); font-size: 15px; padding: 2px 12px; }
+  .dish .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  .dish h3 { font-family: var(--serif); font-weight: 700; font-size: 19px; letter-spacing: .04em; line-height: 1.5; }
+  .dish .price { font-family: var(--latin); font-size: 24px; color: var(--gold); white-space: nowrap; font-variant-numeric: tabular-nums; }
   .dish p { font-size: 13px; color: var(--muted); margin-top: 8px; }
-  @media (max-width: 900px) { .dishes { grid-template-columns: repeat(2, 1fr); gap: 20px; } .dish .row { flex-direction: column; align-items: flex-start; gap: 0; } .dish h3 { font-size: 16px; line-height: 1.5; } .dish .price { font-size: 20px; } }
+  .dish .hot { color: var(--red-2); font-size: 12px; letter-spacing: .1em; }
+  @media (max-width: 900px) { .dishes { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; } .dish .row { flex-direction: column; gap: 0; align-items: flex-start; } .dish h3 { font-size: 16px; } }
 
-  .lunch { display: grid; grid-template-columns: 1.2fr 1fr; margin-top: 64px; background: var(--bg-2); }
-  .lunch .ph { min-height: 320px; }
-  .lunch .txt { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
-  .lunch .time { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--gold); font-size: 20px; }
-  .lunch h3 { font-size: 28px; letter-spacing: .08em; }
-  .lunch .price { font-family: "Cormorant Garamond", serif; font-size: 48px; line-height: 1.2; }
-  .lunch p { color: var(--muted); font-size: 14px; }
-  .note { text-align: center; color: var(--muted); font-size: 12px; margin-top: 28px; }
-  @media (max-width: 760px) { .lunch { grid-template-columns: 1fr; } .lunch .txt { padding: 32px 24px; } }
+  /* ランチ */
+  .lunch-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; margin-top: 88px; background: var(--bg-3); }
+  .lunch-grid .ph { min-height: 340px; }
+  .lunch-grid .txt { padding: 48px; }
+  .lunch-grid .time { font-family: var(--latin); font-style: italic; color: var(--gold); font-size: 20px; }
+  .lunch-grid h3 { font-family: var(--serif); font-weight: 700; font-size: 28px; letter-spacing: .08em; margin-bottom: 16px; }
+  .sets { display: grid; gap: 0; }
+  .set { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px dashed var(--line); }
+  .set b { font-family: var(--serif); font-weight: 500; font-size: 16px; }
+  .set small { display: block; font-size: 12px; color: var(--muted); }
+  .set .price { font-family: var(--latin); font-size: 24px; color: var(--gold); white-space: nowrap; }
+  .lunch-grid .note { font-size: 12px; color: var(--muted); margin-top: 16px; }
+  @media (max-width: 860px) { .lunch-grid { grid-template-columns: 1fr; } .lunch-grid .txt { padding: 32px 22px; } }
 
-  .party { position: relative; }
-  .party .bg { position: absolute; inset: 0; opacity: .18; }
+  /* 宴会 */
+  .party { position: relative; overflow: hidden; }
+  .party .bg { position: absolute; inset: 0; opacity: .2; }
   .party .wrap { position: relative; }
-  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .plan { border: 1px solid var(--line); background: rgba(18,16,14,.85); padding: 40px 28px; text-align: center; position: relative; }
-  .plan.hot { border-color: var(--gold); }
-  .plan .pop { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--bg); font-size: 12px; padding: 1px 14px; font-weight: 500; white-space: nowrap; }
-  .plan h3 { font-size: 22px; letter-spacing: .08em; }
-  .plan .price { font-family: "Cormorant Garamond", serif; font-size: 52px; line-height: 1.2; margin: 12px 0 0; }
-  .plan .per { font-size: 12px; color: var(--muted); }
-  .plan p { font-size: 13px; color: #d9cfbf; margin-top: 16px; border-top: 1px solid var(--line); padding-top: 16px; }
-  @media (max-width: 760px) { .plans { grid-template-columns: 1fr; gap: 28px; } }
+  .courses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+  .course { background: rgba(17,16,14,.9); border: 1px solid var(--line); padding: 40px 30px; display: flex; flex-direction: column; position: relative; }
+  .course.hot { border-color: var(--gold); }
+  .course .pop { position: absolute; top: -13px; left: 30px; background: var(--gold); color: var(--bg); font-size: 12px; padding: 2px 14px; font-weight: 500; }
+  .course h3 { font-family: var(--serif); font-weight: 700; font-size: 22px; letter-spacing: .06em; }
+  .course .sub { font-size: 13px; color: var(--muted); }
+  .course .price { font-family: var(--latin); font-size: 54px; line-height: 1.2; margin-top: 16px; font-variant-numeric: tabular-nums; }
+  .course .price small { font-family: var(--sans); font-size: 13px; color: var(--muted); margin-left: 6px; }
+  .course ul { list-style: none; margin-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--text-2); flex: 1; }
+  .course li { padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .party-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 36px; margin-top: 40px; font-size: 14px; color: var(--text-2); }
+  .party-info span::before { content: "◆ "; color: var(--gold); font-size: 10px; vertical-align: 2px; }
+  .party .actions { justify-content: center; }
+  @media (max-width: 900px) { .courses { grid-template-columns: 1fr; gap: 30px; } }
 
-  .takeout .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  /* オードブル */
+  .takeout .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .takeout .ph { aspect-ratio: 4/3; }
-  .takeout .head { text-align: left; margin-bottom: 20px; }
-  .takeout p { color: #d9cfbf; }
-  @media (max-width: 760px) { .takeout .wrap { grid-template-columns: 1fr; gap: 32px; } }
+  .takeout p.t { color: var(--text-2); }
+  .sizes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 28px; }
+  .size { background: var(--bg); padding: 22px 14px; text-align: center; }
+  .size .s { font-family: var(--latin); font-size: 34px; line-height: 1; color: var(--gold); }
+  .size .n { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .size .p { font-family: var(--latin); font-size: 22px; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  @media (max-width: 860px) { .takeout .grid { grid-template-columns: 1fr; gap: 36px; } }
 
+  /* ギャラリー */
+  .gallery { padding-block: 0; }
+  .strip { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; grid-template-rows: 240px 240px; gap: 6px; }
+  .strip div { overflow: hidden; }
+  .strip .w { grid-row: 1 / 3; }
+  .strip .w:first-child { grid-column: 1; }
+  .strip .w:last-child { grid-column: 4; }
+  @media (max-width: 760px) { .strip { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 150px 150px; } .strip .w:first-child { grid-column: 1 / 3; grid-row: auto; } .strip .w:last-child { display: none; } }
+
+  /* 数字 */
+  .nums { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .num { padding: 36px 20px; text-align: center; border-right: 1px solid var(--line); }
+  .num:last-child { border-right: none; }
+  .num strong { font-family: var(--latin); font-weight: 500; font-size: clamp(48px, 6vw, 72px); line-height: 1; color: var(--text); display: block; font-variant-numeric: tabular-nums; }
+  .num strong small { font-size: .4em; color: var(--gold); margin-left: 4px; }
+  .num span { font-size: 13px; color: var(--muted); }
+  @media (max-width: 760px) { .nums { grid-template-columns: 1fr 1fr; } .num:nth-child(2) { border-right: none; } .num:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+
+  /* アクセス */
   .info { background: var(--bg-2); }
-  .info table { width: 100%; max-width: 760px; margin: 0 auto; border-collapse: collapse; font-size: 15px; }
-  .info th { text-align: left; width: 9em; padding: 16px 0; color: var(--gold); font-weight: 400; vertical-align: top; border-bottom: 1px solid var(--line); }
+  .info .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .info table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .info th { text-align: left; width: 8.5em; padding: 16px 0; color: var(--gold); font-weight: 400; vertical-align: top; border-bottom: 1px solid var(--line); }
   .info td { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .map { position: relative; aspect-ratio: 4/3; background: var(--bg-3); overflow: hidden; border: 1px solid var(--line); }
+  .map svg { width: 100%; height: 100%; display: block; }
+  .map .pin { position: absolute; left: 52%; top: 46%; transform: translate(-50%, -100%); display: grid; justify-items: center; }
+  .map .pin b { background: var(--red); color: #fff; font-family: var(--serif); font-size: 14px; padding: 4px 12px; white-space: nowrap; }
+  .map .pin i { width: 2px; height: 18px; background: var(--red); }
+  .map a { position: absolute; right: 12px; bottom: 12px; background: var(--text); color: var(--bg); font-size: 12px; padding: 8px 14px; letter-spacing: .05em; }
+  @media (max-width: 860px) { .info .grid { grid-template-columns: 1fr; gap: 40px; } }
 
-  footer { text-align: center; padding: 48px 20px 110px; color: var(--muted); font-size: 12px; }
-  footer .name { font-size: 22px; color: var(--text); letter-spacing: .2em; margin-bottom: 8px; }
+  footer { text-align: center; padding: 56px 20px 120px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+  footer .logo { justify-content: center; margin-bottom: 14px; }
 
   .sticky { display: none; }
   @media (max-width: 760px) {
-    .sticky { display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; }
+    .sticky { display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; padding-bottom: env(safe-area-inset-bottom, 0px); background: #000; }
     .sticky a { text-align: center; padding: 16px; font-size: 14px; letter-spacing: .1em; }
     .sticky a:first-child { background: var(--red); }
-    .sticky a:last-child { background: #000; border-top: 1px solid var(--line); }
   }
 </style>
 </head>
@@ -131,22 +218,24 @@
 <div class="langbar">
   <div class="wrap">
     <span class="lbl">Language</span>
-    <button data-set="ja" class="on">日本語</button>
-    <button data-set="en">English</button>
-    <button data-set="ko">한국어</button>
-    <button data-set="zh-Hans">简体中文</button>
-    <button data-set="zh-Hant">繁體中文</button>
+    <button type="button" data-set="ja" class="on">日本語</button>
+    <button type="button" data-set="en">English</button>
+    <button type="button" data-set="ko">한국어</button>
+    <button type="button" data-set="zh-Hans">简体中文</button>
+    <button type="button" data-set="zh-Hant">繁體中文</button>
   </div>
 </div>
 
 <header>
   <div class="wrap">
-    <a href="#top" class="logo serif"><span class="sub" data-i="logo_sub">台湾料理</span><span class="name">龍門</span></a>
+    <a href="#top" class="logo"><span class="seal">龍</span><span class="name">龍門<span class="sub" data-i="logo_sub">台湾家庭料理</span></span></a>
     <nav>
-      <a href="#menu" data-i="nav_menu">メニュー</a>
-      <a href="#party" data-i="nav_party">宴会</a>
-      <a href="#takeout" data-i="nav_takeout">お持ち帰り</a>
-      <a href="#info" data-i="nav_access">アクセス</a>
+      <a class="l" href="#story" data-i="nav_story">こだわり</a>
+      <a class="l" href="#menu" data-i="nav_menu">メニュー</a>
+      <a class="l" href="#party" data-i="nav_party">宴会</a>
+      <a class="l" href="#takeout" data-i="nav_takeout">オードブル</a>
+      <a class="l" href="#info" data-i="nav_access">アクセス</a>
+      <a class="tel" href="tel:0920000000" data-i="nav_tel">電話予約</a>
     </nav>
   </div>
 </header>
@@ -154,170 +243,327 @@
 <div class="hero" id="top">
   <div class="ph"><img src="img/hero.jpg" alt=""></div>
   <div class="wrap">
-    <div class="tag" data-i="hero_tag">福岡の台湾料理</div>
-    <h1 class="serif">龍門</h1>
-    <p data-i="hero_lead">本場の味を、お腹いっぱい。ランチから宴会まで。</p>
-    <div class="actions">
-      <a class="btn btn-red" href="tel:0920000000" data-i="btn_call">電話で予約</a>
-      <a class="btn" href="#menu" data-i="btn_menu">メニューを見る</a>
+    <div>
+      <div class="tag rise" data-i="hero_tag">福岡の台湾家庭料理</div>
+      <h1 class="rise d1">龍門</h1>
+      <p class="lead rise d2" data-i="hero_lead">台南出身の店主がつくる、家庭の味。<br>ランチから宴会まで、お腹いっぱいどうぞ。</p>
+      <div class="actions rise d3">
+        <a class="btn btn-red" href="tel:0920000000" data-i="btn_call">電話で予約する</a>
+        <a class="btn btn-ghost" href="#menu" data-i="btn_menu">メニューを見る</a>
+      </div>
+      <div class="meta rise d3">
+        <span data-i="m1">無料駐車場15台</span>
+        <span data-i="m2">食べ飲み放題</span>
+        <span data-i="m3">テイクアウトOK</span>
+        <span data-i="m4">PayPay対応</span>
+      </div>
     </div>
-    <div class="badges">
-      <span data-i="b_parking">無料駐車場</span>
-      <span data-i="b_aye">食べ飲み放題</span>
-      <span data-i="b_takeout">テイクアウトOK</span>
-      <span data-i="b_pay">PayPay対応</span>
-    </div>
+    <div class="vert rise d2" aria-hidden="true">台湾<b>・</b>台南<b>・</b>家庭の味</div>
   </div>
 </div>
 
 <div class="season">
   <div class="wrap">
     <div>
-      <h2 class="serif" data-i="season_title">忘年会・新年会 ご予約受付中</h2>
+      <div class="k">Year-end Party</div>
+      <h2 data-i="season_title">忘年会・新年会 ご予約受付中</h2>
       <ul>
         <li data-i="season_1">食べ飲み放題 120分</li>
         <li data-i="season_2">10名様〜40名様まで</li>
-        <li data-i="season_3">幹事様1名無料</li>
+        <li data-i="season_3">10名様以上で幹事様1名無料</li>
       </ul>
     </div>
-    <a class="btn" href="tel:0920000000" data-i="season_btn">今すぐ予約</a>
+    <a class="btn" href="#party" data-i="season_btn">コースを見る</a>
   </div>
 </div>
 
-<section id="menu">
-  <div class="wrap">
-    <div class="head"><div class="en">Menu</div><h2 class="serif" data-i="menu_title">おすすめメニュー</h2></div>
-    <div class="dishes">
-      <div class="dish"><div class="ph"><img src="img/ramen.jpg" alt=""></div><div class="row"><h3 class="serif" data-i="d1">台湾ラーメン</h3><span class="price">¥780</span></div><p data-i="d1d">ピリ辛の挽肉と、たっぷりの野菜。</p></div>
-      <div class="dish"><div class="ph"><img src="img/gyoza.jpg" alt=""></div><div class="row"><h3 class="serif" data-i="d2">水餃子</h3><span class="price">¥480</span></div><p data-i="d2d">皮から手づくり。もちもちの食感。</p></div>
-      <div class="dish"><div class="ph"><img src="img/karaage.jpg" alt=""></div><div class="row"><h3 class="serif" data-i="d3">鶏の唐揚げ</h3><span class="price">¥650</span></div><p data-i="d3d">秘伝のタレに漬け込んだ、ジューシーな一皿。</p></div>
-      <div class="dish"><div class="ph"><img src="img/rice.jpg" alt=""></div><div class="row"><h3 class="serif" data-i="d4">五目炒飯</h3><span class="price">¥680</span></div><p data-i="d4d">強火で一気に仕上げる、パラパラ炒飯。</p></div>
+<section class="story" id="story">
+  <div class="wrap grid">
+    <div class="pics">
+      <div class="a"><img src="img/interior.jpg" alt=""></div>
+      <div class="b"><img src="img/dimsum.jpg" alt=""></div>
     </div>
-    <div class="lunch">
+    <div class="txt">
+      <div class="head" style="margin-bottom:20px"><div class="en">Our Story</div></div>
+      <h2 data-i="story_h">台南の母の味を、<br>福岡のみなさんへ。</h2>
+      <p data-i="story_p">店主の陳は、台湾・台南の生まれ。子どものころに母の台所で覚えた料理を、そのままの味でお出ししています。気取らない食堂で、大皿の料理をみんなで分け合う。そんな台湾の夜を、福岡で楽しんでください。</p>
+      <div class="points">
+        <div class="point"><div class="k">皮</div><div><h3 data-i="pt1">餃子の皮は、毎朝手でのばす</h3><p data-i="pt1d">もちもちの食感は、手づくりの皮だから。</p></div></div>
+        <div class="point"><div class="k">香</div><div><h3 data-i="pt2">香辛料は台湾から取り寄せ</h3><p data-i="pt2d">八角や五香粉で、本場の香りに仕上げます。</p></div></div>
+        <div class="point"><div class="k">皿</div><div><h3 data-i="pt3">大皿で、みんなで分け合う</h3><p data-i="pt3d">ご家族や仲間との食事に、ちょうどいい量です。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="head c"><div class="en">Menu</div><h2 data-i="menu_title">看板メニュー</h2><p data-i="menu_sub">お店で人気の6品。ほかにも定食・一品料理を60種類以上ご用意しています。</p></div>
+    <div class="dishes">
+      <div class="dish"><div class="ph"><img src="img/ramen.jpg" alt=""><span class="no">01</span></div><div class="row"><h3 data-i="d1">台湾ラーメン</h3><span class="price">¥780</span></div><p><span class="hot" data-i="spicy">ピリ辛　</span><span data-i="d1d">ピリ辛の挽肉と、たっぷりの野菜。</span></p></div>
+      <div class="dish"><div class="ph"><img src="img/pho.jpg" alt=""><span class="no">02</span></div><div class="row"><h3 data-i="d2">台湾牛肉麺</h3><span class="price">¥980</span></div><p data-i="d2d">八角香る澄んだスープに、やわらかく煮込んだ牛肉。</p></div>
+      <div class="dish"><div class="ph"><img src="img/gyoza.jpg" alt=""><span class="no">03</span></div><div class="row"><h3 data-i="d3">手づくり水餃子</h3><span class="price">¥480</span></div><p data-i="d3d">毎朝のばす皮で包んだ、もちもちの水餃子。6個。</p></div>
+      <div class="dish"><div class="ph"><img src="img/karaage.jpg" alt=""><span class="no">04</span></div><div class="row"><h3 data-i="d4">鶏の唐揚げ</h3><span class="price">¥650</span></div><p data-i="d4d">秘伝のタレに一晩漬け込んだ、ジューシーな一皿。</p></div>
+      <div class="dish"><div class="ph"><img src="img/rice.jpg" alt=""><span class="no">05</span></div><div class="row"><h3 data-i="d5">五目炒飯</h3><span class="price">¥680</span></div><p data-i="d5d">強火で一気に仕上げる、パラパラの炒飯。</p></div>
+      <div class="dish"><div class="ph"><img src="img/noodle2.jpg" alt=""><span class="no">06</span></div><div class="row"><h3 data-i="d6">焼きビーフン</h3><span class="price">¥720</span></div><p data-i="d6d">台湾・新竹のビーフンを、野菜と豚肉で香ばしく。</p></div>
+    </div>
+
+    <div class="lunch-grid">
       <div class="ph"><img src="img/lunch.jpg" alt=""></div>
       <div class="txt">
         <div class="time">Lunch 11:00 – 14:30</div>
-        <h3 class="serif" data-i="lunch_title">日替わりランチセット</h3>
-        <div class="price">¥950</div>
-        <p data-i="lunch_desc">メイン・スープ・ライス・小鉢付き。スープをラーメンに変更 +¥200。</p>
+        <h3 data-i="lunch_title">ランチセット</h3>
+        <div class="sets">
+          <div class="set"><div><b data-i="l1">日替わりランチ</b><small data-i="l1d">メイン・スープ・ライス・小鉢</small></div><span class="price">¥950</span></div>
+          <div class="set"><div><b data-i="l2">ラーメンセット</b><small data-i="l2d">台湾ラーメン＋半炒飯＋唐揚げ2個</small></div><span class="price">¥1,050</span></div>
+          <div class="set"><div><b data-i="l3">牛肉麺セット</b><small data-i="l3d">台湾牛肉麺＋小籠包3個</small></div><span class="price">¥1,200</span></div>
+        </div>
+        <p class="note" data-i="lunch_note">ライス大盛り無料。スープをラーメンに変更 +¥200。価格はすべて税込です。</p>
       </div>
     </div>
-    <p class="note" data-i="menu_note">※価格はすべて税込です。</p>
   </div>
 </section>
 
-<section id="party" class="party">
-  <div class="bg"><img src="img/party.jpg" alt=""></div>
+<section class="party" id="party">
+  <div class="bg"><img src="img/group.jpg" alt=""></div>
   <div class="wrap">
-    <div class="head"><div class="en">Party</div><h2 class="serif" data-i="party_title">宴会コース</h2></div>
-    <div class="plans">
-      <div class="plan"><h3 class="serif" data-i="p1">食べ放題</h3><div class="price">¥2,980</div><div class="per" data-i="per">1名様</div><p data-i="p1d">90分・人気メニュー40品</p></div>
-      <div class="plan hot"><span class="pop" data-i="popular">人気</span><h3 class="serif" data-i="p2">食べ飲み放題</h3><div class="price">¥3,980</div><div class="per" data-i="per">1名様</div><p data-i="p2d">120分・ビールやカクテルも</p></div>
-      <div class="plan"><h3 class="serif" data-i="p3">宴会コース</h3><div class="price">¥4,500</div><div class="per" data-i="per">1名様</div><p data-i="p3d">全8品・飲み放題付き</p></div>
+    <div class="head c"><div class="en">Party Course</div><h2 data-i="party_title">宴会コース</h2><p data-i="party_sub">会社の宴会、ご家族のお祝い、同窓会に。人数とご予算に合わせてご相談ください。</p></div>
+    <div class="courses">
+      <div class="course">
+        <h3 data-i="c1">食べ放題</h3><div class="sub" data-i="c1s">90分・人気メニュー40品から</div>
+        <div class="price">¥2,980<small data-i="per">1名様</small></div>
+        <ul>
+          <li data-i="c1a">台湾ラーメン・炒飯などの麺飯類</li>
+          <li data-i="c1b">水餃子・小籠包などの点心</li>
+          <li data-i="c1c">唐揚げ・酢豚などの大皿料理</li>
+          <li data-i="c1d">杏仁豆腐（食べ放題）</li>
+        </ul>
+      </div>
+      <div class="course hot">
+        <span class="pop" data-i="popular">いちばん人気</span>
+        <h3 data-i="c2">食べ飲み放題</h3><div class="sub" data-i="c2s">120分・ラストオーダー30分前</div>
+        <div class="price">¥3,980<small data-i="per">1名様</small></div>
+        <ul>
+          <li data-i="c2a">食べ放題の内容すべて</li>
+          <li data-i="c2b">生ビール・ハイボール・サワー</li>
+          <li data-i="c2c">紹興酒・台湾ビール</li>
+          <li data-i="c2d">ソフトドリンク各種</li>
+        </ul>
+      </div>
+      <div class="course">
+        <h3 data-i="c3">龍門 宴会コース</h3><div class="sub" data-i="c3s">全8品・120分飲み放題付き</div>
+        <div class="price">¥4,500<small data-i="per">1名様</small></div>
+        <ul>
+          <li data-i="c3a">前菜三種盛り合わせ</li>
+          <li data-i="c3b">小籠包・手づくり水餃子</li>
+          <li data-i="c3c">海老のチリソース・油淋鶏</li>
+          <li data-i="c3d">台湾牛肉麺（小）・杏仁豆腐</li>
+        </ul>
+      </div>
     </div>
+    <div class="party-info">
+      <span data-i="pi1">最大40名様まで</span>
+      <span data-i="pi2">貸切は25名様から</span>
+      <span data-i="pi3">10名様以上で幹事様1名無料</span>
+    </div>
+    <div class="actions"><a class="btn btn-red" href="tel:0920000000" data-i="btn_party">宴会の相談をする</a></div>
   </div>
 </section>
 
-<section id="takeout" class="takeout">
-  <div class="wrap">
-    <div class="ph"><img src="img/platter.jpg" alt=""></div>
+<section class="takeout" id="takeout">
+  <div class="wrap grid">
+    <div class="ph"><img src="img/party.jpg" alt=""></div>
     <div>
-      <div class="head"><div class="en">Takeout</div><h2 class="serif" data-i="takeout_title">オードブル・お弁当</h2></div>
-      <p data-i="takeout_text">ご家族の集まりや会社のイベントに。オードブルは前日までにお電話でご予約ください。お弁当・単品のお持ち帰りもできます。</p>
-      <div class="actions"><a class="btn btn-red" href="tel:0920000000" data-i="btn_order">電話で注文</a></div>
+      <div class="head" style="margin-bottom:20px"><div class="en">Takeout</div><h2 data-i="takeout_title">オードブル・お弁当</h2></div>
+      <p class="t" data-i="takeout_text">ご家族の集まりや会社のイベントに、大皿のオードブルをご用意します。前日までにお電話でご予約ください。お弁当・単品のお持ち帰りは当日でもOKです。</p>
+      <div class="sizes">
+        <div class="size"><div class="s">S</div><div class="n" data-i="sz1">2〜3名様</div><div class="p">¥3,500</div></div>
+        <div class="size"><div class="s">M</div><div class="n" data-i="sz2">4〜6名様</div><div class="p">¥6,000</div></div>
+        <div class="size"><div class="s">L</div><div class="n" data-i="sz3">8〜10名様</div><div class="p">¥10,000</div></div>
+      </div>
+      <div class="actions"><a class="btn btn-red" href="tel:0920000000" data-i="btn_order">電話で注文する</a></div>
     </div>
   </div>
 </section>
 
-<section id="info" class="info">
+<section class="gallery" aria-label="Gallery">
+  <div class="strip">
+    <div class="w"><img src="img/interior2.jpg" alt=""></div>
+    <div><img src="img/dimsum.jpg" alt=""></div>
+    <div><img src="img/veg.jpg" alt=""></div>
+    <div><img src="img/pho.jpg" alt=""></div>
+    <div><img src="img/ramen.jpg" alt=""></div>
+    <div class="w"><img src="img/group.jpg" alt=""></div>
+  </div>
+</section>
+
+<section>
   <div class="wrap">
-    <div class="head"><div class="en">Information</div><h2 class="serif" data-i="info_title">店舗情報</h2></div>
-    <table>
-      <tr><th data-i="l_name">店名</th><td data-i="v_name">台湾料理 龍門</td></tr>
-      <tr><th data-i="l_tel">電話</th><td><a href="tel:0920000000">092-000-0000</a></td></tr>
-      <tr><th data-i="l_hours">営業時間</th><td data-i="v_hours">昼 11:00–14:30<br>夜 17:00–22:00</td></tr>
-      <tr><th data-i="l_closed">定休日</th><td data-i="v_closed">火曜日</td></tr>
-      <tr><th data-i="l_addr">住所</th><td data-i="v_addr">福岡県福岡市（サンプル）</td></tr>
-      <tr><th data-i="l_parking">駐車場</th><td data-i="v_parking">敷地内に無料駐車場あり</td></tr>
-      <tr><th data-i="l_pay">お支払い</th><td data-i="v_pay">現金・PayPay</td></tr>
-      <tr><th data-i="l_fac">設備</th><td data-i="v_fac">全席禁煙・Wi-Fi・お子様連れ歓迎</td></tr>
-    </table>
+    <div class="nums">
+      <div class="num"><strong>52<small data-i="u_seat">席</small></strong><span data-i="n1">カウンター・テーブル・座敷</span></div>
+      <div class="num"><strong>15<small data-i="u_car">台</small></strong><span data-i="n2">敷地内の無料駐車場</span></div>
+      <div class="num"><strong>40<small data-i="u_ppl">名</small></strong><span data-i="n3">宴会の最大人数</span></div>
+      <div class="num"><strong>60<small data-i="u_item">品+</small></strong><span data-i="n4">メニューの数</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <div class="head"><div class="en">Access</div><h2 data-i="info_title">店舗情報</h2></div>
+    <div class="grid">
+      <table>
+        <tr><th data-i="l_name">店名</th><td data-i="v_name">台湾家庭料理 龍門</td></tr>
+        <tr><th data-i="l_tel">電話</th><td>092-000-0000</td></tr>
+        <tr><th data-i="l_hours">営業時間</th><td data-i="v_hours">昼 11:00–14:30<br>夜 17:00–22:00（L.O. 21:30）</td></tr>
+        <tr><th data-i="l_closed">定休日</th><td data-i="v_closed">火曜日（祝日の場合は翌日）</td></tr>
+        <tr><th data-i="l_addr">住所</th><td data-i="v_addr">福岡県福岡市（サンプル）</td></tr>
+        <tr><th data-i="l_parking">駐車場</th><td data-i="v_parking">敷地内に無料駐車場15台</td></tr>
+        <tr><th data-i="l_pay">お支払い</th><td data-i="v_pay">現金・PayPay・クレジットカード</td></tr>
+        <tr><th data-i="l_fac">設備</th><td data-i="v_fac">全席禁煙・Wi-Fi・座敷あり・お子様連れ歓迎</td></tr>
+      </table>
+      <div class="map">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="300" fill="#221e1a"/>
+          <g stroke="#3a332c" stroke-width="10" fill="none">
+            <path d="M-10 190 L410 150"/><path d="M120 -10 L180 310"/><path d="M290 -10 L250 310"/>
+          </g>
+          <g stroke="#2d2722" stroke-width="5" fill="none">
+            <path d="M-10 80 L410 60"/><path d="M-10 260 L410 240"/><path d="M40 -10 L70 310"/><path d="M350 -10 L360 310"/>
+          </g>
+          <rect x="190" y="155" width="46" height="30" fill="#3a2a22"/>
+        </svg>
+        <div class="pin"><b data-i="pin">龍門</b><i></i></div>
+        <a href="https://maps.google.com/" target="_blank" rel="noopener" data-i="map_btn">Googleマップで開く</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="name serif">龍門</div>
+  <div class="logo"><span class="seal">龍</span><span class="name">龍門</span></div>
   <div data-i="demo">※このサイトは制作例です。店舗・料金は架空のものです。</div>
 </footer>
 
 <div class="sticky">
-  <a href="tel:0920000000" data-i="s_call">電話する</a>
-  <a href="#info" data-i="s_map">店舗情報</a>
+  <a href="tel:0920000000" data-i="s_call">電話で予約</a>
+  <a href="#info" data-i="s_map">アクセス</a>
 </div>
 
 <script>
 var T = {
-  logo_sub:     ["台湾料理", "TAIWANESE", "대만 요리", "台湾料理", "台灣料理"],
-  nav_menu:     ["メニュー", "Menu", "메뉴", "菜单", "菜單"],
-  nav_party:    ["宴会", "Parties", "연회", "宴会", "宴會"],
-  nav_takeout:  ["お持ち帰り", "Takeout", "포장", "外带", "外帶"],
-  nav_access:   ["アクセス", "Access", "오시는 길", "交通", "交通"],
-  hero_tag:     ["福岡の台湾料理", "Taiwanese Cuisine in Fukuoka", "후쿠오카의 대만 요리", "福冈的台湾料理", "福岡的台灣料理"],
-  hero_lead:    ["本場の味を、お腹いっぱい。ランチから宴会まで。", "Authentic Taiwanese flavors in generous portions — from lunch to parties.", "본고장의 맛을 배부르게. 점심부터 연회까지.", "地道台湾风味，分量十足。从午餐到宴会。", "道地台灣風味，份量十足。從午餐到宴會。"],
-  btn_call:     ["電話で予約", "Call to Reserve", "전화 예약", "电话预约", "電話預約"],
-  btn_menu:     ["メニューを見る", "View Menu", "메뉴 보기", "查看菜单", "查看菜單"],
-  b_parking:    ["無料駐車場", "Free parking", "무료 주차장", "免费停车场", "免費停車場"],
-  b_aye:        ["食べ飲み放題", "All-you-can-eat & drink", "무한리필·음료 무제한", "畅吃畅饮", "吃到飽・喝到飽"],
-  b_takeout:    ["テイクアウトOK", "Takeout available", "포장 가능", "可外带", "可外帶"],
-  b_pay:        ["PayPay対応", "PayPay accepted", "PayPay 결제 가능", "支持PayPay", "可使用PayPay"],
+  logo_sub:    ["台湾家庭料理", "TAIWANESE HOME COOKING", "대만 가정식", "台湾家常菜", "台灣家常菜"],
+  nav_story:   ["こだわり", "Our Story", "이야기", "我们的故事", "我們的故事"],
+  nav_menu:    ["メニュー", "Menu", "메뉴", "菜单", "菜單"],
+  nav_party:   ["宴会", "Parties", "연회", "宴会", "宴會"],
+  nav_takeout: ["オードブル", "Platters", "오르되브르", "拼盘", "拼盤"],
+  nav_access:  ["アクセス", "Access", "오시는 길", "交通", "交通"],
+  nav_tel:     ["電話予約", "Call", "전화 예약", "电话预约", "電話預約"],
+  hero_tag:    ["福岡の台湾家庭料理", "Taiwanese Home Cooking in Fukuoka", "후쿠오카의 대만 가정식", "福冈的台湾家常菜", "福岡的台灣家常菜"],
+  hero_lead:   ["台南出身の店主がつくる、家庭の味。<br>ランチから宴会まで、お腹いっぱいどうぞ。", "Home-style dishes from a Tainan-born chef.<br>From lunch to parties — come hungry.", "타이난 출신 주인이 만드는 집밥의 맛.<br>점심부터 연회까지 배부르게 즐기세요.", "台南出身的店主亲手做的家乡味。<br>从午餐到宴会，尽情吃饱。", "台南出身的店主親手做的家鄉味。<br>從午餐到宴會，盡情吃飽。"],
+  btn_call:    ["電話で予約する", "Call to Reserve", "전화로 예약", "电话预约", "電話預約"],
+  btn_menu:    ["メニューを見る", "View Menu", "메뉴 보기", "查看菜单", "查看菜單"],
+  m1: ["無料駐車場15台", "Free parking for 15 cars", "무료 주차 15대", "免费停车位15个", "免費停車位15個"],
+  m2: ["食べ飲み放題", "All-you-can-eat & drink", "무한리필·음료 무제한", "畅吃畅饮", "吃到飽・喝到飽"],
+  m3: ["テイクアウトOK", "Takeout available", "포장 가능", "可外带", "可外帶"],
+  m4: ["PayPay対応", "PayPay accepted", "PayPay 결제 가능", "支持PayPay", "可使用PayPay"],
   season_title: ["忘年会・新年会 ご予約受付中", "Now Booking Year-End & New Year Parties", "송년회·신년회 예약 접수 중", "年终聚会・新年聚会 接受预约中", "尾牙・春酒 接受預約中"],
-  season_1:     ["食べ飲み放題 120分", "120-min all-you-can-eat & drink", "120분 무한리필·음료 무제한", "120分钟畅吃畅饮", "120分鐘吃到飽喝到飽"],
-  season_2:     ["10名様〜40名様まで", "Groups of 10 to 40", "10명~40명까지", "可容纳10~40人", "可容納10~40人"],
-  season_3:     ["幹事様1名無料", "Organizer eats free", "간사 1명 무료", "组织者1人免费", "主辦人1位免費"],
-  season_btn:   ["今すぐ予約", "Book Now", "지금 예약", "立即预约", "立即預約"],
-  menu_title:   ["おすすめメニュー", "Recommended Dishes", "추천 메뉴", "推荐菜品", "推薦菜色"],
-  d1:  ["台湾ラーメン", "Taiwan Ramen", "대만 라멘", "台湾拉面", "台灣拉麵"],
+  season_1: ["食べ飲み放題 120分", "120-min all-you-can-eat & drink", "120분 무한리필·음료 무제한", "120分钟畅吃畅饮", "120分鐘吃到飽喝到飽"],
+  season_2: ["10名様〜40名様まで", "Groups of 10 to 40", "10명~40명까지", "可容纳10~40人", "可容納10~40人"],
+  season_3: ["10名様以上で幹事様1名無料", "Organizer eats free for groups of 10+", "10명 이상이면 간사 1명 무료", "10人以上组织者1人免费", "10人以上主辦人1位免費"],
+  season_btn: ["コースを見る", "See Courses", "코스 보기", "查看套餐", "查看套餐"],
+  story_h: ["台南の母の味を、<br>福岡のみなさんへ。", "A mother's cooking from Tainan,<br>served in Fukuoka.", "타이난 어머니의 맛을<br>후쿠오카 여러분께.", "把台南妈妈的味道，<br>带给福冈的大家。", "把台南媽媽的味道，<br>帶給福岡的大家。"],
+  story_p: ["店主の陳は、台湾・台南の生まれ。子どものころに母の台所で覚えた料理を、そのままの味でお出ししています。気取らない食堂で、大皿の料理をみんなで分け合う。そんな台湾の夜を、福岡で楽しんでください。", "Our owner, Chen, was born in Tainan, Taiwan. We serve the dishes he learned in his mother's kitchen, just as they tasted back home. Share big plates with friends in a relaxed diner and enjoy a Taiwanese night in Fukuoka.", "주인 첸은 대만 타이난 출신입니다. 어린 시절 어머니의 부엌에서 배운 요리를 그 맛 그대로 내고 있습니다. 편안한 식당에서 큰 접시 요리를 함께 나누는 대만의 밤을 후쿠오카에서 즐겨 보세요.", "店主陈先生出生于台湾台南。小时候在妈妈厨房里学会的菜，我们原汁原味地呈现给您。在轻松的小食堂里，和大家一起分享大盘菜，在福冈享受台湾的夜晚。", "店主陳先生出生於台灣台南。小時候在媽媽廚房裡學會的菜，我們原汁原味地呈現給您。在輕鬆的小食堂裡，和大家一起分享大盤菜，在福岡享受台灣的夜晚。"],
+  pt1: ["餃子の皮は、毎朝手でのばす", "Dumpling wrappers rolled by hand every morning", "만두피는 매일 아침 손으로 밀어요", "饺子皮每天早上手工擀制", "餃子皮每天早上手工擀製"],
+  pt1d: ["もちもちの食感は、手づくりの皮だから。", "That's where the soft, chewy bite comes from.", "쫄깃한 식감은 수제 만두피 덕분입니다.", "软糯的口感来自手工饺子皮。", "Q彈的口感來自手工餃子皮。"],
+  pt2: ["香辛料は台湾から取り寄せ", "Spices sourced from Taiwan", "향신료는 대만에서 들여와요", "香料从台湾进口", "香料從台灣進口"],
+  pt2d: ["八角や五香粉で、本場の香りに仕上げます。", "Star anise and five-spice give our dishes their authentic aroma.", "팔각과 오향분으로 본고장의 향을 냅니다.", "用八角和五香粉，做出地道的香味。", "用八角和五香粉，做出道地的香味。"],
+  pt3: ["大皿で、みんなで分け合う", "Big plates made for sharing", "큰 접시로 함께 나눠요", "大盘菜，大家一起分享", "大盤菜，大家一起分享"],
+  pt3d: ["ご家族や仲間との食事に、ちょうどいい量です。", "Just the right size for family and friends.", "가족이나 친구와 먹기 딱 좋은 양입니다.", "分量正好适合家人和朋友聚餐。", "份量正好適合家人和朋友聚餐。"],
+  menu_title: ["看板メニュー", "Signature Dishes", "대표 메뉴", "招牌菜", "招牌菜"],
+  menu_sub: ["お店で人気の6品。ほかにも定食・一品料理を60種類以上ご用意しています。", "Our six most popular dishes. We also offer more than 60 set meals and à la carte dishes.", "인기 메뉴 6가지. 그 밖에도 정식과 단품 요리 60종 이상을 준비하고 있습니다.", "店内最受欢迎的6道菜。另有60多种套餐和单点菜品。", "店內最受歡迎的6道菜。另有60多種套餐和單點菜色。"],
+  spicy: ["ピリ辛　", "Spicy · ", "매콤 · ", "微辣・", "微辣・"],
+  d1: ["台湾ラーメン", "Taiwan Ramen", "대만 라멘", "台湾拉面", "台灣拉麵"],
   d1d: ["ピリ辛の挽肉と、たっぷりの野菜。", "Spicy minced pork with plenty of vegetables.", "매콤한 다진 고기와 듬뿍 들어간 채소.", "香辣肉末，配上丰富蔬菜。", "香辣肉末，搭配豐富蔬菜。"],
-  d2:  ["水餃子", "Boiled Dumplings", "물만두", "水饺", "水餃"],
-  d2d: ["皮から手づくり。もちもちの食感。", "Handmade wrappers with a soft, chewy bite.", "피부터 직접 만든 쫄깃한 식감.", "手工饺子皮，口感软糯。", "手工餃子皮，口感Q彈。"],
-  d3:  ["鶏の唐揚げ", "Fried Chicken", "닭튀김(가라아게)", "日式炸鸡", "日式炸雞"],
-  d3d: ["秘伝のタレに漬け込んだ、ジューシーな一皿。", "Marinated in our secret sauce — crispy and juicy.", "비법 양념에 재운 육즙 가득한 닭튀김.", "秘制酱汁腌制，外酥里嫩。", "秘製醬汁醃製，外酥內嫩。"],
-  d4:  ["五目炒飯", "Special Fried Rice", "오목 볶음밥", "什锦炒饭", "什錦炒飯"],
-  d4d: ["強火で一気に仕上げる、パラパラ炒飯。", "Wok-fried over high heat, light and fluffy.", "센 불에 단숨에 볶아낸 고슬고슬한 볶음밥.", "大火快炒，粒粒分明。", "大火快炒，粒粒分明。"],
-  lunch_title:  ["日替わりランチセット", "Daily Lunch Set", "오늘의 런치 세트", "每日午餐套餐", "每日午餐套餐"],
-  lunch_desc:   ["メイン・スープ・ライス・小鉢付き。スープをラーメンに変更 +¥200。", "Main dish, soup, rice and a side. Swap the soup for ramen: +¥200.", "메인 요리·수프·밥·반찬 포함. 수프를 라멘으로 변경 +¥200.", "含主菜、汤、米饭和小菜。汤可换成拉面 +¥200。", "含主菜、湯、白飯與小菜。湯可換成拉麵 +¥200。"],
-  menu_note:    ["※価格はすべて税込です。", "* All prices include tax.", "※가격은 모두 세금 포함입니다.", "※价格均含税。", "※價格均含稅。"],
-  party_title:  ["宴会コース", "Party Courses", "연회 코스", "宴会套餐", "宴會套餐"],
-  p1:  ["食べ放題", "All-You-Can-Eat", "무한리필", "畅吃", "吃到飽"],
-  p1d: ["90分・人気メニュー40品", "90 min · 40 popular dishes", "90분 · 인기 메뉴 40종", "90分钟・40道人气菜品", "90分鐘・40道人氣菜色"],
-  p2:  ["食べ飲み放題", "Eat & Drink", "무한리필+음료 무제한", "畅吃畅饮", "吃到飽喝到飽"],
-  p2d: ["120分・ビールやカクテルも", "120 min · beer & cocktails included", "120분 · 맥주와 칵테일 포함", "120分钟・含啤酒和鸡尾酒", "120分鐘・含啤酒與調酒"],
-  p3:  ["宴会コース", "Banquet Course", "연회 코스", "宴会套餐", "宴會套餐"],
-  p3d: ["全8品・飲み放題付き", "8 dishes · free-flow drinks", "요리 8가지 · 음료 무제한 포함", "共8道菜・含畅饮", "共8道菜・含喝到飽"],
-  per:          ["1名様", "per person", "1인", "每人", "每人"],
-  popular:      ["人気", "Popular", "인기", "人气", "人氣"],
-  takeout_title:["オードブル・お弁当", "Platters & Bento", "오르되브르·도시락", "拼盘・便当", "拼盤・便當"],
-  takeout_text: ["ご家族の集まりや会社のイベントに。オードブルは前日までにお電話でご予約ください。お弁当・単品のお持ち帰りもできます。", "Perfect for family gatherings and company events. Please call by the day before to order platters. Bento and single dishes are also available for takeout.", "가족 모임이나 회사 행사에 딱 좋습니다. 오르되브르는 전날까지 전화로 예약해 주세요. 도시락과 단품 포장도 가능합니다.", "适合家庭聚会和公司活动。拼盘请于前一天致电预约。便当和单点菜品也可外带。", "適合家庭聚會與公司活動。拼盤請於前一天來電預約。便當與單點菜色也可外帶。"],
-  btn_order:    ["電話で注文", "Call to Order", "전화 주문", "电话订购", "電話訂購"],
-  info_title:   ["店舗情報", "Information", "매장 정보", "店铺信息", "店鋪資訊"],
-  l_name:    ["店名", "Name", "상호", "店名", "店名"],
-  l_tel:     ["電話", "Phone", "전화", "电话", "電話"],
-  l_hours:   ["営業時間", "Hours", "영업시간", "营业时间", "營業時間"],
-  l_closed:  ["定休日", "Closed", "정기 휴일", "定休日", "公休日"],
-  l_addr:    ["住所", "Address", "주소", "地址", "地址"],
+  d2: ["台湾牛肉麺", "Taiwanese Beef Noodle Soup", "대만 우육면", "台湾牛肉面", "台灣牛肉麵"],
+  d2d: ["八角香る澄んだスープに、やわらかく煮込んだ牛肉。", "Clear star-anise broth with slow-simmered, tender beef.", "팔각 향 맑은 국물에 부드럽게 졸인 소고기.", "八角飘香的清汤，配上炖得软烂的牛肉。", "八角飄香的清湯，配上燉得軟爛的牛肉。"],
+  d3: ["手づくり水餃子", "Handmade Boiled Dumplings", "수제 물만두", "手工水饺", "手工水餃"],
+  d3d: ["毎朝のばす皮で包んだ、もちもちの水餃子。6個。", "Soft, chewy dumplings in hand-rolled wrappers. 6 pieces.", "매일 아침 민 피로 빚은 쫄깃한 물만두. 6개.", "用每天早上擀的皮包成，口感软糯。6个。", "用每天早上擀的皮包成，口感Q彈。6顆。"],
+  d4: ["鶏の唐揚げ", "Fried Chicken", "닭튀김(가라아게)", "日式炸鸡", "日式炸雞"],
+  d4d: ["秘伝のタレに一晩漬け込んだ、ジューシーな一皿。", "Marinated overnight in our secret sauce — crispy and juicy.", "비법 양념에 하룻밤 재운 육즙 가득한 닭튀김.", "秘制酱汁腌制一夜，外酥里嫩。", "秘製醬汁醃製一夜，外酥內嫩。"],
+  d5: ["五目炒飯", "Special Fried Rice", "오목 볶음밥", "什锦炒饭", "什錦炒飯"],
+  d5d: ["強火で一気に仕上げる、パラパラの炒飯。", "Wok-fried over high heat, light and fluffy.", "센 불에 단숨에 볶아낸 고슬고슬한 볶음밥.", "大火快炒，粒粒分明。", "大火快炒，粒粒分明。"],
+  d6: ["焼きビーフン", "Fried Rice Noodles", "볶음 쌀국수", "炒米粉", "炒米粉"],
+  d6d: ["台湾・新竹のビーフンを、野菜と豚肉で香ばしく。", "Hsinchu-style rice noodles stir-fried with pork and vegetables.", "대만 신주의 쌀국수를 채소와 돼지고기로 고소하게.", "台湾新竹米粉，加入蔬菜和猪肉炒得香喷喷。", "台灣新竹米粉，加入蔬菜和豬肉炒得香噴噴。"],
+  lunch_title: ["ランチセット", "Lunch Sets", "런치 세트", "午餐套餐", "午餐套餐"],
+  l1: ["日替わりランチ", "Daily Lunch", "오늘의 런치", "每日午餐", "每日午餐"],
+  l1d: ["メイン・スープ・ライス・小鉢", "Main dish, soup, rice and a side", "메인·수프·밥·반찬", "主菜・汤・米饭・小菜", "主菜・湯・白飯・小菜"],
+  l2: ["ラーメンセット", "Ramen Set", "라멘 세트", "拉面套餐", "拉麵套餐"],
+  l2d: ["台湾ラーメン＋半炒飯＋唐揚げ2個", "Taiwan ramen + half fried rice + 2 fried chicken", "대만 라멘+반 볶음밥+닭튀김 2개", "台湾拉面＋半份炒饭＋炸鸡2块", "台灣拉麵＋半份炒飯＋炸雞2塊"],
+  l3: ["牛肉麺セット", "Beef Noodle Set", "우육면 세트", "牛肉面套餐", "牛肉麵套餐"],
+  l3d: ["台湾牛肉麺＋小籠包3個", "Beef noodle soup + 3 soup dumplings", "대만 우육면+샤오롱바오 3개", "台湾牛肉面＋小笼包3个", "台灣牛肉麵＋小籠包3顆"],
+  lunch_note: ["ライス大盛り無料。スープをラーメンに変更 +¥200。価格はすべて税込です。", "Free large rice. Swap the soup for ramen: +¥200. All prices include tax.", "밥 곱빼기 무료. 수프를 라멘으로 변경 +¥200. 가격은 모두 세금 포함입니다.", "米饭加量免费。汤可换成拉面 +¥200。价格均含税。", "白飯加量免費。湯可換成拉麵 +¥200。價格均含稅。"],
+  party_title: ["宴会コース", "Party Courses", "연회 코스", "宴会套餐", "宴會套餐"],
+  party_sub: ["会社の宴会、ご家族のお祝い、同窓会に。人数とご予算に合わせてご相談ください。", "For company parties, family celebrations and reunions. Tell us your group size and budget.", "회사 회식, 가족 축하 자리, 동창회에. 인원과 예산에 맞춰 상담해 드립니다.", "适合公司聚会、家庭庆祝和同学会。可根据人数和预算商量。", "適合公司聚會、家庭慶祝和同學會。可依人數和預算討論。"],
+  c1: ["食べ放題", "All-You-Can-Eat", "무한리필", "畅吃", "吃到飽"],
+  c1s: ["90分・人気メニュー40品から", "90 min · choose from 40 dishes", "90분 · 인기 메뉴 40종", "90分钟・40道人气菜品任选", "90分鐘・40道人氣菜色任選"],
+  c1a: ["台湾ラーメン・炒飯などの麺飯類", "Noodles and rice: Taiwan ramen, fried rice and more", "대만 라멘·볶음밥 등 면·밥 요리", "台湾拉面、炒饭等面饭类", "台灣拉麵、炒飯等麵飯類"],
+  c1b: ["水餃子・小籠包などの点心", "Dim sum: dumplings, soup dumplings and more", "물만두·샤오롱바오 등 딤섬", "水饺、小笼包等点心", "水餃、小籠包等點心"],
+  c1c: ["唐揚げ・酢豚などの大皿料理", "Big plates: fried chicken, sweet & sour pork and more", "닭튀김·탕수육 등 큰 접시 요리", "炸鸡、咕咾肉等大盘菜", "炸雞、咕咾肉等大盤菜"],
+  c1d: ["杏仁豆腐（食べ放題）", "Almond jelly (unlimited)", "행인두부(무제한)", "杏仁豆腐（无限量）", "杏仁豆腐（吃到飽）"],
+  c2: ["食べ飲み放題", "Eat & Drink", "무한리필+음료 무제한", "畅吃畅饮", "吃到飽喝到飽"],
+  c2s: ["120分・ラストオーダー30分前", "120 min · last order 30 min before end", "120분 · 종료 30분 전 라스트 오더", "120分钟・结束前30分钟最后点单", "120分鐘・結束前30分鐘最後點餐"],
+  c2a: ["食べ放題の内容すべて", "Everything in All-You-Can-Eat", "무한리필 내용 전부", "包含畅吃的全部内容", "包含吃到飽的全部內容"],
+  c2b: ["生ビール・ハイボール・サワー", "Draft beer, highballs, sours", "생맥주·하이볼·사와", "生啤、嗨棒、沙瓦", "生啤、嗨棒、沙瓦"],
+  c2c: ["紹興酒・台湾ビール", "Shaoxing wine, Taiwan Beer", "소흥주·대만 맥주", "绍兴酒、台湾啤酒", "紹興酒、台灣啤酒"],
+  c2d: ["ソフトドリンク各種", "Soft drinks", "각종 소프트드링크", "各种软饮", "各種軟性飲料"],
+  c3: ["龍門 宴会コース", "Ryumon Banquet", "류몬 연회 코스", "龙门宴会套餐", "龍門宴會套餐"],
+  c3s: ["全8品・120分飲み放題付き", "8 dishes · 120-min free-flow drinks", "요리 8가지 · 120분 음료 무제한", "共8道菜・含120分钟畅饮", "共8道菜・含120分鐘喝到飽"],
+  c3a: ["前菜三種盛り合わせ", "Trio of appetizers", "전채 3종 모둠", "三种前菜拼盘", "三種前菜拼盤"],
+  c3b: ["小籠包・手づくり水餃子", "Soup dumplings & handmade dumplings", "샤오롱바오·수제 물만두", "小笼包・手工水饺", "小籠包・手工水餃"],
+  c3c: ["海老のチリソース・油淋鶏", "Chili shrimp & crispy chicken with scallion sauce", "새우 칠리소스·유린기", "干烧虾仁・油淋鸡", "乾燒蝦仁・油淋雞"],
+  c3d: ["台湾牛肉麺（小）・杏仁豆腐", "Small beef noodle soup & almond jelly", "대만 우육면(소)·행인두부", "台湾牛肉面（小）・杏仁豆腐", "台灣牛肉麵（小）・杏仁豆腐"],
+  per: ["1名様", "per person", "1인", "每人", "每人"],
+  popular: ["いちばん人気", "Most Popular", "가장 인기", "最受欢迎", "最受歡迎"],
+  pi1: ["最大40名様まで", "Up to 40 guests", "최대 40명까지", "最多可容纳40人", "最多可容納40人"],
+  pi2: ["貸切は25名様から", "Private hire from 25 guests", "통대관은 25명부터", "25人起可包场", "25人起可包場"],
+  pi3: ["10名様以上で幹事様1名無料", "Organizer eats free for groups of 10+", "10명 이상이면 간사 1명 무료", "10人以上组织者1人免费", "10人以上主辦人1位免費"],
+  btn_party: ["宴会の相談をする", "Ask About Parties", "연회 상담하기", "咨询宴会", "諮詢宴會"],
+  takeout_title: ["オードブル・お弁当", "Platters & Bento", "오르되브르·도시락", "拼盘・便当", "拼盤・便當"],
+  takeout_text: ["ご家族の集まりや会社のイベントに、大皿のオードブルをご用意します。前日までにお電話でご予約ください。お弁当・単品のお持ち帰りは当日でもOKです。", "We prepare large platters for family gatherings and company events. Please call by the day before. Bento and single dishes can be ordered for takeout on the day.", "가족 모임이나 회사 행사에 큰 접시 오르되브르를 준비해 드립니다. 전날까지 전화로 예약해 주세요. 도시락과 단품 포장은 당일에도 가능합니다.", "为家庭聚会和公司活动准备大盘拼盘。请于前一天致电预约。便当和单点菜品当天也可外带。", "為家庭聚會和公司活動準備大盤拼盤。請於前一天來電預約。便當和單點菜色當天也可外帶。"],
+  sz1: ["2〜3名様", "2–3 people", "2~3인", "2~3人份", "2~3人份"],
+  sz2: ["4〜6名様", "4–6 people", "4~6인", "4~6人份", "4~6人份"],
+  sz3: ["8〜10名様", "8–10 people", "8~10인", "8~10人份", "8~10人份"],
+  btn_order: ["電話で注文する", "Call to Order", "전화 주문", "电话订购", "電話訂購"],
+  u_seat: ["席", "seats", "석", "席", "席"],
+  u_car: ["台", "cars", "대", "个", "個"],
+  u_ppl: ["名", "guests", "명", "人", "人"],
+  u_item: ["品+", "+", "종+", "道+", "道+"],
+  n1: ["カウンター・テーブル・座敷", "Counter, tables & tatami room", "카운터·테이블·좌식", "吧台・桌位・和式座位", "吧台・桌位・和式座位"],
+  n2: ["敷地内の無料駐車場", "Free on-site parking", "부지 내 무료 주차장", "店内免费停车位", "店內免費停車位"],
+  n3: ["宴会の最大人数", "Max party size", "연회 최대 인원", "宴会最多人数", "宴會最多人數"],
+  n4: ["メニューの数", "Dishes on the menu", "메뉴 수", "菜品数量", "菜色數量"],
+  info_title: ["店舗情報", "Information", "매장 정보", "店铺信息", "店鋪資訊"],
+  l_name: ["店名", "Name", "상호", "店名", "店名"],
+  l_tel: ["電話", "Phone", "전화", "电话", "電話"],
+  l_hours: ["営業時間", "Hours", "영업시간", "营业时间", "營業時間"],
+  l_closed: ["定休日", "Closed", "정기 휴일", "定休日", "公休日"],
+  l_addr: ["住所", "Address", "주소", "地址", "地址"],
   l_parking: ["駐車場", "Parking", "주차장", "停车场", "停車場"],
-  l_pay:     ["お支払い", "Payment", "결제", "付款方式", "付款方式"],
-  l_fac:     ["設備", "Facilities", "시설", "设施", "設施"],
-  v_name:    ["台湾料理 龍門", "Taiwanese Restaurant Ryumon", "대만 요리 류몬", "台湾料理 龙门", "台灣料理 龍門"],
-  v_hours:   ["昼 11:00–14:30<br>夜 17:00–22:00", "Lunch 11:00–14:30<br>Dinner 17:00–22:00", "점심 11:00–14:30<br>저녁 17:00–22:00", "午餐 11:00–14:30<br>晚餐 17:00–22:00", "午餐 11:00–14:30<br>晚餐 17:00–22:00"],
-  v_closed:  ["火曜日", "Tuesdays", "화요일", "周二", "週二"],
-  v_addr:    ["福岡県福岡市（サンプル）", "Fukuoka City (sample)", "후쿠오카시 (샘플)", "福冈市（示例）", "福岡市（範例）"],
-  v_parking: ["敷地内に無料駐車場あり", "Free on-site parking", "부지 내 무료 주차장", "设有免费停车场", "設有免費停車場"],
-  v_pay:     ["現金・PayPay", "Cash, PayPay", "현금·PayPay", "现金・PayPay", "現金・PayPay"],
-  v_fac:     ["全席禁煙・Wi-Fi・お子様連れ歓迎", "Non-smoking · Free Wi-Fi · Kids welcome", "전석 금연 · Wi-Fi · 아이 동반 환영", "全面禁烟・Wi-Fi・欢迎携带儿童", "全面禁菸・Wi-Fi・歡迎攜帶孩童"],
-  demo:      ["※このサイトは制作例です。店舗・料金は架空のものです。", "* This is a sample website. The restaurant and prices are fictional.", "※이 사이트는 제작 예시입니다. 매장과 가격은 가상입니다.", "※本网站为制作示例，店铺与价格均为虚构。", "※本網站為製作範例，店鋪與價格皆為虛構。"],
-  s_call:    ["電話する", "Call", "전화하기", "致电", "撥打電話"],
-  s_map:     ["店舗情報", "Info", "매장 정보", "店铺信息", "店鋪資訊"]
+  l_pay: ["お支払い", "Payment", "결제", "付款方式", "付款方式"],
+  l_fac: ["設備", "Facilities", "시설", "设施", "設施"],
+  v_name: ["台湾家庭料理 龍門", "Ryumon — Taiwanese Home Cooking", "대만 가정식 류몬", "台湾家常菜 龙门", "台灣家常菜 龍門"],
+  v_hours: ["昼 11:00–14:30<br>夜 17:00–22:00（L.O. 21:30）", "Lunch 11:00–14:30<br>Dinner 17:00–22:00 (last order 21:30)", "점심 11:00–14:30<br>저녁 17:00–22:00 (라스트 오더 21:30)", "午餐 11:00–14:30<br>晚餐 17:00–22:00（最后点单 21:30）", "午餐 11:00–14:30<br>晚餐 17:00–22:00（最後點餐 21:30）"],
+  v_closed: ["火曜日（祝日の場合は翌日）", "Tuesdays (next day if a holiday)", "화요일(공휴일인 경우 다음 날)", "周二（如遇节假日则顺延一天）", "週二（遇國定假日順延一天）"],
+  v_addr: ["福岡県福岡市（サンプル）", "Fukuoka City (sample)", "후쿠오카시 (샘플)", "福冈市（示例）", "福岡市（範例）"],
+  v_parking: ["敷地内に無料駐車場15台", "Free on-site parking for 15 cars", "부지 내 무료 주차 15대", "店内免费停车位15个", "店內免費停車位15個"],
+  v_pay: ["現金・PayPay・クレジットカード", "Cash, PayPay, credit cards", "현금·PayPay·신용카드", "现金・PayPay・信用卡", "現金・PayPay・信用卡"],
+  v_fac: ["全席禁煙・Wi-Fi・座敷あり・お子様連れ歓迎", "Non-smoking · Free Wi-Fi · Tatami room · Kids welcome", "전석 금연·Wi-Fi·좌식석·아이 동반 환영", "全面禁烟・Wi-Fi・和式座位・欢迎携带儿童", "全面禁菸・Wi-Fi・和式座位・歡迎攜帶孩童"],
+  pin: ["龍門", "Ryumon", "류몬", "龙门", "龍門"],
+  map_btn: ["Googleマップで開く", "Open in Google Maps", "Google 지도에서 열기", "在Google地图中打开", "在Google地圖中開啟"],
+  demo: ["※このサイトは制作例です。店舗・料金は架空のものです。", "* This is a sample website. The restaurant and prices are fictional.", "※이 사이트는 제작 예시입니다. 매장과 가격은 가상입니다.", "※本网站为制作示例，店铺与价格均为虚构。", "※本網站為製作範例，店鋪與價格皆為虛構。"],
+  s_call: ["電話で予約", "Call", "전화 예약", "电话预约", "電話預約"],
+  s_map: ["アクセス", "Access", "오시는 길", "交通", "交通"]
 };
 var ORDER = ["ja", "en", "ko", "zh-Hans", "zh-Hant"];
 function setLang(code) {
@@ -338,7 +584,8 @@ document.querySelectorAll(".langbar button").forEach(function (b) {
 });
 var saved = null;
 try { saved = localStorage.getItem("lang"); } catch (e) {}
-var param = new URLSearchParams(location.search).get("lang");
+var param = null;
+try { param = new URLSearchParams(location.search).get("lang"); } catch (e) {}
 if (param || saved) setLang(param || saved);
 </script>
 </body>
