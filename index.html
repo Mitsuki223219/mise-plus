@@ -143,6 +143,52 @@
   .table-scroll { overflow-x: auto; }
   @media (max-width: 700px) { .compare { font-size: 11px; } .compare th, .compare td { padding: 14px 6px; } .compare tbody th { white-space: normal; font-size: 12px; } .compare thead .us, .compare td.us strong { font-size: 18px; } }
 
+
+  /* journey */
+  .journey { background: var(--ivory); }
+  .steps-j { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 64px; position: relative; }
+  .sj { padding: 0 24px 0 0; position: relative; }
+  .sj .n { width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--ink); display: grid; place-items: center; font-family: "Cormorant Garamond", serif; font-size: 24px; background: var(--paper); position: relative; z-index: 1; }
+  .sj::before { content: ""; position: absolute; top: 28px; left: 56px; right: 0; height: 1px; background: var(--line); }
+  .sj:last-child::before { display: none; }
+  .sj h3 { font-family: "Noto Serif JP", serif; font-weight: 500; font-size: 17px; margin: 20px 0 8px; letter-spacing: .05em; }
+  .sj p { font-size: 13px; color: var(--ink-2); }
+  .sj.warn .n { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .journey .lose { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .journey .lose > div { background: var(--paper); padding: 28px 32px; }
+  .journey .lose .ttl { font-size: 12px; letter-spacing: .2em; color: var(--muted); }
+  .journey .lose strong { display: block; font-family: "Noto Serif JP", serif; font-weight: 500; font-size: 18px; margin: 6px 0; }
+  .journey .lose p { font-size: 14px; color: var(--ink-2); }
+  .journey .lose > .good { background: var(--dark); color: #fff; }
+  .journey .lose .good p, .journey .lose .good .ttl { color: rgba(255,255,255,.7); }
+  @media (max-width: 900px) { .steps-j { grid-template-columns: 1fr; gap: 28px; } .sj { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 0; } .sj::before { top: 56px; bottom: -28px; left: 28px; right: auto; width: 1px; height: auto; } .sj h3 { margin-top: 12px; } .journey .lose { grid-template-columns: 1fr; } }
+
+  /* for whom */
+  .for-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
+  .for-list span { border: 1px solid var(--line); background: #fff; padding: 10px 20px; font-size: 14px; }
+
+  /* 5 years */
+  .total { margin-top: 72px; background: #fff; border: 1px solid var(--line); padding: 48px; }
+  .total h3 { font-family: "Noto Serif JP", serif; font-weight: 500; font-size: 22px; letter-spacing: .05em; }
+  .total .sub { font-size: 13px; color: var(--muted); }
+  .bars { margin-top: 32px; display: grid; gap: 20px; }
+  .bar .top { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; gap: 12px; }
+  .bar .top strong { font-family: "Cormorant Garamond", serif; font-size: 26px; font-weight: 500; line-height: 1; white-space: nowrap; }
+  .bar .track { height: 14px; background: var(--bg-2, #f1eee8); }
+  .bar .fill { height: 100%; background: #cfc6b8; }
+  .bar.us .fill { background: var(--accent); }
+  .bar.us .top { color: var(--accent); font-weight: 500; }
+  @media (max-width: 700px) { .total { padding: 28px 20px; } }
+
+  /* promise */
+  .promises { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 64px; }
+  .promise { background: var(--paper); padding: 36px 28px; }
+  .promise .n { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--accent); font-size: 20px; }
+  .promise h3 { font-family: "Noto Serif JP", serif; font-weight: 500; font-size: 17px; margin: 8px 0 10px; line-height: 1.6; }
+  .promise p { font-size: 13px; color: var(--ink-2); }
+  @media (max-width: 900px) { .promises { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .promises { grid-template-columns: 1fr; } }
+
   /* price */
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin-top: 72px; background: #fff; }
   .plan { padding: 48px 40px; border-right: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
@@ -222,6 +268,7 @@
     <a href="#top" class="logo">Mise<b>+</b></a>
     <nav>
       <a class="link" href="#concept">CONCEPT</a>
+      <a class="link" href="#journey">HOW</a>
       <a class="link" href="#global">GLOBAL</a>
       <a class="link" href="#works">WORKS</a>
       <a class="link" href="#price">PRICE</a>
@@ -270,6 +317,24 @@
     <p>「どんなサイトになるのか分からない」。それが、ホームページづくりのいちばんの不安です。だからMise+は、ご契約の前に、あなたのお店の見本を無料で作ってお見せします。</p>
   </div>
 </div>
+
+<section class="journey" id="journey">
+  <div class="wrap">
+    <div class="label reveal">HOW IT WORKS</div>
+    <h2 class="reveal">お客さんは、こうやって<br>お店を選んでいます。</h2>
+    <div class="steps-j reveal">
+      <div class="sj"><div class="n">1</div><div><h3>Googleマップで探す</h3><p>「近くの ラーメン」「福岡 カフェ」。まずはスマホで検索します。</p></div></div>
+      <div class="sj"><div class="n">2</div><div><h3>候補をいくつか見る</h3><p>写真・口コミ・営業時間を見て、気になるお店を3〜4軒にしぼります。</p></div></div>
+      <div class="sj warn"><div class="n">3</div><div><h3>ホームページで比べる</h3><p>メニュー、料金、雰囲気、駐車場。ここで情報が少ないお店は、候補から外れます。</p></div></div>
+      <div class="sj"><div class="n">4</div><div><h3>電話・予約・来店</h3><p>「ここにしよう」と決めたら、その場で電話や予約をします。</p></div></div>
+    </div>
+    <div class="lose reveal">
+      <div><div class="ttl">ホームページがないと</div><strong>3で、ほかのお店に負けてしまう。</strong><p>料理や料金がわからないお店は、「なんとなく不安」で選ばれにくくなります。</p></div>
+      <div class="good"><div class="ttl">Mise+のホームページがあると</div><strong>3で選ばれて、4へ進んでもらえる。</strong><p>写真とメニューで魅力を伝え、「電話する」ボタンでそのまま予約につなげます。</p></div>
+    </div>
+    <div class="for-list reveal"><span>飲食店</span><span>カフェ</span><span>居酒屋</span><span>美容室・ネイル</span><span>整体・マッサージ</span><span>雑貨・小売店</span><span>ゲストハウス</span><span>教室・スクール</span></div>
+  </div>
+</section>
 
 <section id="strengths">
   <div class="wrap">
@@ -345,6 +410,16 @@
       </table>
     </div>
     <p class="note reveal">※制作会社・フリーランスの金額は一般的な目安です。依頼先や内容によって異なります。</p>
+    <div class="total reveal">
+      <h3>5年間で、いくらかかる？</h3>
+      <div class="sub">「初期0円・月額制」のサービスは、長く使うほど総額が高くなります。</div>
+      <div class="bars">
+        <div class="bar"><div class="top"><span>月額制サービス（例：月4,800円 × 60か月）</span><strong>¥288,000</strong></div><div class="track"><div class="fill" style="width:48%"></div></div></div>
+        <div class="bar"><div class="top"><span>制作会社（例：制作30万円 ＋ 月5,000円）</span><strong>¥600,000</strong></div><div class="track"><div class="fill" style="width:100%;background:#b9ae9e"></div></div></div>
+        <div class="bar us"><div class="top"><span>Mise+ Standard（制作7万円 ＋ ドメイン代 年2,000円ほど）</span><strong>¥80,000</strong></div><div class="track"><div class="fill" style="width:13.3%"></div></div></div>
+      </div>
+      <p class="note">※金額は一般的な例です。Mise+の修正（1回10,000円）は、ご依頼いただいた場合のみかかります。</p>
+    </div>
   </div>
 </section>
 
@@ -406,6 +481,19 @@
   </div>
 </section>
 
+<section id="promise">
+  <div class="wrap">
+    <div class="label reveal">PROMISE</div>
+    <h2 class="reveal">Mise+の、4つの約束。</h2>
+    <div class="promises reveal">
+      <div class="promise"><div class="n">01</div><h3>あとから高いお金は<br>いただきません</h3><p>料金はすべて事前にお見積り。了承をいただく前に、作業や請求をすることはありません。</p></div>
+      <div class="promise"><div class="n">02</div><h3>サイトは<br>お店のものです</h3><p>ドメイン（サイトの住所）はお店の名義で取得。サイトのデータも、ご希望があればお渡しします。</p></div>
+      <div class="promise"><div class="n">03</div><h3>作って終わりに<br>しません</h3><p>困ったときはLINEでいつでも相談OK。公開後も、変えたいことがあればすぐ対応します。</p></div>
+      <div class="promise"><div class="n">04</div><h3>しつこい営業は<br>しません</h3><p>見本を見て「いらない」と思ったら、それで終わりです。何度も連絡することはありません。</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="works" id="flow">
   <div class="wrap">
     <div class="label reveal">FLOW</div>
@@ -442,6 +530,9 @@
       <details><summary>本当に見本は無料ですか？</summary><p>はい、無料です。見本を見て気に入らなければ、そこで終わりで構いません。</p></details>
       <details><summary>毎月お金はかかりますか？</summary><p>維持費・管理費はかかりません。毎年かかるのは、サイトの住所（ドメイン）の実費、年1,000〜3,000円ほどだけです。</p></details>
       <details><summary>あとから営業時間やメニューを変えられますか？</summary><p>はい。LINEで変えたい内容を送っていただければ、1回10,000円で修正します。</p></details>
+      <details><summary>ほかの格安ホームページサービスとの違いは？</summary><p>Mise+は、ご契約の前にあなたのお店の見本を無料でお作りします。さらに、外国語ページ（最大5言語）とGoogleマップの情報整備までまとめて対応し、毎月の維持費はかかりません。</p></details>
+      <details><summary>作ったホームページは、お店のものになりますか？</summary><p>はい。ドメイン（サイトの住所）はお店の名義で取得し、ご希望があればサイトのデータもお渡しします。</p></details>
+      <details><summary>外国語の翻訳は大丈夫ですか？</summary><p>翻訳した内容は、公開前にかならずご確認いただきます。メニュー名など、お店ならではの言い方があれば、そのまま反映します。</p></details>
       <details><summary>Googleで検索したときに出てきますか？</summary><p>Googleマップのお店情報にサイトを登録し、Googleへの登録手続きも行います。検索順位を保証するものではありませんが、見つけてもらいやすい作りにしています。</p></details>
     </div>
   </div>
