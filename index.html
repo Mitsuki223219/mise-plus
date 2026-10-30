@@ -241,6 +241,16 @@
   .support strong { font-family: "Cormorant Garamond", "Noto Serif JP", serif; font-size: 24px; font-weight: 500; }
   @media (max-width: 700px) { .support { padding: 28px 18px; } .support table { font-size: 12px; } .support th, .support td { padding: 12px 6px; } .support strong { font-size: 18px; } }
 
+
+  .handover { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 28px; }
+  .handover > div { background: #fff; padding: 26px 24px; }
+  .handover > div:nth-child(2) { background: var(--dark); color: #fff; }
+  .handover > div:nth-child(2) p, .handover > div:nth-child(2) .when { color: rgba(255,255,255,.7); }
+  .handover .when { font-size: 12px; letter-spacing: .12em; color: var(--accent); }
+  .handover b { display: block; font-family: "Noto Serif JP", serif; font-weight: 500; font-size: 20px; margin: 4px 0 8px; }
+  .handover p { font-size: 13px; color: var(--ink-2); }
+  @media (max-width: 800px) { .handover { grid-template-columns: 1fr; } }
+
   /* price */
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin-top: 72px; background: #fff; }
   .plan { padding: 48px 40px; border-right: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
@@ -410,7 +420,7 @@
       <div class="feature reveal"><div class="n">01</div><h3>契約の前に、見本を無料で</h3><p>あなたのお店のサイトを先に作ってお見せします。気に入らなければ、費用は一切かかりません。</p></div>
       <div class="feature reveal"><div class="n">02</div><h3>最短7日で公開</h3><p>写真と情報をいただければすぐに制作。宴会シーズンや新メニューの時期にも間に合います。</p></div>
       <div class="feature reveal"><div class="n">03</div><h3>維持費は0円</h3><p>毎月の管理費はいただきません。かかるのはサイトの住所（ドメイン）の実費だけです。</p></div>
-      <div class="feature reveal"><div class="n">04</div><h3>修正はLINEで送るだけ</h3><p>「営業時間を変えて」とLINEで送るだけ。パソコンが苦手でも大丈夫です。小さな修正は1回3,000円から。</p></div>
+      <div class="feature reveal"><div class="n">04</div><h3>サイトはまるごとお渡し</h3><p>サイトもドメインもお店の名義で作り、完成したらまるごとお渡しします。月額の契約や、解約の手続きはありません。</p></div>
       <div class="feature reveal"><div class="n">05</div><h3>Googleマップも整えます</h3><p>写真・営業時間・メニューの登録まで。お客さんがお店を見つける入口を、まとめて整えます。</p></div>
       <div class="feature reveal"><div class="n">06</div><h3>5つの言語に対応</h3><p>日本語・英語・韓国語・中国語（簡体字／繁体字）を、お客さんがボタンひとつで切り替え。海外からのお客さんにも伝わります。</p></div>
     </div>
@@ -518,7 +528,7 @@
         <div class="bar"><div class="top"><span>制作会社（例：制作30万円 ＋ 月5,000円）</span><strong>¥600,000</strong></div><div class="track"><div class="fill" style="width:100%;background:#b9ae9e"></div></div></div>
         <div class="bar us"><div class="top"><span>Mise+ Standard（制作7万円 ＋ ドメイン代 年2,000円ほど）</span><strong>¥80,000</strong></div><div class="track"><div class="fill" style="width:13.3%"></div></div></div>
       </div>
-      <p class="note">※金額は一般的な例です。Mise+の修正費用（1回3,000円〜）は、ご依頼いただいた場合のみかかります。</p>
+      <p class="note">※金額は一般的な例です。Mise+は引き渡し後の費用はかかりません（ドメイン代の実費のみ）。</p>
     </div>
   </div>
 </section>
@@ -585,21 +595,13 @@
       </div>
     </div>
     <div class="support reveal">
-      <h3>作ったあとの修正は、2つから選べます</h3>
-      <p class="sub">毎月の維持費は0円。修正の多いお店は、月額サポートがお得です。</p>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th></th><th>単発で頼む</th><th class="hl">月額サポート</th></tr></thead>
-          <tbody>
-            <tr><th>毎月の費用</th><td><strong>0円</strong></td><td class="hl"><strong>3,000円</strong></td></tr>
-            <tr><th>小さな修正<small>営業時間・値段・文字</small></th><td>1回 3,000円</td><td class="hl">月3回まで無料</td></tr>
-            <tr><th>大きな修正<small>写真の入れかえ・メニューの追加</small></th><td>1回 10,000円</td><td class="hl">1回 5,000円</td></tr>
-            <tr><th>Googleマップの更新</th><td>1回 3,000円</td><td class="hl">込み</td></tr>
-            <tr><th>こんなお店に</th><td>内容をほとんど変えない</td><td class="hl">季節メニューや臨時休業が多い</td></tr>
-          </tbody>
-        </table>
+      <h3>完成したら、まるごとお渡しします</h3>
+      <p class="sub">月額の契約はありません。引き渡したあとは、サイトは完全にお店のものです。</p>
+      <div class="handover">
+        <div><span class="when">公開から2週間</span><b>修正は無料</b><p>文字や写真など、気になるところはLINEで送るだけ。何度でも直します。（Premiumは1か月）</p></div>
+        <div><span class="when">引き渡し</span><b>すべてお渡し</b><p>サイトのデータ、置き場所とドメインのログイン情報、Googleマップの管理まで、お店にお渡しします。</p></div>
+        <div><span class="when">引き渡しのあと</span><b>毎月の費用 0円</b><p>かかるのはドメイン代の実費（年1,000〜3,000円ほど）だけ。修正が必要になったら、ご希望に応じて都度お見積りします。</p></div>
       </div>
-      <p class="note">※どちらのプランでも、ドメイン代（サイトの住所）の実費、年1,000〜3,000円ほどがかかります。月額サポートはいつでも始められ、いつでもやめられます。</p>
     </div>
   </div>
 </section>
@@ -610,8 +612,8 @@
     <h2 class="reveal">Mise+の、4つの約束。</h2>
     <div class="promises reveal">
       <div class="promise"><div class="n">01</div><h3>あとから高いお金は<br>いただきません</h3><p>料金はすべて事前にお見積り。了承をいただく前に、作業や請求をすることはありません。</p></div>
-      <div class="promise"><div class="n">02</div><h3>サイトは<br>お店のものです</h3><p>ドメイン（サイトの住所）はお店の名義で取得。サイトのデータも、ご希望があればお渡しします。</p></div>
-      <div class="promise"><div class="n">03</div><h3>作って終わりに<br>しません</h3><p>困ったときはLINEでいつでも相談OK。公開後も、変えたいことがあればすぐ対応します。</p></div>
+      <div class="promise"><div class="n">02</div><h3>サイトは<br>お店のものです</h3><p>ドメイン（サイトの住所）はお店の名義で取得。サイトのデータもログイン情報も、すべてお渡しします。</p></div>
+      <div class="promise"><div class="n">03</div><h3>引き渡したら<br>しばりはありません</h3><p>月額の契約や、解約の手続きはありません。サイトは完全にお店のものになります。</p></div>
       <div class="promise"><div class="n">04</div><h3>しつこい営業は<br>しません</h3><p>見本を見て「いらない」と思ったら、それで終わりです。何度も連絡することはありません。</p></div>
     </div>
   </div>
@@ -626,7 +628,7 @@
       <div class="step"><div class="n">02</div><div><h3>見本の作成 <span class="free">free</span></h3><p>あなたのお店の見本サイトをお作りします。</p></div></div>
       <div class="step"><div class="n">03</div><div><h3>ご契約</h3><p>見本を見て、気に入ったらプランを選んでご契約。</p></div></div>
       <div class="step"><div class="n">04</div><div><h3>写真・情報の受け取り</h3><p>スマホの写真をLINEで送っていただくだけ。</p></div></div>
-      <div class="step"><div class="n">05</div><div><h3>公開</h3><p>最短7日。Googleマップにも登録します。</p></div></div>
+      <div class="step"><div class="n">05</div><div><h3>公開・引き渡し</h3><p>最短7日で公開。2週間の修正期間のあと、まるごとお渡しします。</p></div></div>
     </div>
   </div>
 </section>
@@ -638,7 +640,7 @@
       <div class="label">MESSAGE</div>
       <h2>地元のいい店を、<br>もっと多くの人に。</h2>
       <p>福岡で暮らしながら、「おいしいのに、ネットで調べても何も出てこないお店」にたくさん出会ってきました。料理も、店主さんの人柄も素晴らしいのに、それが伝わらないのはもったいない。</p>
-      <p>Mise+は、そんなお店の「ネットの看板」をつくります。作って終わりではなく、困ったときにLINEひとつで相談できる存在でありたいと思っています。</p>
+      <p>Mise+は、そんなお店の「ネットの看板」をつくって、まるごとお渡しします。毎月の費用や面倒な契約なしで、いいお店が見つかるきっかけをつくりたいと思っています。</p>
       <div class="sign">Mise+ 代表</div>
     </div>
   </div>
@@ -651,8 +653,8 @@
     <div class="faq reveal">
       <details><summary>パソコンがまったく使えないのですが、大丈夫ですか？</summary><p>大丈夫です。やりとりはLINEか電話だけで完結します。写真もスマホで撮ったものを送っていただければ十分です。</p></details>
       <details><summary>本当に見本は無料ですか？</summary><p>はい、無料です。見本を見て気に入らなければ、そこで終わりで構いません。</p></details>
-      <details><summary>毎月お金はかかりますか？</summary><p>維持費・管理費はかかりません。毎年かかるのは、サイトの住所（ドメイン）の実費、年1,000〜3,000円ほどだけです。修正をよく頼みたいお店は、ご希望があれば月額サポート（月3,000円）に入ることもできます。</p></details>
-      <details><summary>あとから営業時間やメニューを変えられますか？</summary><p>はい。LINEで変えたい内容を送っていただくだけです。営業時間や値段などの小さな修正は1回3,000円、写真の入れかえなどの大きな修正は1回10,000円です。修正が多いお店には、小さな修正が月3回まで無料になる月額サポート（月3,000円）もご用意しています。</p></details>
+      <details><summary>毎月お金はかかりますか？</summary><p>維持費・管理費はかかりません。毎年かかるのは、サイトの住所（ドメイン）の実費、年1,000〜3,000円ほどだけです。月額の契約もありません。</p></details>
+      <details><summary>あとから営業時間やメニューを変えられますか？</summary><p>公開から2週間（Premiumは1か月）は、LINEで送っていただくだけで無料で修正します。引き渡し後の修正は、ご希望があれば都度お見積りします。</p></details>
       <details><summary>ほかの格安ホームページサービスとの違いは？</summary><p>Mise+は、ご契約の前にあなたのお店の見本を無料でお作りします。さらに、外国語ページ（最大5言語）とGoogleマップの情報整備までまとめて対応し、毎月の維持費はかかりません。</p></details>
       <details><summary>作ったホームページは、お店のものになりますか？</summary><p>はい。ドメイン（サイトの住所）はお店の名義で取得し、ご希望があればサイトのデータもお渡しします。</p></details>
       <details><summary>外国語の翻訳は大丈夫ですか？</summary><p>翻訳した内容は、公開前にかならずご確認いただきます。メニュー名など、お店ならではの言い方があれば、そのまま反映します。</p></details>
