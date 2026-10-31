@@ -58,7 +58,13 @@
   /* ヒーロー */
   .hero { position: relative; min-height: min(88vh, 860px); display: flex; align-items: flex-end; overflow: hidden; }
   .hero .ph { position: absolute; inset: 0; }
-  .hero .ph img { animation: zoom 14s ease-out both; }
+  .hero .ph img { position: absolute; inset: 0; opacity: 0; animation: slide 18s infinite; }
+  .hero .ph img:nth-child(1) { animation-delay: 0s; }
+  .hero .ph img:nth-child(2) { animation-delay: 6s; }
+  .hero .ph img:nth-child(3) { animation-delay: 12s; }
+  @keyframes slide { 0% { opacity: 0; transform: scale(1.08); } 6% { opacity: 1; } 33% { opacity: 1; } 40% { opacity: 0; transform: scale(1); } 100% { opacity: 0; } }
+  .dots { position: absolute; right: max(20px, env(safe-area-inset-right, 0px)); bottom: 28px; display: flex; gap: 6px; z-index: 2; }
+  .dots i { width: 22px; height: 2px; background: rgba(255,255,255,.35); }
   @keyframes zoom { from { transform: scale(1.08); } to { transform: scale(1); } }
   .hero .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,8,6,.85) 0%, rgba(10,8,6,.35) 55%, rgba(10,8,6,.15)), linear-gradient(0deg, rgba(10,8,6,.9), transparent 45%); }
   .hero .wrap { position: relative; width: 100%; padding-block: 80px 72px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; }
@@ -78,7 +84,7 @@
   .rise.d1 { animation-delay: .15s; } .rise.d2 { animation-delay: .3s; } .rise.d3 { animation-delay: .45s; }
   @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
   @media (max-width: 760px) { .hero .vert { display: none; } .hero .wrap { grid-template-columns: 1fr; padding-block: 64px 48px; } }
-  @media (prefers-reduced-motion: reduce) { .hero .ph img, .rise { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { .hero .ph img, .rise { animation: none; } .hero .ph img:first-child { opacity: 1; } }
 
   /* お知らせ帯 */
   .season { background: var(--red); }
@@ -218,7 +224,7 @@
 </head>
 <body>
 
-<div style="background:#c9a45c;color:#1a1410;text-align:center;font-size:12px;padding:5px 16px;font-weight:500">制作例｜Premiumプラン（5言語・Instagram連携・季節の特設ページ）　※店舗・料金は架空です</div>
+<div style="background:#c9a45c;color:#1a1410;text-align:center;font-size:12px;padding:5px 16px;font-weight:500">制作例｜Premiumプラン（5言語・別ページ・スライドショー・季節の特設ページ）　※店舗・料金は架空です</div>
 <div class="langbar">
   <div class="wrap">
     <span class="lbl">Language</span>
@@ -235,7 +241,7 @@
     <a href="#top" class="logo"><span class="seal">龍</span><span class="name">龍門<span class="sub" data-i="logo_sub">台湾家庭料理</span></span></a>
     <nav>
       <a class="l" href="#story" data-i="nav_story">こだわり</a>
-      <a class="l" href="#menu" data-i="nav_menu">メニュー</a>
+      <a class="l" href="menu.html" data-i="nav_menu">メニュー</a>
       <a class="l" href="#party" data-i="nav_party">宴会</a>
       <a class="l" href="#takeout" data-i="nav_takeout">オードブル</a>
       <a class="l" href="#info" data-i="nav_access">アクセス</a>
@@ -245,7 +251,8 @@
 </header>
 
 <div class="hero" id="top">
-  <div class="ph"><img src="img/hero.jpg" alt=""></div>
+  <div class="ph"><img src="img/hero.jpg" alt=""><img src="img/interior2.jpg" alt=""><img src="img/pho.jpg" alt=""></div>
+  <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap">
     <div>
       <div class="tag rise" data-i="hero_tag">福岡の台湾家庭料理</div>
@@ -311,6 +318,8 @@
       <div class="dish"><div class="ph"><img src="img/rice.jpg" alt=""><span class="no">05</span></div><div class="row"><h3 data-i="d5">五目炒飯</h3><span class="price">¥680</span></div><p data-i="d5d">強火で一気に仕上げる、パラパラの炒飯。</p></div>
       <div class="dish"><div class="ph"><img src="img/noodle2.jpg" alt=""><span class="no">06</span></div><div class="row"><h3 data-i="d6">焼きビーフン</h3><span class="price">¥720</span></div><p data-i="d6d">台湾・新竹のビーフンを、野菜と豚肉で香ばしく。</p></div>
     </div>
+
+    <div class="actions" style="justify-content:center;margin-top:48px"><a class="btn btn-ghost" href="menu.html" data-i="all_menu">全メニューを見る</a></div>
 
     <div class="lunch-grid">
       <div class="ph"><img src="img/lunch.jpg" alt=""></div>
@@ -580,6 +589,7 @@ var T = {
   s_call: ["電話で予約", "Call", "전화 예약", "电话预约", "電話預約"],
   ig_h: ["最新情報", "Latest News", "최신 소식", "最新消息", "最新消息"],
   ig_p: ["季節のメニューや臨時休業のお知らせは、Instagramで発信しています。", "Seasonal menus and closure notices are posted on Instagram.", "계절 메뉴와 임시 휴무 소식은 Instagram에서 알려 드립니다.", "季节菜单和临时休息通知会在Instagram上发布。", "季節菜單和臨時休息通知會在Instagram上發布。"],
+  all_menu: ["全メニューを見る", "See Full Menu", "전체 메뉴 보기", "查看全部菜单", "查看全部菜單"],
   s_map: ["アクセス", "Access", "오시는 길", "交通", "交通"]
 };
 var ORDER = ["ja", "en", "ko", "zh-Hans", "zh-Hant"];

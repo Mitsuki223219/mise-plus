@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>龍門のメニュー｜制作例</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  /* 全メニューのページ：食堂の壁に貼られたお品書きのように、分類ごとに値段が一直線にそろう */
+  :root {
+    --bg: #11100e; --bg-2: #1a1714; --red: #b8262c; --gold: #c9a45c;
+    --text: #f3ede3; --text-2: #d9cfbf; --muted: #9c9283; --line: rgba(243,237,227,.12);
+    --serif: "Noto Serif JP", "Noto Serif KR", "Songti SC", "Songti TC", serif;
+    --sans: "Noto Sans JP", "Noto Sans KR", "Apple SD Gothic Neo", "PingFang SC", "PingFang TC", sans-serif;
+    --latin: "Cormorant Garamond", Georgia, serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); font-weight: 300; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; max-width: 100%; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  .plan { background: var(--gold); color: #1a1410; text-align: center; font-size: 12px; padding: 5px 16px; font-weight: 500; }
+  .langbar { background: #000; font-size: 12px; }
+  .langbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 4px; height: 44px; overflow-x: auto; }
+  .langbar a { color: var(--muted); white-space: nowrap; margin-right: 12px; }
+  .langbar .btns { display: flex; gap: 4px; }
+  .langbar button { background: none; border: 1px solid transparent; color: var(--muted); padding: 3px 9px; font: inherit; cursor: pointer; white-space: nowrap; }
+  .langbar button.on { color: var(--text); border-color: var(--gold); }
+  @media (max-width: 600px) { .langbar button { padding: 3px 4px; } }
+
+  .top { position: relative; height: 300px; display: flex; align-items: flex-end; }
+  .top .ph { position: absolute; inset: 0; }
+  .top .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,8,6,.92), rgba(10,8,6,.35)); }
+  .top .wrap { position: relative; width: 100%; padding-bottom: 34px; }
+  .top .en { font-family: var(--latin); font-style: italic; color: var(--gold); font-size: 24px; }
+  .top h1 { font-family: var(--serif); font-weight: 900; font-size: clamp(34px, 6vw, 52px); letter-spacing: .1em; }
+
+  .tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(17,16,14,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .tabs .wrap { display: flex; gap: 22px; overflow-x: auto; height: 52px; align-items: center; font-size: 14px; }
+  .tabs a { white-space: nowrap; color: var(--text-2); }
+  .tabs a:hover { color: var(--gold); }
+
+  section { padding-block: 64px 10px; }
+  h2 { display: flex; align-items: baseline; gap: 14px; font-family: var(--serif); font-weight: 700; font-size: 26px; letter-spacing: .08em; border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin-bottom: 8px; }
+  h2 small { font-family: var(--latin); font-style: italic; font-weight: 400; color: var(--gold); font-size: 18px; letter-spacing: 0; }
+  .list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; }
+  .row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 16px 0; border-bottom: 1px dashed var(--line); align-items: baseline; }
+  .row b { font-family: var(--serif); font-weight: 700; font-size: 17px; }
+  .row .p { font-family: var(--latin); font-size: 22px; color: var(--gold); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .row small { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
+  .row .tag { display: inline-block; font-size: 11px; color: #fff; background: var(--red); padding: 0 6px; margin-left: 6px; vertical-align: 3px; font-family: var(--sans); font-weight: 400; }
+  @media (max-width: 760px) { .list { grid-template-columns: 1fr; } }
+
+  .foot { padding-block: 60px 80px; text-align: center; }
+  .foot p { font-size: 12px; color: var(--muted); }
+  .btn { display: inline-block; margin-top: 22px; padding: 14px 30px; font-size: 14px; border: 1px solid var(--text); }
+  .btn:hover { background: var(--text); color: var(--bg); }
+</style>
+</head>
+<body>
+<div class="plan">制作例｜Premiumプランの「全メニュー」ページ　※店舗・料金は架空です</div>
+<div class="langbar">
+  <div class="wrap">
+    <a href="index.html" data-i="back">← トップへ</a>
+    <div class="btns">
+      <button type="button" data-set="ja" class="on">日本語</button>
+      <button type="button" data-set="en">EN</button>
+      <button type="button" data-set="ko">한국어</button>
+      <button type="button" data-set="zh-Hans">简体</button>
+      <button type="button" data-set="zh-Hant">繁體</button>
+    </div>
+  </div>
+</div>
+
+<div class="top">
+  <div class="ph"><img src="img/dimsum.jpg" alt=""></div>
+  <div class="wrap"><div class="en">Menu</div><h1 data-i="title">お品書き</h1></div>
+</div>
+
+<nav class="tabs" aria-label="Menu categories">
+  <div class="wrap">
+    <a href="#noodle" data-i="c1">麺</a><a href="#rice" data-i="c2">ごはん</a><a href="#dimsum" data-i="c3">点心</a><a href="#dish" data-i="c4">一品料理</a><a href="#drink" data-i="c5">ドリンク</a>
+  </div>
+</nav>
+
+<section id="noodle"><div class="wrap">
+  <h2><span data-i="c1">麺</span><small>Noodles</small></h2>
+  <div class="list">
+    <div class="row"><b><span data-i="n1">台湾ラーメン</span><span class="tag" data-i="hot">辛</span></b><span class="p">¥780</span><small data-i="n1d">ピリ辛の挽肉と、たっぷりの野菜</small></div>
+    <div class="row"><b data-i="n2">台湾牛肉麺</b><span class="p">¥980</span><small data-i="n2d">八角香るスープと、やわらかい牛肉</small></div>
+    <div class="row"><b data-i="n3">焼きビーフン</b><span class="p">¥720</span><small data-i="n3d">新竹のビーフンを豚肉と野菜で</small></div>
+    <div class="row"><b><span data-i="n4">担々麺</span><span class="tag" data-i="hot">辛</span></b><span class="p">¥850</span><small data-i="n4d">ごまの香りと、花椒のしびれ</small></div>
+  </div>
+</div></section>
+
+<section id="rice"><div class="wrap">
+  <h2><span data-i="c2">ごはん</span><small>Rice</small></h2>
+  <div class="list">
+    <div class="row"><b data-i="r1">五目炒飯</b><span class="p">¥680</span><small data-i="r1d">強火で仕上げるパラパラ炒飯</small></div>
+    <div class="row"><b data-i="r2">魯肉飯</b><span class="p">¥750</span><small data-i="r2d">甘辛く煮込んだ豚バラをごはんに</small></div>
+    <div class="row"><b data-i="r3">天津飯</b><span class="p">¥700</span><small data-i="r3d">ふわふわ卵と特製あんかけ</small></div>
+  </div>
+</div></section>
+
+<section id="dimsum"><div class="wrap">
+  <h2><span data-i="c3">点心</span><small>Dim Sum</small></h2>
+  <div class="list">
+    <div class="row"><b data-i="d1">手づくり水餃子（6個）</b><span class="p">¥480</span><small data-i="d1d">毎朝のばす、もちもちの皮</small></div>
+    <div class="row"><b data-i="d2">焼き餃子（6個）</b><span class="p">¥450</span><small data-i="d2d">底はパリッと、中はジューシー</small></div>
+    <div class="row"><b data-i="d3">小籠包（4個）</b><span class="p">¥580</span><small data-i="d3d">熱々のスープがあふれ出す</small></div>
+    <div class="row"><b data-i="d4">春巻き（2本）</b><span class="p">¥420</span><small data-i="d4d">パリッと香ばしく揚げて</small></div>
+  </div>
+</div></section>
+
+<section id="dish"><div class="wrap">
+  <h2><span data-i="c4">一品料理</span><small>Dishes</small></h2>
+  <div class="list">
+    <div class="row"><b data-i="i1">鶏の唐揚げ</b><span class="p">¥650</span><small data-i="i1d">秘伝のタレに一晩漬け込んで</small></div>
+    <div class="row"><b data-i="i2">油淋鶏</b><span class="p">¥780</span><small data-i="i2d">甘酢の香味ダレで</small></div>
+    <div class="row"><b><span data-i="i3">海老のチリソース</span><span class="tag" data-i="hot">辛</span></b><span class="p">¥980</span><small data-i="i3d">ぷりぷりの海老を甘辛く</small></div>
+    <div class="row"><b data-i="i4">酢豚</b><span class="p">¥880</span><small data-i="i4d">黒酢でコクのある味に</small></div>
+  </div>
+</div></section>
+
+<section id="drink"><div class="wrap">
+  <h2><span data-i="c5">ドリンク</span><small>Drinks</small></h2>
+  <div class="list">
+    <div class="row"><b data-i="k1">生ビール</b><span class="p">¥550</span><small data-i="k1d">中ジョッキ</small></div>
+    <div class="row"><b data-i="k2">台湾ビール</b><span class="p">¥600</span><small data-i="k2d">すっきり軽い飲み口</small></div>
+    <div class="row"><b data-i="k3">紹興酒（グラス）</b><span class="p">¥500</span><small data-i="k3d">ロック・お湯割り</small></div>
+    <div class="row"><b data-i="k4">台湾烏龍茶</b><span class="p">¥350</span><small data-i="k4d">ホット・アイス</small></div>
+  </div>
+</div></section>
+
+<div class="foot"><div class="wrap">
+  <p data-i="note">価格はすべて税込です。※このサイトは制作例です。店舗・料金は架空のものです。</p>
+  <a class="btn" href="index.html" data-i="back2">龍門のトップへ戻る</a>
+</div></div>
+
+<script>
+var T = {
+  back: ["← トップへ", "← Home", "← 홈으로", "← 返回首页", "← 返回首頁"],
+  back2: ["龍門のトップへ戻る", "Back to Ryumon Home", "류몬 홈으로", "返回龙门首页", "返回龍門首頁"],
+  title: ["お品書き", "Menu", "메뉴", "菜单", "菜單"],
+  c1: ["麺", "Noodles", "면", "面类", "麵類"], c2: ["ごはん", "Rice", "밥", "饭类", "飯類"], c3: ["点心", "Dim Sum", "딤섬", "点心", "點心"], c4: ["一品料理", "Dishes", "일품요리", "单点菜", "單點菜"], c5: ["ドリンク", "Drinks", "음료", "饮品", "飲品"],
+  hot: ["辛", "Spicy", "매움", "辣", "辣"],
+  n1: ["台湾ラーメン", "Taiwan Ramen", "대만 라멘", "台湾拉面", "台灣拉麵"], n1d: ["ピリ辛の挽肉と、たっぷりの野菜", "Spicy minced pork and plenty of vegetables", "매콤한 다진 고기와 듬뿍 들어간 채소", "香辣肉末配丰富蔬菜", "香辣肉末配豐富蔬菜"],
+  n2: ["台湾牛肉麺", "Taiwanese Beef Noodle Soup", "대만 우육면", "台湾牛肉面", "台灣牛肉麵"], n2d: ["八角香るスープと、やわらかい牛肉", "Star-anise broth with tender beef", "팔각 향 국물과 부드러운 소고기", "八角香汤配软嫩牛肉", "八角香湯配軟嫩牛肉"],
+  n3: ["焼きビーフン", "Fried Rice Noodles", "볶음 쌀국수", "炒米粉", "炒米粉"], n3d: ["新竹のビーフンを豚肉と野菜で", "Hsinchu rice noodles with pork and vegetables", "신주 쌀국수를 돼지고기와 채소로", "新竹米粉配猪肉和蔬菜", "新竹米粉配豬肉和蔬菜"],
+  n4: ["担々麺", "Dan Dan Noodles", "탄탄면", "担担面", "擔擔麵"], n4d: ["ごまの香りと、花椒のしびれ", "Sesame aroma with numbing Sichuan pepper", "참깨 향과 화자오의 얼얼함", "芝麻香与花椒麻", "芝麻香與花椒麻"],
+  r1: ["五目炒飯", "Special Fried Rice", "오목 볶음밥", "什锦炒饭", "什錦炒飯"], r1d: ["強火で仕上げるパラパラ炒飯", "Wok-fried over high heat", "센 불에 볶은 고슬고슬한 볶음밥", "大火快炒粒粒分明", "大火快炒粒粒分明"],
+  r2: ["魯肉飯", "Braised Pork Rice", "루러우판", "卤肉饭", "滷肉飯"], r2d: ["甘辛く煮込んだ豚バラをごはんに", "Sweet-savory braised pork belly over rice", "달콤짭짤하게 졸인 삼겹살 덮밥", "甜咸卤五花肉盖饭", "甜鹹滷五花肉蓋飯"],
+  r3: ["天津飯", "Crab Omelette Rice", "덴신항", "天津饭", "天津飯"], r3d: ["ふわふわ卵と特製あんかけ", "Fluffy omelette with special sauce", "폭신한 달걀과 특제 소스", "滑嫩蛋配特制芡汁", "滑嫩蛋配特製芡汁"],
+  d1: ["手づくり水餃子（6個）", "Handmade Boiled Dumplings (6)", "수제 물만두 (6개)", "手工水饺（6个）", "手工水餃（6顆）"], d1d: ["毎朝のばす、もちもちの皮", "Wrappers rolled every morning", "매일 아침 미는 쫄깃한 피", "每天早上擀的软糯饺子皮", "每天早上擀的Q彈餃子皮"],
+  d2: ["焼き餃子（6個）", "Pan-Fried Dumplings (6)", "군만두 (6개)", "煎饺（6个）", "煎餃（6顆）"], d2d: ["底はパリッと、中はジューシー", "Crispy bottoms, juicy inside", "바닥은 바삭, 속은 촉촉", "底部酥脆，内馅多汁", "底部酥脆，內餡多汁"],
+  d3: ["小籠包（4個）", "Soup Dumplings (4)", "샤오롱바오 (4개)", "小笼包（4个）", "小籠包（4顆）"], d3d: ["熱々のスープがあふれ出す", "Bursting with hot soup", "뜨거운 육즙이 가득", "热汤满溢", "熱湯滿溢"],
+  d4: ["春巻き（2本）", "Spring Rolls (2)", "춘권 (2개)", "春卷（2条）", "春捲（2條）"], d4d: ["パリッと香ばしく揚げて", "Fried golden and crisp", "바삭하고 고소하게 튀겨서", "炸得酥脆喷香", "炸得酥脆噴香"],
+  i1: ["鶏の唐揚げ", "Fried Chicken", "닭튀김(가라아게)", "日式炸鸡", "日式炸雞"], i1d: ["秘伝のタレに一晩漬け込んで", "Marinated overnight in our secret sauce", "비법 양념에 하룻밤 재워서", "秘制酱汁腌制一夜", "秘製醬汁醃製一夜"],
+  i2: ["油淋鶏", "Crispy Chicken with Scallion Sauce", "유린기", "油淋鸡", "油淋雞"], i2d: ["甘酢の香味ダレで", "With a tangy aromatic sauce", "새콤달콤한 향미 소스로", "配酸甜香味酱", "配酸甜香味醬"],
+  i3: ["海老のチリソース", "Chili Shrimp", "새우 칠리소스", "干烧虾仁", "乾燒蝦仁"], i3d: ["ぷりぷりの海老を甘辛く", "Plump shrimp in sweet chili sauce", "탱글탱글한 새우를 달콤 매콤하게", "Q弹虾仁甜辣口味", "Q彈蝦仁甜辣口味"],
+  i4: ["酢豚", "Sweet and Sour Pork", "탕수육", "咕咾肉", "咕咾肉"], i4d: ["黒酢でコクのある味に", "Rich black-vinegar glaze", "흑식초로 깊은 맛", "黑醋浓郁风味", "黑醋濃郁風味"],
+  k1: ["生ビール", "Draft Beer", "생맥주", "生啤酒", "生啤酒"], k1d: ["中ジョッキ", "Medium mug", "중간 잔", "中杯", "中杯"],
+  k2: ["台湾ビール", "Taiwan Beer", "대만 맥주", "台湾啤酒", "台灣啤酒"], k2d: ["すっきり軽い飲み口", "Light and crisp", "깔끔하고 가벼운 맛", "清爽顺口", "清爽順口"],
+  k3: ["紹興酒（グラス）", "Shaoxing Wine (glass)", "소흥주 (글라스)", "绍兴酒（杯）", "紹興酒（杯）"], k3d: ["ロック・お湯割り", "On the rocks or with hot water", "온더록·따뜻하게", "加冰・兑热水", "加冰・兌熱水"],
+  k4: ["台湾烏龍茶", "Taiwanese Oolong Tea", "대만 우롱차", "台湾乌龙茶", "台灣烏龍茶"], k4d: ["ホット・アイス", "Hot or iced", "핫·아이스", "热・冰", "熱・冰"],
+  note: ["価格はすべて税込です。※このサイトは制作例です。店舗・料金は架空のものです。", "All prices include tax. * This is a sample website. The restaurant and prices are fictional.", "가격은 모두 세금 포함입니다. ※이 사이트는 제작 예시이며, 매장과 가격은 가상입니다.", "价格均含税。※本网站为制作示例，店铺与价格均为虚构。", "價格均含稅。※本網站為製作範例，店鋪與價格皆為虛構。"]
+};
+var ORDER = ["ja", "en", "ko", "zh-Hans", "zh-Hant"];
+function setLang(code) {
+  var i = ORDER.indexOf(code); if (i < 0) return;
+  document.documentElement.lang = code;
+  document.querySelectorAll("[data-i]").forEach(function (el) { var t = T[el.getAttribute("data-i")]; if (t) el.innerHTML = t[i]; });
+  document.querySelectorAll(".langbar button").forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-set") === code); });
+  try { localStorage.setItem("lang", code); } catch (e) {}
+}
+document.querySelectorAll(".langbar button").forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-set")); }); });
+var saved = null; try { saved = localStorage.getItem("lang"); } catch (e) {}
+if (saved) setLang(saved);
+</script>
+</body>
+</html>
