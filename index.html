@@ -251,6 +251,21 @@
   .handover p { font-size: 13px; color: var(--ink-2); }
   @media (max-width: 800px) { .handover { grid-template-columns: 1fr; } }
 
+
+  /* plan demo */
+  .plan-demo { margin-top: 56px; }
+  .plan-demo h3 { font-family: "Noto Serif JP", serif; font-weight: 500; font-size: 22px; }
+  .plan-demo .sub { font-size: 13px; color: var(--muted); }
+  .pd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+  .pd { background: #fff; border: 1px solid var(--line); padding: 20px; display: grid; gap: 8px; align-content: start; transition: border-color .2s; }
+  .pd:hover { border-color: var(--ink); }
+  .pd-ph { aspect-ratio: 9/12; overflow: hidden; background: #111; }
+  .pd-ph img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .pd b { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 26px; line-height: 1.2; margin-top: 6px; }
+  .pd span { font-size: 13px; color: var(--ink-2); }
+  .pd em { font-style: normal; font-size: 13px; color: var(--accent); }
+  @media (max-width: 800px) { .pd-grid { grid-template-columns: 1fr; } .pd { grid-template-columns: 110px 1fr; column-gap: 16px; } .pd-ph { grid-row: span 4; } }
+
   /* price */
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin-top: 72px; background: #fff; }
   .plan { padding: 48px 40px; border-right: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
@@ -569,7 +584,7 @@
         <div class="muted">維持費 0円</div>
         <ul>
           <li>Basicの内容すべて</li>
-          <li>最大5ページ</li>
+          <li>メニュー・宴会などのコーナー（最大5つ）</li>
           <li>メニュー・料金ページ</li>
           <li>日本語・英語の2言語</li>
           <li>Googleで検索されるための登録</li>
@@ -593,6 +608,15 @@
         <a class="btn" href="#contact">相談する <span class="arrow"></span></a>
       </div>
     </div>
+    <div class="plan-demo reveal">
+      <h3>同じお店で、プランごとの違いを見てみる</h3>
+      <p class="sub">架空の台湾料理店「龍門」を、3つのプランで作りました。タップすると実際のサイトが開きます。</p>
+      <div class="pd-grid">
+        <a class="pd" href="work/taiwan-basic/"><div class="pd-ph"><img src="img/plan-basic.jpg" alt="Basicプランの制作例"></div><b>Basic</b><span>1ページ・日本語。電話と地図、メニュー、店舗情報をシンプルに。</span><em>見る →</em></a>
+        <a class="pd" href="work/taiwan-standard/"><div class="pd-ph"><img src="img/plan-standard.jpg" alt="Standardプランの制作例"></div><b>Standard</b><span>こだわり・メニュー・ランチ・宴会・オードブルまで。日本語／英語。</span><em>見る →</em></a>
+        <a class="pd" href="work/taiwan/"><div class="pd-ph"><img src="img/plan-premium.jpg" alt="Premiumプランの制作例"></div><b>Premium</b><span>5言語、Instagram連携、ギャラリー、忘年会の特設ページつき。</span><em>見る →</em></a>
+      </div>
+    </div>
     <p class="note reveal" style="margin-top:24px">※ホームページは無料のURL（例：お店の名前.pages.dev）で公開します。独自ドメイン（例：お店の名前.jp）をご希望の場合はオプション ＋5,000円（1年目のドメイン代込み）。<br>※お支払いは、ご契約時に全額を銀行振込でお願いしています。</p>
     <div class="support reveal">
       <h3>完成したら、まるごとお渡しします</h3>
@@ -600,7 +624,7 @@
       <div class="handover">
         <div><span class="when">公開する前</span><b>修正は何度でも無料</b><p>完成したサイトを見ていただき、気になるところはLINEで送るだけ。OKをいただいてから公開します。</p></div>
         <div><span class="when">公開と同時に</span><b>すべてお渡し</b><p>サイトのデータと、置き場所のログイン情報をすべてお渡しします。使い方の説明書つきです。</p></div>
-        <div><span class="when">引き渡しのあと</span><b>毎月の費用 0円</b><p>無料のURLなら、ずっと費用はかかりません（独自ドメインのオプションをつけた場合のみ、2年目から年1,000〜3,000円ほど）。修正が必要になったら、ご希望に応じて承ります（営業時間や値段の変更は1回3,000円〜）。</p></div>
+        <div><span class="when">引き渡しのあと</span><b>毎月の費用 0円</b><p>無料のURLなら、ずっと費用はかかりません（独自ドメインのオプションをつけた場合のみ、2年目から年1,000〜3,000円ほど）。修正が必要になったら、ご希望に応じて承ります（営業時間や値段などの小さな修正は1回4,800円、写真の入れかえやメニューの追加などの大きな修正は1回7,800円）。</p></div>
       </div>
     </div>
   </div>
@@ -654,7 +678,7 @@
       <details><summary>パソコンがまったく使えないのですが、大丈夫ですか？</summary><p>大丈夫です。やりとりはLINEか電話だけで完結します。写真もスマホで撮ったものを送っていただければ十分です。</p></details>
       <details><summary>本当に見本は無料ですか？</summary><p>はい、無料です。見本を見て気に入らなければ、そこで終わりで構いません。</p></details>
       <details><summary>毎月お金はかかりますか？</summary><p>かかりません。無料のURLで公開するので、維持費・管理費・サーバー代はずっと0円です。独自ドメインのオプションをつけた場合だけ、2年目から年1,000〜3,000円ほどのドメイン代がかかります。</p></details>
-      <details><summary>あとから営業時間やメニューを変えられますか？</summary><p>公開する前なら、何度でも無料で修正します。公開後の修正も、ご希望があれば承ります（営業時間や値段の変更は1回3,000円〜）。</p></details>
+      <details><summary>あとから営業時間やメニューを変えられますか？</summary><p>公開する前なら、何度でも無料で修正します。公開後の修正も、ご希望があれば承ります（営業時間や値段などの小さな修正は1回4,800円、写真の入れかえやメニューの追加などの大きな修正は1回7,800円）。</p></details>
       <details><summary>季節メニューやお知らせが、よく変わるのですが？</summary><p>よく変わる情報は、お店のInstagramに投稿していただく形をおすすめしています。ホームページには、営業時間や場所、定番メニューなどの変わりにくい情報をのせ、「最新情報はInstagramで」とつなげておきます。投稿するだけで最新の情報が伝わるので、ホームページを直す必要がありません。</p></details>
       <details><summary>ほかの格安ホームページサービスとの違いは？</summary><p>Mise+は、ご契約の前にあなたのお店の見本を無料でお作りします。さらに、外国語ページ（最大5言語）とGoogleマップへのサイト登録までまとめて対応し、毎月の維持費はかかりません。</p></details>
       <details><summary>作ったホームページは、お店のものになりますか？</summary><p>はい。お店のメールアドレスで公開し、サイトのデータもログイン情報もすべてお渡しします。</p></details>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>台湾料理 龍門｜制作例 Basic</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  /* Basicプラン：1ページで、お店の基本情報と電話・地図だけをわかりやすく */
+  :root {
+    --bg: #11100e; --bg-2: #1a1714; --red: #b8262c; --gold: #c9a45c;
+    --text: #f3ede3; --text-2: #d9cfbf; --muted: #9c9283; --line: rgba(243,237,227,.12);
+    --serif: "Noto Serif JP", serif; --sans: "Noto Sans JP", sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); font-weight: 300; background: var(--bg); color: var(--text); line-height: 1.9; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; max-width: 100%; }
+  .wrap { max-width: 880px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  .plan { background: var(--gold); color: #1a1410; text-align: center; font-size: 12px; padding: 5px 16px; font-weight: 500; }
+
+  .hero { position: relative; height: 62vh; min-height: 420px; display: flex; align-items: flex-end; }
+  .hero .ph { position: absolute; inset: 0; }
+  .hero .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,8,6,.9), rgba(10,8,6,.2) 60%); }
+  .hero .wrap { position: relative; width: 100%; padding-block: 0 44px; }
+  .hero .tag { color: var(--gold); font-size: 13px; letter-spacing: .2em; }
+  .hero h1 { font-family: var(--serif); font-weight: 900; font-size: clamp(60px, 13vw, 110px); letter-spacing: .12em; line-height: 1.1; margin: 6px 0 10px; }
+  .hero p { font-size: 15px; color: var(--text-2); }
+  .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; max-width: 460px; }
+  .btn { text-align: center; padding: 14px 10px; font-size: 14px; border: 1px solid var(--text); }
+  .btn.red { background: var(--red); border-color: var(--red); }
+
+  section { padding-block: 64px; border-top: 1px solid var(--line); }
+  h2 { font-family: var(--serif); font-weight: 700; font-size: 24px; letter-spacing: .08em; margin-bottom: 24px; }
+  .about p { color: var(--text-2); font-size: 15px; }
+
+  .menu-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .item .ph { aspect-ratio: 1; }
+  .item h3 { font-family: var(--serif); font-weight: 700; font-size: 16px; margin-top: 10px; }
+  .item span { color: var(--gold); font-size: 15px; }
+  @media (max-width: 600px) { .menu-list { grid-template-columns: 1fr 1fr; } .menu-list .item:last-child { display: none; } }
+
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th { text-align: left; width: 7em; padding: 12px 0; color: var(--gold); font-weight: 400; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td { padding: 12px 0; border-bottom: 1px solid var(--line); }
+
+  footer { text-align: center; padding: 36px 20px 50px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="plan">制作例｜Basicプラン（1ページ・日本語）　※店舗・料金は架空です</div>
+
+<div class="hero">
+  <div class="ph"><img src="../taiwan/img/hero.jpg" alt=""></div>
+  <div class="wrap">
+    <div class="tag">福岡の台湾家庭料理</div>
+    <h1>龍門</h1>
+    <p>昼 11:00–14:30 ／ 夜 17:00–22:00 ／ 火曜定休</p>
+    <div class="actions">
+      <a class="btn red" href="tel:0920000000">電話する</a>
+      <a class="btn" href="https://maps.google.com/" target="_blank" rel="noopener">地図を見る</a>
+    </div>
+  </div>
+</div>
+
+<section class="about">
+  <div class="wrap">
+    <h2>お店について</h2>
+    <p>台南出身の店主がつくる、台湾の家庭料理のお店です。ボリュームたっぷりのランチから、食べ飲み放題の宴会まで。敷地内に無料駐車場が15台あります。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>人気のメニュー</h2>
+    <div class="menu-list">
+      <div class="item"><div class="ph"><img src="../taiwan/img/ramen.jpg" alt=""></div><h3>台湾ラーメン</h3><span>¥780</span></div>
+      <div class="item"><div class="ph"><img src="../taiwan/img/gyoza.jpg" alt=""></div><h3>手づくり水餃子</h3><span>¥480</span></div>
+      <div class="item"><div class="ph"><img src="../taiwan/img/karaage.jpg" alt=""></div><h3>鶏の唐揚げ</h3><span>¥650</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>店舗情報</h2>
+    <table>
+      <tr><th>店名</th><td>台湾家庭料理 龍門</td></tr>
+      <tr><th>電話</th><td>092-000-0000</td></tr>
+      <tr><th>営業時間</th><td>昼 11:00–14:30／夜 17:00–22:00</td></tr>
+      <tr><th>定休日</th><td>火曜日</td></tr>
+      <tr><th>住所</th><td>福岡県福岡市（サンプル）</td></tr>
+      <tr><th>駐車場</th><td>無料駐車場15台</td></tr>
+      <tr><th>お支払い</th><td>現金・PayPay・クレジットカード</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer>© 台湾家庭料理 龍門</footer>
+</body>
+</html>

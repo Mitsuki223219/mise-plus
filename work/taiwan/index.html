@@ -202,6 +202,9 @@
   .map a { position: absolute; right: 12px; bottom: 12px; background: var(--text); color: var(--bg); font-size: 12px; padding: 8px 14px; letter-spacing: .05em; }
   @media (max-width: 860px) { .info .grid { grid-template-columns: 1fr; gap: 40px; } }
 
+  .ig { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .ig div { aspect-ratio: 1; overflow: hidden; }
+  @media (max-width: 760px) { .ig { grid-template-columns: repeat(3, 1fr); } }
   footer { text-align: center; padding: 56px 20px 120px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
   footer .logo { justify-content: center; margin-bottom: 14px; }
 
@@ -215,6 +218,7 @@
 </head>
 <body>
 
+<div style="background:#c9a45c;color:#1a1410;text-align:center;font-size:12px;padding:5px 16px;font-weight:500">制作例｜Premiumプラン（5言語・Instagram連携・季節の特設ページ）　※店舗・料金は架空です</div>
 <div class="langbar">
   <div class="wrap">
     <span class="lbl">Language</span>
@@ -273,7 +277,7 @@
         <li data-i="season_3">10名様以上で幹事様1名無料</li>
       </ul>
     </div>
-    <a class="btn" href="#party" data-i="season_btn">コースを見る</a>
+    <a class="btn" href="campaign.html" data-i="season_btn">特設ページを見る</a>
   </div>
 </div>
 
@@ -408,6 +412,17 @@
   </div>
 </section>
 
+<section class="insta">
+  <div class="wrap">
+    <div class="head c"><div class="en">Instagram</div><h2 data-i="ig_h">最新情報</h2><p data-i="ig_p">季節のメニューや臨時休業のお知らせは、Instagramで発信しています。</p></div>
+    <div class="ig">
+      <div><img src="img/ramen.jpg" alt=""></div><div><img src="img/dimsum.jpg" alt=""></div><div><img src="img/pho.jpg" alt=""></div>
+      <div><img src="img/rice.jpg" alt=""></div><div><img src="img/group.jpg" alt=""></div><div><img src="img/veg.jpg" alt=""></div>
+    </div>
+    <div class="actions" style="justify-content:center"><a class="btn btn-ghost" href="https://www.instagram.com/" target="_blank" rel="noopener">@ryumon_fukuoka</a></div>
+  </div>
+</section>
+
 <section class="info" id="info">
   <div class="wrap">
     <div class="head"><div class="en">Access</div><h2 data-i="info_title">店舗情報</h2></div>
@@ -471,7 +486,7 @@ var T = {
   season_1: ["食べ飲み放題 120分", "120-min all-you-can-eat & drink", "120분 무한리필·음료 무제한", "120分钟畅吃畅饮", "120分鐘吃到飽喝到飽"],
   season_2: ["10名様〜40名様まで", "Groups of 10 to 40", "10명~40명까지", "可容纳10~40人", "可容納10~40人"],
   season_3: ["10名様以上で幹事様1名無料", "Organizer eats free for groups of 10+", "10명 이상이면 간사 1명 무료", "10人以上组织者1人免费", "10人以上主辦人1位免費"],
-  season_btn: ["コースを見る", "See Courses", "코스 보기", "查看套餐", "查看套餐"],
+  season_btn: ["特設ページを見る", "See Special Page", "특설 페이지 보기", "查看特设页面", "查看特設頁面"],
   story_h: ["台南の母の味を、<br>福岡のみなさんへ。", "A mother's cooking from Tainan,<br>served in Fukuoka.", "타이난 어머니의 맛을<br>후쿠오카 여러분께.", "把台南妈妈的味道，<br>带给福冈的大家。", "把台南媽媽的味道，<br>帶給福岡的大家。"],
   story_p: ["店主の陳は、台湾・台南の生まれ。子どものころに母の台所で覚えた料理を、そのままの味でお出ししています。気取らない食堂で、大皿の料理をみんなで分け合う。そんな台湾の夜を、福岡で楽しんでください。", "Our owner, Chen, was born in Tainan, Taiwan. We serve the dishes he learned in his mother's kitchen, just as they tasted back home. Share big plates with friends in a relaxed diner and enjoy a Taiwanese night in Fukuoka.", "주인 첸은 대만 타이난 출신입니다. 어린 시절 어머니의 부엌에서 배운 요리를 그 맛 그대로 내고 있습니다. 편안한 식당에서 큰 접시 요리를 함께 나누는 대만의 밤을 후쿠오카에서 즐겨 보세요.", "店主陈先生出生于台湾台南。小时候在妈妈厨房里学会的菜，我们原汁原味地呈现给您。在轻松的小食堂里，和大家一起分享大盘菜，在福冈享受台湾的夜晚。", "店主陳先生出生於台灣台南。小時候在媽媽廚房裡學會的菜，我們原汁原味地呈現給您。在輕鬆的小食堂裡，和大家一起分享大盤菜，在福岡享受台灣的夜晚。"],
   pt1: ["餃子の皮は、毎朝手でのばす", "Dumpling wrappers rolled by hand every morning", "만두피는 매일 아침 손으로 밀어요", "饺子皮每天早上手工擀制", "餃子皮每天早上手工擀製"],
@@ -563,6 +578,8 @@ var T = {
   map_btn: ["Googleマップで開く", "Open in Google Maps", "Google 지도에서 열기", "在Google地图中打开", "在Google地圖中開啟"],
   demo: ["※このサイトは制作例です。店舗・料金は架空のものです。", "* This is a sample website. The restaurant and prices are fictional.", "※이 사이트는 제작 예시입니다. 매장과 가격은 가상입니다.", "※本网站为制作示例，店铺与价格均为虚构。", "※本網站為製作範例，店鋪與價格皆為虛構。"],
   s_call: ["電話で予約", "Call", "전화 예약", "电话预约", "電話預約"],
+  ig_h: ["最新情報", "Latest News", "최신 소식", "最新消息", "最新消息"],
+  ig_p: ["季節のメニューや臨時休業のお知らせは、Instagramで発信しています。", "Seasonal menus and closure notices are posted on Instagram.", "계절 메뉴와 임시 휴무 소식은 Instagram에서 알려 드립니다.", "季节菜单和临时休息通知会在Instagram上发布。", "季節菜單和臨時休息通知會在Instagram上發布。"],
   s_map: ["アクセス", "Access", "오시는 길", "交通", "交通"]
 };
 var ORDER = ["ja", "en", "ko", "zh-Hans", "zh-Hant"];
