@@ -737,7 +737,7 @@
 
 <script>
   // モニター価格の残り店舗数。決まるたびにここの数字を1つ減らす。0にするとモニター表示はすべて消える。
-  var MONITOR_LEFT = 5;
+  var MONITOR_LEFT = 0;
   if (MONITOR_LEFT > 0) {
     document.querySelectorAll(".left-count").forEach(function (el) { el.textContent = MONITOR_LEFT; });
   } else {
