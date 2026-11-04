@@ -48,6 +48,27 @@
   th { text-align: left; width: 7em; padding: 12px 0; color: var(--gold); font-weight: 400; border-bottom: 1px solid var(--line); vertical-align: top; }
   td { padding: 12px 0; border-bottom: 1px solid var(--line); }
 
+
+  .news { background: var(--red); display: flex; gap: 14px; justify-content: center; align-items: baseline; flex-wrap: wrap; padding: 14px max(20px, env(safe-area-inset-left, 0px)); font-size: 14px; text-align: center; }
+  .news b { font-weight: 500; border: 1px solid rgba(255,255,255,.7); padding: 0 8px; font-size: 12px; }
+  .item i { font-style: normal; }
+
+  /* 体験版：スプレッドシートで直すデモ */
+  .demo-open { position: fixed; right: max(14px, env(safe-area-inset-right, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 60; background: #1e8e3e; color: #fff; border: 0; font: inherit; font-size: 13px; font-weight: 500; padding: 11px 18px; border-radius: 999px; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+  .sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; background: #fff; color: #202124; border-top: 4px solid #1e8e3e; max-height: 46vh; overflow: auto; padding: 14px max(14px, env(safe-area-inset-left, 0px)) calc(18px + env(safe-area-inset-bottom, 0px)); font-family: "Noto Sans JP", sans-serif; box-shadow: 0 -10px 30px rgba(0,0,0,.4); }
+  .sheet[hidden] { display: none; }
+  .sheet .bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .sheet .bar b { font-size: 14px; display: flex; align-items: center; gap: 8px; }
+  .sheet .bar b::before { content: ""; width: 18px; height: 22px; background: #1e8e3e; border-radius: 2px; display: inline-block; }
+  .sheet .bar button { background: none; border: 1px solid #dadce0; border-radius: 6px; font: inherit; font-size: 12px; padding: 5px 10px; cursor: pointer; color: #202124; }
+  .sheet p.hint { font-size: 12px; color: #5f6368; margin-bottom: 8px; }
+  .sheet table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .sheet th, .sheet td { border: 1px solid #dadce0; padding: 0; text-align: left; }
+  .sheet thead th { background: #f1f3f4; color: #5f6368; width: auto; font-weight: 500; font-size: 12px; padding: 4px 8px; }
+  .sheet tbody th { background: #f8f9fa; color: #202124; font-weight: 400; padding: 8px; width: 34%; white-space: nowrap; }
+  .sheet td { background: #e6f4ea; }
+  .sheet input { width: 100%; border: 0; background: transparent; font: inherit; padding: 8px; color: #202124; }
+  .sheet input:focus { outline: 2px solid #1a73e8; outline-offset: -2px; background: #fff; }
   footer { text-align: center; padding: 36px 20px 50px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); }
 </style>
 </head>
@@ -59,13 +80,15 @@
   <div class="wrap">
     <div class="tag">福岡の台湾家庭料理</div>
     <h1>龍門</h1>
-    <p>昼 11:00–14:30 ／ 夜 17:00–22:00 ／ 火曜定休</p>
+    <p><span data-f="営業時間">昼 11:00–14:30／夜 17:00–22:00</span> ／ <span data-f="定休日">火曜日</span>定休</p>
     <div class="actions">
       <a class="btn red" href="tel:0920000000">電話する</a>
       <a class="btn" href="https://maps.google.com/" target="_blank" rel="noopener">地図を見る</a>
     </div>
   </div>
 </div>
+
+<div class="news" data-show="お知らせ"><b>お知らせ</b><span data-f="お知らせ">年末年始は12月31日〜1月3日までお休みです。</span></div>
 
 <section class="about">
   <div class="wrap">
@@ -78,9 +101,9 @@
   <div class="wrap">
     <h2>人気のメニュー</h2>
     <div class="menu-list">
-      <div class="item"><div class="ph"><img src="../taiwan/img/ramen.jpg" alt=""></div><h3>台湾ラーメン</h3><span>¥780</span></div>
-      <div class="item"><div class="ph"><img src="../taiwan/img/gyoza.jpg" alt=""></div><h3>手づくり水餃子</h3><span>¥480</span></div>
-      <div class="item"><div class="ph"><img src="../taiwan/img/karaage.jpg" alt=""></div><h3>鶏の唐揚げ</h3><span>¥650</span></div>
+      <div class="item"><div class="ph"><img src="../taiwan/img/ramen.jpg" alt=""></div><h3>台湾ラーメン</h3><span>¥<i data-f="台湾ラーメン">780</i></span></div>
+      <div class="item"><div class="ph"><img src="../taiwan/img/gyoza.jpg" alt=""></div><h3>手づくり水餃子</h3><span>¥<i data-f="手づくり水餃子">480</i></span></div>
+      <div class="item"><div class="ph"><img src="../taiwan/img/karaage.jpg" alt=""></div><h3>鶏の唐揚げ</h3><span>¥<i data-f="鶏の唐揚げ">650</i></span></div>
     </div>
   </div>
 </section>
@@ -90,9 +113,9 @@
     <h2>店舗情報</h2>
     <table>
       <tr><th>店名</th><td>台湾家庭料理 龍門</td></tr>
-      <tr><th>電話</th><td>092-000-0000</td></tr>
-      <tr><th>営業時間</th><td>昼 11:00–14:30／夜 17:00–22:00</td></tr>
-      <tr><th>定休日</th><td>火曜日</td></tr>
+      <tr><th>電話</th><td data-f="電話">092-000-0000</td></tr>
+      <tr><th>営業時間</th><td data-f="営業時間">昼 11:00–14:30／夜 17:00–22:00</td></tr>
+      <tr><th>定休日</th><td data-f="定休日">火曜日</td></tr>
       <tr><th>住所</th><td>福岡県福岡市（サンプル）</td></tr>
       <tr><th>駐車場</th><td>無料駐車場15台</td></tr>
       <tr><th>お支払い</th><td>現金・PayPay・クレジットカード</td></tr>
@@ -102,5 +125,66 @@
 
 <footer>© 台湾家庭料理 龍門</footer>
 <div style="text-align:center;padding:28px 16px 36px;background:#c9a45c"><a href="../../index.html#plan-demo" style="display:inline-block;background:#1a1410;color:#e2c27a;font-size:14px;font-weight:500;padding:12px 26px;border-radius:999px;text-decoration:none">← Mise+のプラン比較に戻る</a></div>
+
+<button class="demo-open" type="button" id="demoOpen">スマホで直す体験</button>
+<div class="sheet" id="sheet" hidden>
+  <div class="bar"><b>龍門_ホームページの内容（スプレッドシート）</b><button type="button" id="demoClose">閉じる</button></div>
+  <p class="hint">体験版です。緑のマスを書きかえると、サイトがすぐ変わります。本番では、お店のスマホのスプレッドシートアプリで書きかえると、数分でサイトに反映されます。</p>
+  <table>
+    <thead><tr><th>A　項目（さわらない）</th><th>B　内容（ここを書きかえる）</th></tr></thead>
+    <tbody id="sheetRows"></tbody>
+  </table>
+</div>
+
+<script>
+/* お店のスプレッドシートを「ウェブに公開」したときのCSVのURLをここに入れる。空のときは、ページに書いてある内容をそのまま表示する。 */
+var SHEET_CSV_URL = "";
+
+function applyData(data) {
+  Object.keys(data).forEach(function (key) {
+    var v = data[key];
+    document.querySelectorAll('[data-f="' + key + '"]').forEach(function (el) { el.textContent = v; });
+    document.querySelectorAll('[data-show="' + key + '"]').forEach(function (el) { el.hidden = !v; });
+  });
+}
+function parseCSV(text) {
+  var rows = [], row = [], cell = "", q = false;
+  for (var i = 0; i < text.length; i++) {
+    var c = text[i];
+    if (q) { if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; } else if (c === '"') q = false; else cell += c; }
+    else if (c === '"') q = true;
+    else if (c === ",") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
+    else cell += c;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  var data = {};
+  rows.slice(1).forEach(function (r) { if (r[0]) data[r[0].trim()] = (r[1] || "").trim(); });
+  return data;
+}
+if (SHEET_CSV_URL) {
+  fetch(SHEET_CSV_URL, { cache: "no-store" }).then(function (r) { return r.text(); }).then(function (t) { applyData(parseCSV(t)); }).catch(function () {});
+}
+
+/* 体験版 */
+(function () {
+  var keys = [];
+  document.querySelectorAll("[data-f]").forEach(function (el) { var k = el.getAttribute("data-f"); if (keys.indexOf(k) < 0) keys.push(k); });
+  var tbody = document.getElementById("sheetRows");
+  keys.forEach(function (k, i) {
+    var tr = document.createElement("tr");
+    var th = document.createElement("th"); th.textContent = k;
+    var td = document.createElement("td");
+    var input = document.createElement("input");
+    input.id = "cell-" + i;
+    input.value = document.querySelector('[data-f="' + k + '"]').textContent;
+    input.addEventListener("input", function () { var d = {}; d[k] = input.value; applyData(d); });
+    td.appendChild(input); tr.appendChild(th); tr.appendChild(td); tbody.appendChild(tr);
+  });
+  var sheet = document.getElementById("sheet");
+  document.getElementById("demoOpen").addEventListener("click", function () { sheet.hidden = false; });
+  document.getElementById("demoClose").addEventListener("click", function () { sheet.hidden = true; });
+})();
+</script>
 </body>
 </html>
