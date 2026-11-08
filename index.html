@@ -256,7 +256,7 @@
   .plan-demo { margin-top: 56px; }
   .plan-demo h3 { font-family: "Noto Serif JP", serif; font-weight: 500; font-size: 22px; }
   .plan-demo .sub { font-size: 13px; color: var(--muted); }
-  .pd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+  .pd-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 24px; }
   .pd { background: #fff; border: 1px solid var(--line); padding: 20px; display: grid; gap: 8px; align-content: start; transition: border-color .2s; }
   .pd:hover { border-color: var(--ink); }
   .pd-ph { aspect-ratio: 9/12; overflow: hidden; background: #111; }
@@ -275,7 +275,7 @@
   .viewer iframe { flex: 1; width: 100%; border: 0; background: #fff; }
 
   /* price */
-  .plans { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin-top: 72px; background: #fff; }
+  .plans { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--line); margin-top: 72px; background: #fff; }
   .plan { padding: 48px 40px; border-right: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
   .plan:last-child { border-right: none; }
   .plan.rec { background: var(--dark); color: #fff; }
@@ -458,7 +458,7 @@
       <div class="feature reveal"><div class="n">03</div><h3>維持費は0円</h3><p>毎月の管理費も、サーバー代もかかりません。無料のURLで公開するので、作ったあとの費用はずっと0円です。</p></div>
       <div class="feature reveal"><div class="n">04</div><h3>サイトはまるごとお渡し</h3><p>サイトはお店の名義で公開し、完成したらまるごとお渡しします。月額の契約や、解約の手続きはありません。</p></div>
       <div class="feature reveal"><div class="n">05</div><h3>Googleマップからサイトへ</h3><p>Googleマップのお店情報に、ホームページを登録します。マップでお店を見つけた人が、そのままサイトを見られるようになります。</p></div>
-      <div class="feature reveal"><div class="n">06</div><h3>5つの言語に対応（Premium）</h3><p>日本語・英語・韓国語・中国語（簡体字／繁体字）を、お客さんがボタンひとつで切り替え。海外からのお客さんにも伝わります。</p></div>
+      <div class="feature reveal"><div class="n">06</div><h3>5つの言語に対応（多言語プラン）</h3><p>日本語・英語・韓国語・中国語（簡体字／繁体字）を、お客さんがボタンひとつで切り替え。海外からのお客さんにも伝わります。</p></div>
     </div>
   </div>
 </section>
@@ -470,7 +470,7 @@
       <div class="hello"><span>いらっしゃいませ。</span><span>Welcome.</span><span>어서 오세요.</span><span>欢迎光临。</span></div>
       <p>福岡は、韓国・台湾・中国など、海外からのお客さんがとても多い街です。でも、外国語でメニューや営業時間がわかるお店は、まだ多くありません。Mise+のホームページなら、お客さんが自分の言葉を選んで、お店のことを知ることができます。</p>
       <div class="chips"><span>日本語</span><span>English</span><span>한국어</span><span>简体中文</span><span>繁體中文</span></div>
-      <a class="btn btn-light" href="work/taiwan/?lang=ko" style="color:#fff">実際に切り替えてみる <span class="arrow"></span></a>
+      <a class="btn btn-light" href="work/taiwan-global/?lang=ko" style="color:#fff">実際に切り替えてみる <span class="arrow"></span></a>
     </div>
     <div class="shot reveal">
       <div class="device back"><div class="screen"><img src="img/work-taiwan-ko.jpg" alt="韓国語に切り替えた画面"></div></div>
@@ -493,11 +493,11 @@
         <h3>台湾料理店</h3>
         <p style="font-size:14px;color:var(--ink-2)">台南出身の店主のストーリーと料理写真を主役に、黒と赤で本場の雰囲気を。看板メニュー、ランチ、宴会コース、オードブルまで、来店と予約につながる情報をすべて1ページにまとめました。</p>
         <ul>
-          <li><span>プラン</span><span>Premium</span></li>
+          <li><span>プラン</span><span>多言語プラン</span></li>
           <li><span>内容</span><span>ストーリー／メニュー／宴会／オードブル／店舗情報</span></li>
           <li><span>言語</span><span>日・英・韓・中（簡／繁）</span></li>
         </ul>
-        <a class="btn btn-solid" href="work/taiwan/" style="margin-top:28px">実際のサイトを見る <span class="arrow"></span></a>
+        <a class="btn btn-solid" href="work/taiwan-global/" style="margin-top:28px">実際のサイトを見る <span class="arrow"></span></a>
       </div>
     </div>
     <div class="work reveal">
@@ -510,7 +510,7 @@
         <h3>海辺のカフェ</h3>
         <p style="font-size:14px;color:var(--ink-2)">糸島の海と、ゆったりした時間が伝わるように。夫婦のストーリー、今月の豆、パンの焼き上がり時間まで、通いたくなる情報をやわらかい色と丸い写真でまとめました。</p>
         <ul>
-          <li><span>プラン</span><span>Standard</span></li>
+          <li><span>プラン</span><span>日本語プラン</span></li>
           <li><span>内容</span><span>ストーリー／コーヒー／メニュー／パン／店舗情報</span></li>
           <li><span>言語</span><span>日本語</span></li>
         </ul>
@@ -527,7 +527,7 @@
         <h3>美容室</h3>
         <p style="font-size:14px;color:var(--ink-2)">モノトーンで、洗練されたサロンの雰囲気を。スタイリスト紹介、料金、スタイル、来店の流れ、空き状況の表まで、初めての方が安心して予約できる設計にしました。</p>
         <ul>
-          <li><span>プラン</span><span>Standard</span></li>
+          <li><span>プラン</span><span>日本語プラン</span></li>
           <li><span>内容</span><span>スタイリスト／料金／スタイル／予約・空き状況</span></li>
           <li><span>言語</span><span>日本語</span></li>
         </ul>
@@ -547,7 +547,7 @@
       <table class="compare">
         <thead><tr><th></th><th class="us">Mise+</th><th>制作会社</th><th>フリーランス</th></tr></thead>
         <tbody>
-          <tr><th>制作費</th><td class="us"><strong>5万〜10万円</strong></td><td>30万〜100万円</td><td>10万〜30万円</td></tr>
+          <tr><th>制作費</th><td class="us"><strong>5万〜7万円</strong></td><td>30万〜100万円</td><td>10万〜30万円</td></tr>
           <tr><th>毎月の費用</th><td class="us"><strong>0円</strong></td><td>5,000〜30,000円</td><td>3,000〜10,000円</td></tr>
           <tr><th>契約前の見本</th><td class="us">無料で作成</td><td>なし</td><td>なし</td></tr>
           <tr><th>外国語ページ</th><td class="us">最大5言語をプランに込み</td><td>別料金</td><td>別料金</td></tr>
@@ -562,9 +562,9 @@
       <div class="bars">
         <div class="bar"><div class="top"><span>月額制サービス（例：月4,800円 × 60か月）</span><strong>¥288,000</strong></div><div class="track"><div class="fill" style="width:48%"></div></div></div>
         <div class="bar"><div class="top"><span>制作会社（例：制作30万円 ＋ 月5,000円）</span><strong>¥600,000</strong></div><div class="track"><div class="fill" style="width:100%;background:#b9ae9e"></div></div></div>
-        <div class="bar us"><div class="top"><span>Mise+ Basic（制作5万円のみ）</span><strong>¥50,000</strong></div><div class="track"><div class="fill" style="width:8.3%"></div></div></div>
+        <div class="bar us"><div class="top"><span>Mise+ 日本語プラン（制作5万円のみ）</span><strong>¥50,000</strong></div><div class="track"><div class="fill" style="width:8.3%"></div></div></div>
       </div>
-      <p class="note">※金額は一般的な例です。Mise+はBasicプランを無料のURLで公開した場合です。</p>
+      <p class="note">※金額は一般的な例です。Mise+は日本語プランを無料のURLで公開した場合です。</p>
     </div>
   </div>
 </section>
@@ -581,51 +581,33 @@
     </div>
     <div class="plans reveal">
       <div class="plan">
-        <div class="name">Basic</div>
-        <div class="muted">情報だけ。まずはネットにお店を</div>
+        <div class="name">日本語プラン</div>
+        <div class="muted">写真とメニューで、お店の魅力を</div>
         <div class="price normal-price">50,000<small>円（税込）</small></div>
         <div class="was monitor-price"><span class="off">モニター価格</span> 通常 <s>50,000円</s></div>
         <div class="price monitor-price">25,000<small>円（税込）</small></div>
         <div class="muted">維持費 0円</div>
         <ul>
-          <li>1ページ（営業時間・場所・人気メニュー）</li>
-          <li>日本語</li>
-          <li>スマートフォン対応</li>
-          <li>電話・地図ボタン</li>
-          <li>Googleマップにサイトを登録</li>
+          <li>写真たっぷりのデザイン</li>
+          <li>営業時間・場所・メニュー</li>
+          <li>ランチ・宴会などのコーナー（最大5つ）</li>
+          <li>スマートフォン対応・電話と地図のボタン</li>
+          <li>Googleマップへのサイト登録・検索の登録</li>
         </ul>
         <a class="btn" href="#contact">相談する <span class="arrow"></span></a>
       </div>
       <div class="plan rec">
         <div class="tag">Recommended</div>
-        <div class="name">Standard</div>
-        <div class="muted">写真とメニューで、お店の魅力を</div>
+        <div class="name">多言語プラン</div>
+        <div class="muted">5言語で、外国のお客さんまで</div>
         <div class="price normal-price">70,000<small>円（税込）</small></div>
         <div class="was monitor-price"><span class="off">モニター価格</span> 通常 <s>70,000円</s></div>
         <div class="price monitor-price">35,000<small>円（税込）</small></div>
         <div class="muted">維持費 0円</div>
         <ul>
-          <li>Basicの内容すべて</li>
-          <li>写真たっぷりのデザイン</li>
-          <li>メニュー・ランチ・宴会などのコーナー（最大5つ）</li>
-          <li>日本語</li>
-          <li>Googleで検索されるための登録</li>
-        </ul>
-        <a class="btn" href="#contact">相談する <span class="arrow"></span></a>
-      </div>
-      <div class="plan">
-        <div class="name">Premium</div>
-        <div class="muted">5言語で、外国のお客さんまで</div>
-        <div class="price normal-price">100,000<small>円（税込）</small></div>
-        <div class="was monitor-price"><span class="off">モニター価格</span> 通常 <s>100,000円</s></div>
-        <div class="price monitor-price">50,000<small>円（税込）</small></div>
-        <div class="muted">維持費 0円</div>
-        <ul>
-          <li>Standardの内容すべて</li>
+          <li>日本語プランの内容すべて</li>
           <li>5言語（日・英・韓・中 簡体／繁体）</li>
-          <li>全メニュー・季節の特設ページなどの別ページ</li>
-          <li>写真が切りかわるトップ画面</li>
-          <li>Instagramの最新情報を表示</li>
+          <li>ボタンひとつで言語を切り替え</li>
           <li>独自ドメインの設定込み</li>
         </ul>
         <a class="btn" href="#contact">相談する <span class="arrow"></span></a>
@@ -633,14 +615,13 @@
     </div>
     <div class="plan-demo reveal" id="plan-demo">
       <h3>同じお店で、プランごとの違いを見てみる</h3>
-      <p class="sub">架空の台湾料理店「龍門」を、3つのプランで作りました。タップすると実際のサイトが開きます。</p>
+      <p class="sub">架空の台湾料理店「龍門」を、2つのプランで作りました。タップすると実際のサイトが開きます。</p>
       <div class="pd-grid">
-        <a class="pd" href="work/taiwan-basic/"><div class="pd-ph"><img src="img/plan-basic.jpg" alt="Basicプランの制作例"></div><b>Basic</b><span>情報だけ。1ページ・日本語で、電話と地図、人気メニュー、店舗情報をシンプルに。</span><em>見る →</em></a>
-        <a class="pd" href="work/taiwan-standard/"><div class="pd-ph"><img src="img/plan-standard.jpg" alt="Standardプランの制作例"></div><b>Standard</b><span>写真とメニュー。こだわり・ランチ・宴会・オードブルまで。日本語。</span><em>見る →</em></a>
-        <a class="pd" href="work/taiwan/"><div class="pd-ph"><img src="img/plan-premium.jpg" alt="Premiumプランの制作例"></div><b>Premium</b><span>5言語で外国のお客さんまで。全メニューの別ページ、忘年会の特設ページ、写真が切りかわるトップ。</span><em>見る →</em></a>
+        <a class="pd" href="work/taiwan-standard/"><div class="pd-ph"><img src="img/plan-standard.jpg" alt="日本語プランの制作例"></div><b>日本語プラン</b><span>写真とメニュー。こだわり・ランチ・宴会・オードブルまで。日本語。</span><em>見る →</em></a>
+        <a class="pd" href="work/taiwan-global/"><div class="pd-ph"><img src="img/plan-global.jpg" alt="多言語プランの制作例"></div><b>多言語プラン</b><span>同じ内容を5言語で。上のボタンで英語・韓国語・中国語に切り替わります。</span><em>見る →</em></a>
       </div>
     </div>
-    <p class="note reveal" style="margin-top:24px">※ホームページは無料のURL（例：お店の名前.pages.dev）で公開します。独自ドメイン（例：お店の名前.jp）をご希望の場合は、設定作業がオプション ＋2,000円（Premiumは制作費に込み）。ドメイン代（年1,000〜3,000円ほど）は、お店のカードからドメインの会社へ直接お支払いいただきます。<br>※お支払いは、ご契約時に全額を銀行振込でお願いしています。</p>
+    <p class="note reveal" style="margin-top:24px">※ホームページは無料のURL（例：お店の名前.pages.dev）で公開します。独自ドメイン（例：お店の名前.jp）をご希望の場合は、設定作業がオプション ＋2,000円（多言語プランは制作費に込み）。ドメイン代（年1,000〜3,000円ほど）は、お店のカードからドメインの会社へ直接お支払いいただきます。<br>※お支払いは、ご契約時に全額を銀行振込でお願いしています。</p>
     <div class="support reveal">
       <h3>完成したら、まるごとお渡しします</h3>
       <p class="sub">月額の契約はありません。引き渡したあとは、サイトは完全にお店のものです。</p>
