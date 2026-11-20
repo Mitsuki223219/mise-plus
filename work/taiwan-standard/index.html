@@ -211,36 +211,11 @@
     .sticky a { text-align: center; padding: 16px; font-size: 14px; letter-spacing: .1em; }
     .sticky a:first-child { background: var(--red); }
   }
-
-  /* お知らせ（店主が表で出し入れ） */
-  .news { background: #b8312b; color: #fff; display: flex; gap: 12px; justify-content: center; align-items: baseline; flex-wrap: wrap; padding: 12px 20px; font-size: 14px; text-align: center; }
-  .news b { font-weight: 500; border: 1px solid rgba(255,255,255,.7); padding: 0 8px; font-size: 12px; }
-  [hidden] { display: none !important; }
-  /* 体験版：スマホの表で直すデモ */
-  .demo-open { position: fixed; right: max(12px, env(safe-area-inset-right, 0px)); bottom: 14px; z-index: 60; background: #1e8e3e; color: #fff; border: 0; font: inherit; font-size: 13px; font-weight: 700; padding: 12px 18px; border-radius: 999px; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.45); }
-  @media (max-width: 760px) { .demo-open { bottom: calc(66px + env(safe-area-inset-bottom, 0px)); } }
-  .demo-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; background: #fff; color: #202124; border-top: 4px solid #1e8e3e; max-height: 55vh; display: flex; flex-direction: column; font-family: "Noto Sans JP", sans-serif; letter-spacing: 0; box-shadow: 0 -12px 34px rgba(0,0,0,.45); padding-bottom: env(safe-area-inset-bottom, 0px); }
-  .demo-sheet .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 14px 6px; }
-  .demo-sheet .top b { font-size: 14px; display: flex; align-items: center; gap: 8px; }
-  .demo-sheet .top b::before { content: ""; width: 16px; height: 20px; background: #1e8e3e; border-radius: 2px; }
-  .demo-sheet .top button { white-space: nowrap; background: #fff; border: 1px solid #dadce0; border-radius: 6px; font: inherit; font-size: 12px; padding: 6px 12px; cursor: pointer; color: #202124; }
-  .demo-sheet .hint { font-size: 12px; color: #5f6368; padding: 0 14px 8px; line-height: 1.7; }
-  .demo-sheet .tbl { overflow: auto; padding: 0 14px 14px; flex: 1 1 auto; min-height: 140px; }
-  .demo-sheet table { border-collapse: collapse; font-size: 14px; width: 100%; }
-  .demo-sheet th, .demo-sheet td { border: 1px solid #dadce0; padding: 0; text-align: left; }
-  .demo-sheet thead th { position: sticky; top: 0; background: #f1f3f4; color: #5f6368; font-weight: 500; font-size: 11px; padding: 4px 8px; }
-  .demo-sheet tbody th { background: #f8f9fa; font-weight: 400; padding: 8px; width: 38%; white-space: nowrap; color: #202124; font-size: 13px; }
-  .demo-sheet td { background: #e6f4ea; }
-  .demo-sheet input { width: 100%; border: 0; background: transparent; font: inherit; padding: 8px; color: #202124; }
-  .demo-sheet input:focus { outline: 2px solid #1a73e8; outline-offset: -2px; background: #fff; }
-  .flash { animation: flash 1.2s ease; }
-  @keyframes flash { 0%, 40% { box-shadow: 0 0 0 6px rgba(30,142,62,.45); background-color: rgba(30,142,62,.25); } 100% { box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div style="background:#c9a45c;color:#1a1410;text-align:center;font-size:12px;padding:5px 16px;font-weight:500">制作例｜日本語プラン（写真とメニュー・日本語）　※店舗・料金は架空です</div>
-<div class="news" data-show="お知らせ" hidden><b>お知らせ</b><span data-f="お知らせ"></span></div>
 <header>
   <div class="wrap">
     <a href="#top" class="logo"><span class="seal">龍</span><span class="name">龍門<span class="sub" data-i="logo_sub">台湾家庭料理</span></span></a>
@@ -315,12 +290,12 @@
   <div class="wrap">
     <div class="head c"><div class="en">Menu</div><h2 data-i="menu_title">看板メニュー</h2><p data-i="menu_sub">お店で人気の6品。ほかにも定食・一品料理を60種類以上ご用意しています。</p></div>
     <div class="dishes">
-      <div class="dish"><div class="ph"><img src="../taiwan/img/ramen.jpg" alt=""><span class="no">01</span></div><div class="row"><h3 data-i="d1">台湾ラーメン</h3><span class="price"><span data-f="台湾ラーメン">¥780</span></span></div><p><span class="hot" data-i="spicy">ピリ辛　</span><span data-i="d1d">ピリ辛の挽肉と、たっぷりの野菜。</span></p></div>
-      <div class="dish"><div class="ph"><img src="../taiwan/img/pho.jpg" alt=""><span class="no">02</span></div><div class="row"><h3 data-i="d2">台湾牛肉麺</h3><span class="price"><span data-f="台湾牛肉麺">¥980</span></span></div><p data-i="d2d">八角香る澄んだスープに、やわらかく煮込んだ牛肉。</p></div>
-      <div class="dish"><div class="ph"><img src="../taiwan/img/gyoza.jpg" alt=""><span class="no">03</span></div><div class="row"><h3 data-i="d3">手づくり水餃子</h3><span class="price"><span data-f="手づくり水餃子">¥480</span></span></div><p data-i="d3d">毎朝のばす皮で包んだ、もちもちの水餃子。6個。</p></div>
-      <div class="dish"><div class="ph"><img src="../taiwan/img/karaage.jpg" alt=""><span class="no">04</span></div><div class="row"><h3 data-i="d4">鶏の唐揚げ</h3><span class="price"><span data-f="鶏の唐揚げ">¥650</span></span></div><p data-i="d4d">秘伝のタレに一晩漬け込んだ、ジューシーな一皿。</p></div>
-      <div class="dish"><div class="ph"><img src="../taiwan/img/rice.jpg" alt=""><span class="no">05</span></div><div class="row"><h3 data-i="d5">五目炒飯</h3><span class="price"><span data-f="五目炒飯">¥680</span></span></div><p data-i="d5d">強火で一気に仕上げる、パラパラの炒飯。</p></div>
-      <div class="dish"><div class="ph"><img src="../taiwan/img/noodle2.jpg" alt=""><span class="no">06</span></div><div class="row"><h3 data-i="d6">焼きビーフン</h3><span class="price"><span data-f="焼きビーフン">¥720</span></span></div><p data-i="d6d">台湾・新竹のビーフンを、野菜と豚肉で香ばしく。</p></div>
+      <div class="dish"><div class="ph"><img src="../taiwan/img/ramen.jpg" alt=""><span class="no">01</span></div><div class="row"><h3 data-i="d1">台湾ラーメン</h3><span class="price">¥780</span></div><p><span class="hot" data-i="spicy">ピリ辛　</span><span data-i="d1d">ピリ辛の挽肉と、たっぷりの野菜。</span></p></div>
+      <div class="dish"><div class="ph"><img src="../taiwan/img/pho.jpg" alt=""><span class="no">02</span></div><div class="row"><h3 data-i="d2">台湾牛肉麺</h3><span class="price">¥980</span></div><p data-i="d2d">八角香る澄んだスープに、やわらかく煮込んだ牛肉。</p></div>
+      <div class="dish"><div class="ph"><img src="../taiwan/img/gyoza.jpg" alt=""><span class="no">03</span></div><div class="row"><h3 data-i="d3">手づくり水餃子</h3><span class="price">¥480</span></div><p data-i="d3d">毎朝のばす皮で包んだ、もちもちの水餃子。6個。</p></div>
+      <div class="dish"><div class="ph"><img src="../taiwan/img/karaage.jpg" alt=""><span class="no">04</span></div><div class="row"><h3 data-i="d4">鶏の唐揚げ</h3><span class="price">¥650</span></div><p data-i="d4d">秘伝のタレに一晩漬け込んだ、ジューシーな一皿。</p></div>
+      <div class="dish"><div class="ph"><img src="../taiwan/img/rice.jpg" alt=""><span class="no">05</span></div><div class="row"><h3 data-i="d5">五目炒飯</h3><span class="price">¥680</span></div><p data-i="d5d">強火で一気に仕上げる、パラパラの炒飯。</p></div>
+      <div class="dish"><div class="ph"><img src="../taiwan/img/noodle2.jpg" alt=""><span class="no">06</span></div><div class="row"><h3 data-i="d6">焼きビーフン</h3><span class="price">¥720</span></div><p data-i="d6d">台湾・新竹のビーフンを、野菜と豚肉で香ばしく。</p></div>
     </div>
 
     <div class="lunch-grid">
@@ -329,9 +304,9 @@
         <div class="time">Lunch 11:00 – 14:30</div>
         <h3 data-i="lunch_title">ランチセット</h3>
         <div class="sets">
-          <div class="set"><div><b data-i="l1">日替わりランチ</b><small data-i="l1d">メイン・スープ・ライス・小鉢</small></div><span class="price"><span data-f="日替わりランチ">¥950</span></span></div>
-          <div class="set"><div><b data-i="l2">ラーメンセット</b><small data-i="l2d">台湾ラーメン＋半炒飯＋唐揚げ2個</small></div><span class="price"><span data-f="ラーメンセット">¥1,050</span></span></div>
-          <div class="set"><div><b data-i="l3">牛肉麺セット</b><small data-i="l3d">台湾牛肉麺＋小籠包3個</small></div><span class="price"><span data-f="牛肉麺セット">¥1,200</span></span></div>
+          <div class="set"><div><b data-i="l1">日替わりランチ</b><small data-i="l1d">メイン・スープ・ライス・小鉢</small></div><span class="price">¥950</span></div>
+          <div class="set"><div><b data-i="l2">ラーメンセット</b><small data-i="l2d">台湾ラーメン＋半炒飯＋唐揚げ2個</small></div><span class="price">¥1,050</span></div>
+          <div class="set"><div><b data-i="l3">牛肉麺セット</b><small data-i="l3d">台湾牛肉麺＋小籠包3個</small></div><span class="price">¥1,200</span></div>
         </div>
         <p class="note" data-i="lunch_note">ライス大盛り無料。スープをラーメンに変更 +¥200。価格はすべて税込です。</p>
       </div>
@@ -346,7 +321,7 @@
     <div class="courses">
       <div class="course">
         <h3 data-i="c1">食べ放題</h3><div class="sub" data-i="c1s">90分・人気メニュー40品から</div>
-        <div class="price"><span data-f="食べ放題">¥2,980</span><small data-i="per">1名様</small></div>
+        <div class="price">¥2,980<small data-i="per">1名様</small></div>
         <ul>
           <li data-i="c1a">台湾ラーメン・炒飯などの麺飯類</li>
           <li data-i="c1b">水餃子・小籠包などの点心</li>
@@ -357,7 +332,7 @@
       <div class="course hot">
         <span class="pop" data-i="popular">いちばん人気</span>
         <h3 data-i="c2">食べ飲み放題</h3><div class="sub" data-i="c2s">120分・ラストオーダー30分前</div>
-        <div class="price"><span data-f="食べ飲み放題">¥3,980</span><small data-i="per">1名様</small></div>
+        <div class="price">¥3,980<small data-i="per">1名様</small></div>
         <ul>
           <li data-i="c2a">食べ放題の内容すべて</li>
           <li data-i="c2b">生ビール・ハイボール・サワー</li>
@@ -367,7 +342,7 @@
       </div>
       <div class="course">
         <h3 data-i="c3">龍門 宴会コース</h3><div class="sub" data-i="c3s">全8品・120分飲み放題付き</div>
-        <div class="price"><span data-f="龍門 宴会コース">¥4,500</span><small data-i="per">1名様</small></div>
+        <div class="price">¥4,500<small data-i="per">1名様</small></div>
         <ul>
           <li data-i="c3a">前菜三種盛り合わせ</li>
           <li data-i="c3b">小籠包・手づくり水餃子</li>
@@ -392,9 +367,9 @@
       <div class="head" style="margin-bottom:20px"><div class="en">Takeout</div><h2 data-i="takeout_title">オードブル・お弁当</h2></div>
       <p class="t" data-i="takeout_text">ご家族の集まりや会社のイベントに、大皿のオードブルをご用意します。前日までにお電話でご予約ください。お弁当・単品のお持ち帰りは当日でもOKです。</p>
       <div class="sizes">
-        <div class="size"><div class="s">S</div><div class="n" data-i="sz1">2〜3名様</div><div class="p"><span data-f="オードブル S">¥3,500</span></div></div>
-        <div class="size"><div class="s">M</div><div class="n" data-i="sz2">4〜6名様</div><div class="p"><span data-f="オードブル M">¥6,000</span></div></div>
-        <div class="size"><div class="s">L</div><div class="n" data-i="sz3">8〜10名様</div><div class="p"><span data-f="オードブル L">¥10,000</span></div></div>
+        <div class="size"><div class="s">S</div><div class="n" data-i="sz1">2〜3名様</div><div class="p">¥3,500</div></div>
+        <div class="size"><div class="s">M</div><div class="n" data-i="sz2">4〜6名様</div><div class="p">¥6,000</div></div>
+        <div class="size"><div class="s">L</div><div class="n" data-i="sz3">8〜10名様</div><div class="p">¥10,000</div></div>
       </div>
       <div class="actions"><a class="btn btn-red" href="tel:0920000000" data-i="btn_order">電話で注文する</a></div>
     </div>
@@ -408,8 +383,8 @@
       <table>
         <tr><th data-i="l_name">店名</th><td data-i="v_name">台湾家庭料理 龍門</td></tr>
         <tr><th data-i="l_tel">電話</th><td>092-000-0000</td></tr>
-        <tr><th data-i="l_hours">営業時間</th><td data-i="v_hours" data-f="営業時間">昼 11:00–14:30／夜 17:00–22:00（L.O. 21:30）</td></tr>
-        <tr><th data-i="l_closed">定休日</th><td data-i="v_closed" data-f="定休日">火曜日（祝日の場合は翌日）</td></tr>
+        <tr><th data-i="l_hours">営業時間</th><td data-i="v_hours">昼 11:00–14:30<br>夜 17:00–22:00（L.O. 21:30）</td></tr>
+        <tr><th data-i="l_closed">定休日</th><td data-i="v_closed">火曜日（祝日の場合は翌日）</td></tr>
         <tr><th data-i="l_addr">住所</th><td data-i="v_addr">福岡県福岡市（サンプル）</td></tr>
         <tr><th data-i="l_parking">駐車場</th><td data-i="v_parking">敷地内に無料駐車場15台</td></tr>
         <tr><th data-i="l_pay">お支払い</th><td data-i="v_pay">現金・PayPay・クレジットカード</td></tr>
@@ -581,61 +556,6 @@ try { saved = localStorage.getItem("lang"); } catch (e) {}
 var param = null;
 try { param = new URLSearchParams(location.search).get("lang"); } catch (e) {}
 
-</script>
-
-<button class="demo-open" type="button" id="demoOpen">スマホで直す体験</button>
-<div class="demo-sheet" id="demoSheet" hidden>
-  <div class="top"><b>龍門_ホームページの表</b><button type="button" id="demoClose">閉じる</button></div>
-  <p class="hint">緑のマスを書きかえると、サイトがその場で変わります（体験用です）。本番では、お店のスマホで表を直すと、数分でサイトに反映されます。<br><b>ためしに：</b>1行目の「お知らせ」に文を書く／値段を変える</p>
-  <div class="tbl"><table><thead><tr><th>項目（さわらない）</th><th>内容（ここを書きかえる）</th></tr></thead><tbody id="demoRows"></tbody></table></div>
-</div>
-<script>
-/* 店主が直せるしくみ：お店のスプレッドシートを「ウェブに公開（CSV）」したURLを入れる。空ならページの内容のまま。表は A列「項目」 B列「内容」 */
-var SHEET_CSV_URL = "";
-function applyData(data) {
-  Object.keys(data).forEach(function (key) {
-    var v = data[key];
-    document.querySelectorAll('[data-f="' + key + '"]').forEach(function (el) { el.textContent = v; });
-    document.querySelectorAll('[data-show="' + key + '"]').forEach(function (el) { el.hidden = !v; });
-  });
-}
-function parseCSV(text) {
-  var rows = [], row = [], cell = "", q = false;
-  for (var i = 0; i < text.length; i++) {
-    var c = text[i];
-    if (q) { if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; } else if (c === '"') q = false; else cell += c; }
-    else if (c === '"') q = true;
-    else if (c === ",") { row.push(cell); cell = ""; }
-    else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
-    else cell += c;
-  }
-  if (cell || row.length) { row.push(cell); rows.push(row); }
-  var data = {};
-  rows.slice(1).forEach(function (r) { if (r[0]) data[r[0].trim()] = (r[1] || "").trim(); });
-  return data;
-}
-if (SHEET_CSV_URL) {
-  fetch(SHEET_CSV_URL, { cache: "no-store" }).then(function (r) { return r.text(); }).then(function (t) { applyData(parseCSV(t)); }).catch(function () {});
-}
-/* 体験版 */
-(function () {
-  var keys = [];
-  document.querySelectorAll("[data-f]").forEach(function (el) { var k = el.getAttribute("data-f"); if (keys.indexOf(k) < 0) keys.push(k); });
-  var tbody = document.getElementById("demoRows");
-  keys.forEach(function (k) {
-    var tr = document.createElement("tr"), th = document.createElement("th"), td = document.createElement("td"), input = document.createElement("input");
-    th.textContent = k; input.value = document.querySelector('[data-f="' + k + '"]').textContent;
-    input.addEventListener("input", function () {
-      var d = {}; d[k] = input.value; applyData(d);
-      var t = document.querySelector('[data-show="' + k + '"]') || document.querySelector('[data-f="' + k + '"]');
-      if (t && !t.hidden) { t.classList.remove("flash"); void t.offsetWidth; t.classList.add("flash"); }
-    });
-    td.appendChild(input); tr.appendChild(th); tr.appendChild(td); tbody.appendChild(tr);
-  });
-  var sheet = document.getElementById("demoSheet");
-  document.getElementById("demoOpen").addEventListener("click", function () { sheet.hidden = false; });
-  document.getElementById("demoClose").addEventListener("click", function () { sheet.hidden = true; });
-})();
 </script>
 </body>
 </html>
