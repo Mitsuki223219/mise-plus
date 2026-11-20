@@ -24,6 +24,9 @@
   .serif { font-family: "Shippori Mincho B1", serif; }
   .latin { font-family: "DM Serif Display", serif; letter-spacing: .02em; }
 
+  .notice { background: var(--kraft); color: var(--ink); text-align: center; font-size: 13px; padding: 10px 16px; }
+  .notice b { background: var(--ink); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 3px; margin-right: 8px; font-weight: 500; }
+  .notice[hidden] { display: none; }
   .sample-bar { background: var(--red); color: #fff; text-align: center; font-size: 12px; padding: 6px 16px; }
 
   /* header */
@@ -143,6 +146,7 @@
 </head>
 <body>
 
+<div class="notice" data-show="お知らせ" hidden><b>お知らせ</b><span data-f="お知らせ"></span></div>
 <div class="sample-bar">見本サイト｜Mise+がSoiLさんのためにお作りしました（まだ公開していません）</div>
 
 <header>
@@ -218,29 +222,29 @@
       <h2>メニュー</h2>
       <div class="cat">
         <h3>SoiL yakiimo <small>壺焼き芋</small></h3>
-        <div class="item hot"><span class="nm">本格“壺”焼き芋（温）<small>1本</small></span><span class="pr">¥580</span></div>
-        <div class="item"><span class="nm">冷やし“壺”焼き芋（冷）<small>1本</small></span><span class="pr">¥580</span></div>
-        <div class="item hot"><span class="nm">壺焼き芋のクリームブリュレ<small>＋custom（バター／バニラアイス／マシュマロ）各¥150</small></span><span class="pr">¥850</span></div>
-        <div class="item"><span class="nm">SoiLアフォガート</span><span class="pr">¥750</span></div>
+        <div class="item hot"><span class="nm">本格“壺”焼き芋（温）<small>1本</small></span><span class="pr" data-f="本格“壺”焼き芋（温）">¥580</span></div>
+        <div class="item"><span class="nm">冷やし“壺”焼き芋（冷）<small>1本</small></span><span class="pr" data-f="冷やし“壺”焼き芋（冷）">¥580</span></div>
+        <div class="item hot"><span class="nm">壺焼き芋のクリームブリュレ<small>＋custom（バター／バニラアイス／マシュマロ）各¥150</small></span><span class="pr" data-f="壺焼き芋のクリームブリュレ">¥850</span></div>
+        <div class="item"><span class="nm">SoiLアフォガート</span><span class="pr" data-f="SoiLアフォガート">¥750</span></div>
       </div>
       <div class="cat">
         <h3>Waffle <small>極上のワッフル GOKUFLE</small></h3>
-        <div class="item"><span class="nm">GOKUFLEワッフル<small>外はサクッと、中はしっとり。バターの香りが広がります（1枚）</small></span><span class="pr">¥400</span></div>
-        <div class="item"><span class="nm">ワッフルお持ち帰りカップ</span><span class="pr">¥500</span></div>
+        <div class="item"><span class="nm">GOKUFLEワッフル<small>外はサクッと、中はしっとり。バターの香りが広がります（1枚）</small></span><span class="pr" data-f="GOKUFLEワッフル">¥400</span></div>
+        <div class="item"><span class="nm">ワッフルお持ち帰りカップ</span><span class="pr" data-f="ワッフルお持ち帰りカップ">¥500</span></div>
       </div>
       <div class="cat">
         <h3>Lunch <small>ランチ</small></h3>
-        <div class="item"><span class="nm">肉屋仕込みの煮込みハンバーグ<small>ライス・スープ付き／ドリンクセット＋¥200</small></span><span class="pr">¥1,350</span></div>
+        <div class="item"><span class="nm">肉屋仕込みの煮込みハンバーグ<small>ライス・スープ付き／ドリンクセット＋¥200</small></span><span class="pr" data-f="肉屋仕込みの煮込みハンバーグ">¥1,350</span></div>
         <p class="note">※ランチの内容は変わることがあります。最新のメニューはInstagramでお知らせしています。</p>
       </div>
       <div class="cat">
         <h3>Drinks <small>ドリンク</small></h3>
-        <div class="item"><span class="nm">コーヒー<small>hot／ice</small></span><span class="pr">¥480</span></div>
-        <div class="item"><span class="nm">カフェラテ<small>hot／ice</small></span><span class="pr">¥550</span></div>
-        <div class="item"><span class="nm">ココア<small>hot／ice</small></span><span class="pr">¥450</span></div>
-        <div class="item"><span class="nm">至高のミルク</span><span class="pr">¥450</span></div>
-        <div class="item"><span class="nm">コカ・コーラ／アップルジュース／オレンジジュース</span><span class="pr">¥350</span></div>
-        <div class="item"><span class="nm">お試し冷やし壺焼き芋ハーフ<small>ドリンクをご注文の方限定</small></span><span class="pr">+¥250</span></div>
+        <div class="item"><span class="nm">コーヒー<small>hot／ice</small></span><span class="pr" data-f="コーヒー">¥480</span></div>
+        <div class="item"><span class="nm">カフェラテ<small>hot／ice</small></span><span class="pr" data-f="カフェラテ">¥550</span></div>
+        <div class="item"><span class="nm">ココア<small>hot／ice</small></span><span class="pr" data-f="ココア">¥450</span></div>
+        <div class="item"><span class="nm">至高のミルク</span><span class="pr" data-f="至高のミルク">¥450</span></div>
+        <div class="item"><span class="nm">コカ・コーラ／アップルジュース／オレンジジュース</span><span class="pr" data-f="コカ・コーラ／アップルジュース／オレンジジュース">¥350</span></div>
+        <div class="item"><span class="nm">お試し冷やし壺焼き芋ハーフ<small>ドリンクをご注文の方限定</small></span><span class="pr" data-f="お試し冷やし壺焼き芋ハーフ">+¥250</span></div>
       </div>
       <p class="note">※価格は税込です。※商品のお取り置きは、InstagramのDMで受け付けています。</p>
     </div>
@@ -282,8 +286,8 @@
         <dl>
           <dt>店名</dt><dd>本格壺焼き芋 SoiL（ソイル）</dd>
           <dt>住所</dt><dd>〒819-0161<br>福岡県福岡市西区今宿東2丁目10-19</dd>
-          <dt>営業時間</dt><dd>10:00〜19:00</dd>
-          <dt>定休日</dt><dd>なし</dd>
+          <dt>営業時間</dt><dd data-f="営業時間">10:00〜19:00</dd>
+          <dt>定休日</dt><dd data-f="定休日">なし</dd>
           <dt>ご利用</dt><dd>店内でのお食事・テイクアウト</dd>
           <dt>駐車場</dt><dd>なし</dd>
           <dt>お取り置き</dt><dd>InstagramのDMで受け付けています</dd>
@@ -312,6 +316,36 @@
   <a href="#menu">メニュー</a>
 </div>
 
+<script>
+/* 店主が直せる場所：お店のスプレッドシートを「ウェブに公開」したCSVのURLを入れる。空なら、このページに書いてある内容のまま。
+   表の形：A列「項目」（営業時間・定休日・お知らせ・メニュー名）、B列「内容」 */
+var SHEET_CSV_URL = "";
+function applyData(data) {
+  Object.keys(data).forEach(function (key) {
+    var v = data[key];
+    document.querySelectorAll('[data-f="' + key + '"]').forEach(function (el) { el.textContent = v; });
+    document.querySelectorAll('[data-show="' + key + '"]').forEach(function (el) { el.hidden = !v; });
+  });
+}
+function parseCSV(text) {
+  var rows = [], row = [], cell = "", q = false;
+  for (var i = 0; i < text.length; i++) {
+    var c = text[i];
+    if (q) { if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; } else if (c === '"') q = false; else cell += c; }
+    else if (c === '"') q = true;
+    else if (c === ",") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
+    else cell += c;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  var data = {};
+  rows.slice(1).forEach(function (r) { if (r[0]) data[r[0].trim()] = (r[1] || "").trim(); });
+  return data;
+}
+if (SHEET_CSV_URL) {
+  fetch(SHEET_CSV_URL, { cache: "no-store" }).then(function (r) { return r.text(); }).then(function (t) { applyData(parseCSV(t)); }).catch(function () {});
+}
+</script>
 <script>
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
