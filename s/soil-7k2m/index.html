@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>本格壺焼き芋 SoiL（ソイル）｜福岡・今宿の芋カフェ</title>
+<meta name="description" content="福岡市西区今宿の本格壺焼き芋専門店 SoiL。50日以上熟成させた紅はるかを、壺でじっくり焼き上げています。テイクアウト・お土産にも。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #151311; --ink-2: #3b3530; --muted: #8b8176;
+    --paper: #f4ede1; --kraft: #d8bf96; --kraft-2: #c7a676;
+    --red: #c4302b; --line: #e3d7c3; --white: #fffdf8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Noto Sans JP", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.9; letter-spacing: .03em; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left, 0px)); }
+  .serif { font-family: "Shippori Mincho B1", serif; }
+  .latin { font-family: "DM Serif Display", serif; letter-spacing: .02em; }
+
+  .sample-bar { background: var(--red); color: #fff; text-align: center; font-size: 12px; padding: 6px 16px; }
+
+  /* header */
+  header { position: sticky; top: 0; z-index: 30; background: rgba(21,19,17,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  header .logo img { height: 34px; width: auto; }
+  header nav { display: flex; gap: 22px; font-size: 13px; color: #e9e1d3; }
+  header nav a { text-decoration: none; }
+  header .ig { border: 1px solid #6b6359; padding: 6px 14px; border-radius: 999px; font-size: 12px; color: #fff; text-decoration: none; white-space: nowrap; }
+  @media (max-width: 760px) { header nav { display: none; } }
+
+  /* hero */
+  .hero { position: relative; min-height: min(92vh, 860px); color: #fff; display: flex; align-items: flex-end; overflow: hidden; background: #111; }
+  .hero .bg { position: absolute; inset: 0; }
+  .hero .bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; animation: zoom 16s ease-out both; }
+  .hero .bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,9,8,.35) 0%, rgba(10,9,8,.15) 35%, rgba(10,9,8,.85) 100%); }
+  @keyframes zoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+  .hero .in { position: relative; padding-bottom: 64px; padding-top: 120px; width: 100%; }
+  .hero .mark { width: 150px; margin-bottom: 26px; }
+  .hero .eyebrow { font-size: 13px; letter-spacing: .25em; color: var(--kraft); }
+  .hero h1 { font-family: "Shippori Mincho B1", serif; font-weight: 800; font-size: clamp(34px, 7vw, 64px); line-height: 1.35; margin: 10px 0 18px; }
+  .hero p { font-size: 15px; color: #e8e0d2; max-width: 520px; }
+  .hero .btns { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 26px; font-size: 14px; font-weight: 500; text-decoration: none; border-radius: 999px; letter-spacing: .08em; }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-line { border: 1px solid rgba(255,255,255,.6); color: #fff; }
+  .btn-ink { background: var(--ink); color: #fff; }
+  .badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+  .badges span { font-size: 12px; border: 1px solid rgba(216,191,150,.6); color: var(--kraft); padding: 4px 12px; border-radius: 999px; }
+
+  section { padding: 96px 0; }
+  .en { font-family: "DM Serif Display", serif; font-size: 15px; letter-spacing: .2em; color: var(--red); text-transform: uppercase; }
+  h2 { font-family: "Shippori Mincho B1", serif; font-weight: 800; font-size: clamp(26px, 4.6vw, 40px); line-height: 1.5; margin: 8px 0 22px; }
+  .lead { color: var(--ink-2); font-size: 15px; }
+
+  /* about / kodawari */
+  .about { background: var(--kraft); background-image: radial-gradient(rgba(255,255,255,.18) 1px, transparent 1px); background-size: 6px 6px; }
+  .about .grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+  .about .photo { position: relative; }
+  .about .photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; box-shadow: 0 24px 50px rgba(60,40,20,.25); }
+  .about .photo .sub { position: absolute; right: -18px; bottom: -40px; width: 44%; aspect-ratio: 1; object-fit: cover; border: 6px solid var(--kraft); border-radius: 4px; }
+  .points { display: grid; gap: 18px; margin-top: 28px; }
+  .point { display: flex; gap: 16px; align-items: flex-start; }
+  .point b { font-family: "DM Serif Display", serif; font-size: 30px; line-height: 1; color: var(--red); min-width: 34px; }
+  .point h3 { font-family: "Shippori Mincho B1", serif; font-size: 18px; font-weight: 800; }
+  .point p { font-size: 14px; color: var(--ink-2); }
+  @media (max-width: 820px) { .about .grid { grid-template-columns: 1fr; gap: 64px; } .about .photo .sub { right: -6px; } }
+
+  /* jukusei (vertical text) */
+  .jukusei { background: var(--ink); color: #f1e9db; }
+  .jukusei .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .jukusei .vt { writing-mode: vertical-rl; font-family: "Shippori Mincho B1", serif; font-weight: 600; font-size: 17px; line-height: 2.3; height: 470px; margin: 0 auto; letter-spacing: .1em; }
+  .jukusei .vt .t { display: block; font-size: 30px; font-weight: 800; margin-left: 24px; color: #fff; }
+  .jukusei img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
+  .jukusei .ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 64px; }
+  .way { border: 1px solid #3a342e; padding: 24px 20px; border-radius: 6px; }
+  .way .n { font-size: 12px; color: var(--kraft); letter-spacing: .15em; }
+  .way h3 { font-family: "Shippori Mincho B1", serif; font-size: 18px; margin: 6px 0 8px; }
+  .way p { font-size: 13px; color: #c9bfb0; line-height: 1.8; }
+  @media (max-width: 820px) {
+    .jukusei .grid { grid-template-columns: 1fr; }
+    .jukusei .vt { height: 340px; font-size: 14px; line-height: 2.1; letter-spacing: .06em; }
+    .jukusei .vt .t { font-size: 24px; margin-left: 16px; }
+    .jukusei img { width: 72%; margin: 0 auto; }
+    .jukusei .ways { grid-template-columns: 1fr; }
+  }
+
+  /* menu */
+  .menu { background: var(--white); }
+  .menu .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .cat { margin-bottom: 36px; }
+  .cat h3 { font-family: "DM Serif Display", serif; font-size: 22px; color: var(--red); border-bottom: 2px solid var(--ink); padding-bottom: 6px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: baseline; }
+  .cat h3 small { font-family: "Noto Sans JP"; font-size: 12px; color: var(--muted); font-weight: 400; }
+  .item { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 15px; }
+  .item .nm small { display: block; font-size: 12px; color: var(--muted); }
+  .item .pr { font-family: "DM Serif Display", serif; font-size: 18px; white-space: nowrap; }
+  .item.hot .nm::before { content: "人気"; font-size: 10px; background: var(--red); color: #fff; padding: 1px 6px; border-radius: 3px; margin-right: 8px; vertical-align: 2px; }
+  .menu .pics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-content: start; }
+  .menu .pics img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px; }
+  .menu .pics img.w { grid-column: span 2; aspect-ratio: 16/10; }
+  .menu .note { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  @media (max-width: 820px) { .menu .grid { grid-template-columns: 1fr; } .menu .pics { order: -1; } }
+
+  /* media & event */
+  .media { background: var(--paper); }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 32px 28px; }
+  .card .tag { display: inline-block; font-size: 11px; background: var(--ink); color: #fff; padding: 2px 10px; border-radius: 999px; letter-spacing: .1em; }
+  .card h3 { font-family: "Shippori Mincho B1", serif; font-size: 22px; margin: 12px 0 10px; line-height: 1.5; }
+  .card p { font-size: 14px; color: var(--ink-2); }
+  .card .btn { margin-top: 20px; }
+  @media (max-width: 820px) { .cards { grid-template-columns: 1fr; } }
+
+  /* access */
+  .access { background: var(--ink); color: #efe7da; }
+  .access .grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; }
+  .info dl { display: grid; grid-template-columns: 96px 1fr; border-top: 1px solid #39332d; }
+  .info dt, .info dd { padding: 16px 0; border-bottom: 1px solid #39332d; font-size: 14px; }
+  .info dt { color: var(--kraft); }
+  .map { border-radius: 8px; overflow: hidden; min-height: 320px; background: #222; }
+  .map iframe { width: 100%; height: 100%; min-height: 320px; border: 0; filter: grayscale(.4) contrast(1.05); }
+  @media (max-width: 820px) { .access .grid { grid-template-columns: 1fr; } }
+
+  footer { background: #0d0c0b; color: #8f877c; text-align: center; padding: 48px 20px 120px; font-size: 12px; }
+  footer img { height: 46px; margin: 0 auto 14px; }
+
+  /* sticky bottom bar (mobile) */
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: none; grid-template-columns: 1fr 1fr; padding-bottom: env(safe-area-inset-bottom, 0px); background: var(--ink); }
+  .bar a { text-align: center; padding: 15px 0; font-size: 14px; color: #fff; text-decoration: none; font-weight: 500; }
+  .bar a:first-child { background: var(--red); }
+  @media (max-width: 760px) { .bar { display: grid; } }
+
+  .rise { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+  .rise.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .hero .bg img { animation: none; } .rise { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">見本サイト｜Mise+がSoiLさんのためにお作りしました（まだ公開していません）</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/logo-white.png" alt="SoiL"></a>
+    <nav>
+      <a href="#about">こだわり</a>
+      <a href="#jukusei">熟成とおいしい食べ方</a>
+      <a href="#menu">メニュー</a>
+      <a href="#event">出店のご依頼</a>
+      <a href="#access">アクセス</a>
+    </nav>
+    <a class="ig" href="https://www.instagram.com/soil_yakiimo/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="bg"><img src="img/split.jpg" alt="SoiLの壺焼き芋"></div>
+  <div class="wrap in">
+    <img class="mark" src="img/logo-white.png" alt="SoiL">
+    <div class="eyebrow">TSUBO-YAKI IMO ／ IMAJUKU FUKUOKA</div>
+    <h1>壺で、じっくり。<br>熟成紅はるかの<br>本格壺焼き芋。</h1>
+    <p>50日以上ねかせて甘さを引き出した紅はるかを、壺の中で炭火の熱でじっくり焼き上げています。しっとり、とろける甘さをどうぞ。</p>
+    <div class="btns">
+      <a class="btn btn-red" href="#menu">メニューを見る</a>
+      <a class="btn btn-line" href="#access">お店の場所</a>
+    </div>
+    <div class="badges"><span>Googleの評価 ★4.8</span><span>テレビで紹介されました</span><span>定休日なし</span></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap grid">
+    <div class="photo rise">
+      <img src="img/gloves.jpg" alt="熟成した紅はるか">
+      <img class="sub" src="img/tsubo.jpg" alt="壺の中で焼かれるさつまいも">
+    </div>
+    <div class="rise">
+      <div class="en">Our Craft</div>
+      <h2>手間をかけるほど、<br>お芋は甘くなる。</h2>
+      <p class="lead">SoiLの焼き芋は、時間をかけることから始まります。収穫したさつまいもを蔵でねかせ、焼くのは昔ながらの「壺」。遠赤外線でゆっくり火を通すことで、皮はパリッと、中はねっとり濃厚に仕上がります。</p>
+      <div class="points">
+        <div class="point"><b>01</b><div><h3>50日以上の熟成</h3><p>蔵でゆっくり眠らせた紅はるかは、甘さと奥深さが増していきます。</p></div></div>
+        <div class="point"><b>02</b><div><h3>本格「壺」焼き</h3><p>炭火の壺の中で、1本1本じっくり。焼きムラの少ない、しっとりした焼き上がり。</p></div></div>
+        <div class="point"><b>03</b><div><h3>温かくても、冷やしても</h3><p>ほくほくの温かい壺焼き芋と、スイーツのような冷やし壺焼き芋。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="jukusei" id="jukusei">
+  <div class="wrap">
+    <div class="grid">
+      <div class="rise">
+        <div class="vt"><span class="t">さつまいもの熟成</span>さつまいもの収穫は九月〜十一月上旬。<br>収穫後〝蔵〟の中で眠りにつきます。<br>眠りについたさつまいもは、ゆっくりと呼吸を<br>しながら時を重ね、甘さや奥深さを増し、<br>熟成されていきます。<br>季節によって変化していく自然の恵みと<br>美味しさを、是非お楽しみください。</div>
+      </div>
+      <div class="rise"><img src="img/fire.jpg" alt="SoiL"></div>
+    </div>
+    <div class="en rise" style="margin-top:72px;color:var(--kraft)">How to enjoy</div>
+    <h2 class="rise" style="color:#fff">おすすめのお召し上がり方</h2>
+    <div class="ways rise">
+      <div class="way"><div class="n">おすすめ 1</div><h3>まずは、そのまま</h3><p>焼き上げて数時間置いた芋は、しっとり濃厚な甘さに。壺焼きならではの香りとコクを感じてください。</p></div>
+      <div class="way"><div class="n">おすすめ 2</div><h3>温め直して、ほくほくに</h3><p>ラップをかけて電子レンジ（500Wで約30〜60秒）、またはトースターで軽く焼いても美味しいです。</p></div>
+      <div class="way"><div class="n">おすすめ 3</div><h3>冷やして、スイーツ感覚で</h3><p>冷蔵庫で一晩ねかせると、まるでスイートポテトのような濃厚な甘さに。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap grid">
+    <div class="rise">
+      <div class="en">Menu</div>
+      <h2>メニュー</h2>
+      <div class="cat">
+        <h3>SoiL yakiimo <small>壺焼き芋</small></h3>
+        <div class="item hot"><span class="nm">本格“壺”焼き芋（温）<small>1本</small></span><span class="pr">¥580</span></div>
+        <div class="item"><span class="nm">冷やし“壺”焼き芋（冷）<small>1本</small></span><span class="pr">¥580</span></div>
+        <div class="item hot"><span class="nm">壺焼き芋のクリームブリュレ<small>＋custom（バター／バニラアイス／マシュマロ）各¥150</small></span><span class="pr">¥850</span></div>
+        <div class="item"><span class="nm">SoiLアフォガート</span><span class="pr">¥750</span></div>
+      </div>
+      <div class="cat">
+        <h3>Lunch <small>ランチ</small></h3>
+        <div class="item"><span class="nm">肉屋仕込みの煮込みハンバーグ<small>ライス・スープ付き／ドリンクセット＋¥200</small></span><span class="pr">¥1,350</span></div>
+      </div>
+      <div class="cat">
+        <h3>Drinks <small>ドリンク</small></h3>
+        <div class="item"><span class="nm">コーヒー<small>hot／ice</small></span><span class="pr">¥480</span></div>
+        <div class="item"><span class="nm">カフェラテ<small>hot／ice</small></span><span class="pr">¥550</span></div>
+        <div class="item"><span class="nm">ココア<small>hot／ice</small></span><span class="pr">¥450</span></div>
+        <div class="item"><span class="nm">至高のミルク</span><span class="pr">¥450</span></div>
+        <div class="item"><span class="nm">コカ・コーラ／アップルジュース／オレンジジュース</span><span class="pr">¥350</span></div>
+        <div class="item"><span class="nm">お試し冷やし壺焼き芋ハーフ<small>ドリンクをご注文の方限定</small></span><span class="pr">+¥250</span></div>
+      </div>
+      <p class="note">※価格は税込です。※商品のお取り置きは、InstagramのDMで受け付けています。</p>
+    </div>
+    <div class="pics rise">
+      <img class="w" src="img/tsubo.jpg" alt="壺の中のさつまいも">
+      <img src="img/split.jpg" alt="壺焼き芋">
+      <img src="img/cheesecake.jpg" alt="チーズケーキ">
+    </div>
+  </div>
+</section>
+
+<section class="media" id="event">
+  <div class="wrap">
+    <div class="en rise">News &amp; Event</div>
+    <h2 class="rise">テレビ・イベントでも。</h2>
+    <div class="cards">
+      <div class="card rise">
+        <span class="tag">MEDIA</span>
+        <h3>テレビ番組で「福岡発 もらってうれしい手みやげ」として紹介されました</h3>
+        <p>50日以上熟成させた紅はるかの壺焼き芋が、福岡の手みやげとして取り上げられました。お持ち帰り・ちょっとしたお土産にも、ぜひどうぞ。</p>
+      </div>
+      <div class="card rise">
+        <span class="tag">EVENT</span>
+        <h3>マルシェ・イベントへの<br>出店のご依頼を受け付けています</h3>
+        <p>壺焼き芋の出店をご希望の主催者さまは、日程・場所・規模をInstagramのDMでお知らせください。内容を確認して、ご連絡いたします。</p>
+        <a class="btn btn-ink" href="https://www.instagram.com/soil_yakiimo/" target="_blank" rel="noopener">DMで相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap">
+    <div class="en rise" style="color:var(--kraft)">Access</div>
+    <h2 class="rise" style="color:#fff">お店の場所</h2>
+    <div class="grid">
+      <div class="info rise">
+        <dl>
+          <dt>店名</dt><dd>本格壺焼き芋 SoiL（ソイル）</dd>
+          <dt>住所</dt><dd>〒819-0161<br>福岡県福岡市西区今宿東2丁目10-19</dd>
+          <dt>営業時間</dt><dd>10:00〜19:00</dd>
+          <dt>定休日</dt><dd>なし</dd>
+          <dt>駐車場</dt><dd>なし</dd>
+          <dt>お取り置き</dt><dd>InstagramのDMで受け付けています</dd>
+        </dl>
+        <div class="btns" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+          <a class="btn btn-red" href="https://maps.app.goo.gl/XjhQW279APxuNVfY7" target="_blank" rel="noopener">Googleマップで開く</a>
+          <a class="btn btn-line" href="https://www.instagram.com/soil_yakiimo/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="map rise">
+        <iframe loading="lazy" title="SoiLの地図" src="https://www.google.com/maps?q=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E7%A6%8F%E5%B2%A1%E5%B8%82%E8%A5%BF%E5%8C%BA%E4%BB%8A%E5%AE%BF%E6%9D%B12-10-19&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="img/logo-white.png" alt="SoiL">
+  <p>本格壺焼き芋 SoiL ／ 福岡市西区今宿東2丁目10-19</p>
+  <p style="margin-top:6px">© SoiL</p>
+</footer>
+
+<div class="bar">
+  <a href="https://maps.app.goo.gl/XjhQW279APxuNVfY7" target="_blank" rel="noopener">お店の場所</a>
+  <a href="#menu">メニュー</a>
+</div>
+
+<script>
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".rise").forEach(function (el) { io.observe(el); });
+</script>
+</body>
+</html>
