@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>本格壺焼き芋 SoiL（ソイル）｜福岡・今宿の芋カフェ</title>
-<meta name="description" content="福岡市西区今宿の本格壺焼き芋専門店 SoiL。50日以上熟成させた紅はるかを、壺でじっくり焼き上げています。テイクアウト・お土産にも。">
+<meta name="description" content="福岡市西区今宿の本格壺焼き芋専門店 SoiL。蔵でじっくり熟成させたさつまいもを、壺で焼き上げています。テイクアウト・お土産にも。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
 
   .notice { background: var(--kraft); color: var(--ink); text-align: center; font-size: 13px; padding: 10px 16px; }
   .notice b { background: var(--ink); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 3px; margin-right: 8px; font-weight: 500; }
-  .notice[hidden] { display: none; }
+  .notice[hidden], [hidden] { display: none !important; }
   .sample-bar { background: var(--red); color: #fff; text-align: center; font-size: 12px; padding: 6px 16px; }
 
   /* header */
@@ -168,20 +168,20 @@
   <div class="wrap in">
     <img class="mark" src="img/logo-white.png" alt="SoiL">
     <div class="eyebrow">TSUBO-YAKI IMO ／ IMAJUKU FUKUOKA</div>
-    <h1>壺で、じっくり。<br>熟成紅はるかの<br>本格壺焼き芋。</h1>
-    <p>50日以上ねかせて甘さを引き出した紅はるかを、壺の中で炭火の熱でじっくり焼き上げています。しっとり、とろける甘さをどうぞ。</p>
+    <h1>壺で、じっくり。<br>熟成さつまいもの<br>本格壺焼き芋。</h1>
+    <p>蔵でじっくりねかせて甘さを引き出したさつまいもを、壺の中で炭火の熱でじっくり焼き上げています。しっとり、とろける甘さをどうぞ。</p>
     <div class="btns">
       <a class="btn btn-red" href="#menu">メニューを見る</a>
       <a class="btn btn-line" href="#access">お店の場所</a>
     </div>
-    <div class="badges"><span>テレビで紹介されました</span><span>熟成紅はるか</span><span>テイクアウトOK</span></div>
+    <div class="badges"><span>テレビで紹介されました</span><span>壺焼き芋専門店</span><span>お土産にも</span></div>
   </div>
 </section>
 
 <section class="about" id="about">
   <div class="wrap grid">
     <div class="photo rise">
-      <img src="img/gloves.jpg" alt="熟成した紅はるか">
+      <img src="img/gloves.jpg" alt="熟成したさつまいも">
       <img class="sub" src="img/tsubo.jpg" alt="壺の中で焼かれるさつまいも">
     </div>
     <div class="rise">
@@ -189,7 +189,7 @@
       <h2>手間をかけるほど、<br>お芋は甘くなる。</h2>
       <p class="lead">SoiLの焼き芋は、時間をかけることから始まります。収穫したさつまいもを蔵でねかせ、焼くのは昔ながらの「壺」。遠赤外線でゆっくり火を通すことで、皮はパリッと、中はねっとり濃厚に仕上がります。</p>
       <div class="points">
-        <div class="point"><b>01</b><div><h3>50日以上の熟成</h3><p>蔵でゆっくり眠らせた紅はるかは、甘さと奥深さが増していきます。</p></div></div>
+        <div class="point"><b>01</b><div><h3>蔵でじっくり熟成</h3><p>蔵でゆっくり眠らせたさつまいもは、甘さと奥深さが増していきます。</p></div></div>
         <div class="point"><b>02</b><div><h3>本格「壺」焼き</h3><p>炭火の壺の中で、1本1本じっくり。焼きムラの少ない、しっとりした焼き上がり。</p></div></div>
         <div class="point"><b>03</b><div><h3>温かくても、冷やしても</h3><p>ほくほくの温かい壺焼き芋と、スイーツのような冷やし壺焼き芋。</p></div></div>
       </div>
@@ -220,39 +220,40 @@
     <div class="rise">
       <div class="en">Menu</div>
       <h2>メニュー</h2>
+      <div id="menuList">
       <div class="cat">
         <h3>SoiL yakiimo <small>壺焼き芋</small></h3>
-        <div class="item hot"><span class="nm">本格“壺”焼き芋（温）<small>1本</small></span><span class="pr" data-f="本格“壺”焼き芋（温）">¥580</span></div>
-        <div class="item"><span class="nm">冷やし“壺”焼き芋（冷）<small>1本</small></span><span class="pr" data-f="冷やし“壺”焼き芋（冷）">¥580</span></div>
-        <div class="item hot"><span class="nm">壺焼き芋のクリームブリュレ<small>＋custom（バター／バニラアイス／マシュマロ）各¥150</small></span><span class="pr" data-f="壺焼き芋のクリームブリュレ">¥850</span></div>
-        <div class="item"><span class="nm">SoiLアフォガート</span><span class="pr" data-f="SoiLアフォガート">¥750</span></div>
+        <div class="item hot"><span class="nm">本格“壺”焼き芋（温）<small>1本</small></span><span class="pr">¥580</span></div>
+        <div class="item"><span class="nm">冷やし“壺”焼き芋（冷）<small>1本</small></span><span class="pr">¥580</span></div>
+        <div class="item hot"><span class="nm">壺焼き芋のクリームブリュレ<small>＋custom（バター／バニラアイス／マシュマロ）各¥150</small></span><span class="pr">¥850</span></div>
+        <div class="item"><span class="nm">SoiLアフォガート</span><span class="pr">¥750</span></div>
       </div>
       <div class="cat">
         <h3>Waffle <small>極上のワッフル GOKUFLE</small></h3>
-        <div class="item"><span class="nm">GOKUFLEワッフル<small>外はサクッと、中はしっとり。バターの香りが広がります（1枚）</small></span><span class="pr" data-f="GOKUFLEワッフル">¥400</span></div>
-        <div class="item"><span class="nm">ワッフルお持ち帰りカップ</span><span class="pr" data-f="ワッフルお持ち帰りカップ">¥500</span></div>
+        <div class="item"><span class="nm">GOKUFLEワッフル<small>外はサクッと、中はしっとり。バターの香りが広がります（1枚）</small></span><span class="pr">¥400</span></div>
+        <div class="item"><span class="nm">ワッフルお持ち帰りカップ</span><span class="pr">¥500</span></div>
       </div>
       <div class="cat">
         <h3>Lunch <small>ランチ</small></h3>
-        <div class="item"><span class="nm">肉屋仕込みの煮込みハンバーグ<small>ライス・スープ付き／ドリンクセット＋¥200</small></span><span class="pr" data-f="肉屋仕込みの煮込みハンバーグ">¥1,350</span></div>
-        <p class="note">※ランチの内容は変わることがあります。最新のメニューはInstagramでお知らせしています。</p>
+        <div class="item"><span class="nm">肉屋仕込みの煮込みハンバーグ<small>ライス・スープ付き／ドリンクセット＋¥200</small></span><span class="pr">¥1,350</span></div>
       </div>
       <div class="cat">
         <h3>Drinks <small>ドリンク</small></h3>
-        <div class="item"><span class="nm">コーヒー<small>hot／ice</small></span><span class="pr" data-f="コーヒー">¥480</span></div>
-        <div class="item"><span class="nm">カフェラテ<small>hot／ice</small></span><span class="pr" data-f="カフェラテ">¥550</span></div>
-        <div class="item"><span class="nm">ココア<small>hot／ice</small></span><span class="pr" data-f="ココア">¥450</span></div>
-        <div class="item"><span class="nm">至高のミルク</span><span class="pr" data-f="至高のミルク">¥450</span></div>
-        <div class="item"><span class="nm">コカ・コーラ／アップルジュース／オレンジジュース</span><span class="pr" data-f="コカ・コーラ／アップルジュース／オレンジジュース">¥350</span></div>
-        <div class="item"><span class="nm">お試し冷やし壺焼き芋ハーフ<small>ドリンクをご注文の方限定</small></span><span class="pr" data-f="お試し冷やし壺焼き芋ハーフ">+¥250</span></div>
+        <div class="item"><span class="nm">コーヒー<small>hot／ice</small></span><span class="pr">¥480</span></div>
+        <div class="item"><span class="nm">カフェラテ<small>hot／ice</small></span><span class="pr">¥550</span></div>
+        <div class="item"><span class="nm">ココア<small>hot／ice</small></span><span class="pr">¥450</span></div>
+        <div class="item"><span class="nm">至高のミルク</span><span class="pr">¥450</span></div>
+        <div class="item"><span class="nm">コカ・コーラ／アップルジュース／オレンジジュース</span><span class="pr">¥350</span></div>
+        <div class="item"><span class="nm">お試し冷やし壺焼き芋ハーフ<small>ドリンクをご注文の方限定</small></span><span class="pr">+¥250</span></div>
       </div>
-      <p class="note">※価格は税込です。※商品のお取り置きは、InstagramのDMで受け付けています。</p>
+      </div>
+      <p class="note">※価格は税込です。メニューや価格は変わることがあります。季節の限定メニューやお知らせは、Instagramでご案内しています。</p>
     </div>
     <div class="pics rise">
-      <img class="w" src="img/brulee.jpg" alt="壺焼き芋のクリームブリュレ">
-      <img src="img/doria.jpg" alt="焼き芋をのせたランチ">
-      <img src="img/cheesecake.jpg" alt="チーズケーキ">
-      <img class="w" src="img/waffle.jpg" alt="極上のワッフル GOKUFLE">
+      <img class="w" src="img/brulee.jpg" alt="壺焼き芋のクリームブリュレ" data-cat="壺焼き芋">
+      <img src="img/split.jpg" alt="壺焼き芋" data-cat="壺焼き芋">
+      <img src="img/doria.jpg" alt="ランチ" data-cat="ランチ">
+      <img class="w" src="img/waffle.jpg" alt="ワッフル" data-cat="ワッフル">
     </div>
   </div>
 </section>
@@ -265,9 +266,9 @@
       <div class="card rise">
         <span class="tag">MEDIA</span>
         <h3>テレビ番組で「福岡発 もらってうれしい手みやげ」として紹介されました</h3>
-        <p>50日以上熟成させた紅はるかの壺焼き芋が、福岡の手みやげとして取り上げられました。お持ち帰り・ちょっとしたお土産にも、ぜひどうぞ。</p>
+        <p>じっくり熟成させたさつまいもの壺焼き芋が、福岡の手みやげとして取り上げられました。お持ち帰り・ちょっとしたお土産にも、ぜひどうぞ。</p>
       </div>
-      <div class="card rise">
+      <div class="card rise" data-show="出店のご依頼">
         <span class="tag">EVENT</span>
         <h3>マルシェ・イベントへの<br>出店のご依頼を受け付けています</h3>
         <p>壺焼き芋の出店をご希望の主催者さまは、日程・場所・規模をInstagramのDMでお知らせください。内容を確認して、ご連絡いたします。</p>
@@ -288,9 +289,9 @@
           <dt>住所</dt><dd>〒819-0161<br>福岡県福岡市西区今宿東2丁目10-19</dd>
           <dt>営業時間</dt><dd data-f="営業時間">10:00〜19:00</dd>
           <dt>定休日</dt><dd data-f="定休日">なし</dd>
-          <dt>ご利用</dt><dd>店内でのお食事・テイクアウト</dd>
-          <dt>駐車場</dt><dd>なし</dd>
-          <dt>お取り置き</dt><dd>InstagramのDMで受け付けています</dd>
+          <dt>ご利用</dt><dd data-f="ご利用">店内でのお食事・テイクアウト</dd>
+          <dt>駐車場</dt><dd data-f="駐車場">なし</dd>
+          <dt>お取り置き</dt><dd data-f="お取り置き">InstagramのDMで受け付けています</dd>
         </dl>
         <div class="btns" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
           <a class="btn btn-red" href="https://maps.app.goo.gl/XjhQW279APxuNVfY7" target="_blank" rel="noopener">Googleマップで開く</a>
@@ -317,15 +318,23 @@
 </div>
 
 <script>
-/* 店主が直せる場所：お店のスプレッドシートを「ウェブに公開」したCSVのURLを入れる。空なら、このページに書いてある内容のまま。
-   表の形：A列「項目」（営業時間・定休日・お知らせ・メニュー名）、B列「内容」 */
+/* ───────── 店主がスマホで直せるしくみ ─────────
+   お店のスプレッドシートを「ウェブに公開（CSV）」したURLを SHEET_CSV_URL に入れる。
+   空のときは、このページに書いてある内容をそのまま表示する。
+   表の形（1行目は見出し）：
+     A列「区分」 B列「名前」 C列「値段・内容」 D列「ひとこと」 E列「おすすめ」
+   ・区分が「お知らせ」→ C列の文がページの一番上に出る（空なら出ない）
+   ・区分が「情報」→ B列の項目（営業時間・定休日・ご利用・駐車場・お取り置き・出店のご依頼）をC列の内容に変える
+       「出店のご依頼」のC列を空にすると、出店依頼の案内が消える
+   ・それ以外の区分（壺焼き芋・ワッフル・ランチ・ドリンクなど）→ メニューとして表示。行を足せば増え、消せば消える
+       E列に「○」を入れると「人気」マークがつく */
 var SHEET_CSV_URL = "";
-function applyData(data) {
-  Object.keys(data).forEach(function (key) {
-    var v = data[key];
-    document.querySelectorAll('[data-f="' + key + '"]').forEach(function (el) { el.textContent = v; });
-    document.querySelectorAll('[data-show="' + key + '"]').forEach(function (el) { el.hidden = !v; });
-  });
+var CAT_EN = { "壺焼き芋": "SoiL yakiimo", "ワッフル": "Waffle", "ランチ": "Lunch", "ドリンク": "Drinks", "スイーツ": "Sweets" };
+
+function esc(t) { var d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
+function setField(key, v) {
+  document.querySelectorAll('[data-f="' + key + '"]').forEach(function (el) { el.textContent = v; });
+  document.querySelectorAll('[data-show="' + key + '"]').forEach(function (el) { el.hidden = !v; });
 }
 function parseCSV(text) {
   var rows = [], row = [], cell = "", q = false;
@@ -338,12 +347,34 @@ function parseCSV(text) {
     else cell += c;
   }
   if (cell || row.length) { row.push(cell); rows.push(row); }
-  var data = {};
-  rows.slice(1).forEach(function (r) { if (r[0]) data[r[0].trim()] = (r[1] || "").trim(); });
-  return data;
+  return rows.slice(1).map(function (r) { return r.map(function (x) { return (x || "").trim(); }); });
+}
+function applySheet(rows) {
+  var cats = [], byCat = {}, notice = "";
+  rows.forEach(function (r) {
+    var kind = r[0], name = r[1], val = r[2], memo = r[3], hot = r[4];
+    if (!kind) return;
+    if (kind === "お知らせ") { notice = val || name || ""; return; }
+    if (kind === "情報") { if (name) setField(name, val || ""); return; }
+    if (!name) return;
+    if (!byCat[kind]) { byCat[kind] = []; cats.push(kind); }
+    byCat[kind].push({ name: name, price: val, memo: memo, hot: hot });
+  });
+  setField("お知らせ", notice);
+  if (!cats.length) return;
+  var html = "";
+  cats.forEach(function (c) {
+    html += '<div class="cat"><h3>' + esc(CAT_EN[c] || c) + (CAT_EN[c] ? " <small>" + esc(c) + "</small>" : "") + "</h3>";
+    byCat[c].forEach(function (it) {
+      html += '<div class="item' + (it.hot ? " hot" : "") + '"><span class="nm">' + esc(it.name) + (it.memo ? "<small>" + esc(it.memo) + "</small>" : "") + '</span><span class="pr">' + esc(it.price || "") + "</span></div>";
+    });
+    html += "</div>";
+  });
+  document.getElementById("menuList").innerHTML = html;
+  document.querySelectorAll("[data-cat]").forEach(function (img) { img.hidden = cats.indexOf(img.getAttribute("data-cat")) < 0; });
 }
 if (SHEET_CSV_URL) {
-  fetch(SHEET_CSV_URL, { cache: "no-store" }).then(function (r) { return r.text(); }).then(function (t) { applyData(parseCSV(t)); }).catch(function () {});
+  fetch(SHEET_CSV_URL, { cache: "no-store" }).then(function (r) { return r.text(); }).then(function (t) { applySheet(parseCSV(t)); }).catch(function () {});
 }
 </script>
 <script>
