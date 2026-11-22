@@ -102,7 +102,8 @@
   .intro .big { font-family: var(--serif); font-weight: 800; font-size: clamp(30px, 5.2vw, 62px); line-height: 1.55; letter-spacing: .06em; }
   .intro .big span { position: relative; white-space: nowrap; }
   .intro .big span::after { content: ""; position: absolute; left: 0; right: 0; bottom: .08em; height: .32em; background: rgba(200,49,43,.18); z-index: -1; }
-  .intro p { max-width: 560px; margin: 34px auto 0; color: var(--sub); font-size: 15px; }
+  .intro p { max-width: 560px; margin: 34px auto 0; color: var(--sub); font-size: 15px; line-height: 2.1; }
+  .ph { display: inline-block; }
 
   /* craft */
   .craft { background: var(--paper); padding-bottom: clamp(96px, 12vw, 150px); }
@@ -110,11 +111,11 @@
   .step { position: relative; border-radius: 6px; overflow: hidden; background: #000; color: #fff; aspect-ratio: 3/4; }
   .step img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s ease; }
   .step:hover img { transform: scale(1.05); }
-  .step::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.85) 100%); }
+  .step::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,.25) 50%, rgba(0,0,0,.9) 100%); }
   .step .tx { position: absolute; z-index: 2; left: 26px; right: 26px; bottom: 26px; }
-  .step .no { font-family: var(--display); font-size: 54px; line-height: 1; color: var(--kraft); opacity: .95; }
-  .step h3 { font-family: var(--serif); font-size: 23px; font-weight: 800; margin: 10px 0 6px; }
-  .step p { font-size: 13px; color: #ddd3c5; line-height: 1.8; }
+  .step .no { position: absolute; z-index: 2; top: 22px; left: 24px; font-family: var(--display); font-size: 15px; letter-spacing: .2em; line-height: 1; color: #1a130d; background: #d6b884; padding: 8px 12px; border-radius: 999px; }
+  .step h3 { font-family: var(--serif); font-size: 24px; font-weight: 800; margin: 0 0 8px; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+  .step p { font-size: 14px; color: #efe6d8; line-height: 1.85; }
   @media (max-width: 860px) { .craft .grid { grid-template-columns: 1fr; } .step { aspect-ratio: 4/3.4; } }
 
   /* jukusei：深いブラウン × ゴールドで高級感 */
@@ -126,10 +127,11 @@
   .kraft .grid > div { min-width: 0; }
   .kraft .label { color: #d6b884; }
   .kraft .t { font-family: var(--serif); font-weight: 800; font-size: clamp(30px, 4.4vw, 50px); letter-spacing: .12em; line-height: 1.4; margin: 16px 0 26px; color: #f4ead8; }
-  .kraft .main { font-family: var(--serif); font-weight: 600; font-size: clamp(15px, 1.5vw, 17px); line-height: 2.25; letter-spacing: .08em; color: #e3d5bd; }
+  .kraft .main { font-family: "Noto Sans JP", sans-serif; font-weight: 400; font-size: clamp(15px, 1.45vw, 17px); line-height: 2.15; letter-spacing: .04em; color: #f3eadb; }
+  .kraft .main + .main { margin-top: 1.1em; }
   .kraft .logo-k { width: min(260px, 64%); }
   .kraft .ways { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
-  .kraft .way { font-family: var(--serif); font-weight: 600; font-size: 14px; line-height: 1.95; letter-spacing: .05em; border-top: 1px solid rgba(214,184,132,.3); padding-top: 14px; color: #e3d5bd; }
+  .kraft .way { font-family: "Noto Sans JP", sans-serif; font-weight: 400; font-size: 14px; line-height: 1.95; letter-spacing: .03em; border-top: 1px solid rgba(214,184,132,.3); padding-top: 14px; color: #e3d5bd; }
   .kraft .way b { display: block; font-weight: 800; font-size: 16px; margin-bottom: 2px; color: #d6b884; letter-spacing: .1em; }
   .kraft .how { align-self: flex-start; border: 1px solid #d6b884; color: #d6b884; font-family: var(--serif); font-weight: 800; font-size: 14px; padding: 5px 18px; letter-spacing: .24em; }
   @media (max-width: 860px) {
@@ -294,15 +296,15 @@
   <div class="wrap">
     <div class="label rv" style="justify-content:center">OUR CRAFT</div>
     <p class="big rv" style="margin-top:26px">急がない。<br>それが、<span>いちばんの</span><br><span>隠し味。</span></p>
-    <p class="rv">SoiLの焼き芋は、待つことから始まります。<br>蔵で眠らせ、壺の中でじっくり焼く。<br>手間と時間をかけた分だけ、お芋は甘くなります。</p>
+    <p class="rv"><span class="ph">SoiLの焼き芋は、</span><span class="ph">待つことから始まります。</span><br><span class="ph">蔵で眠らせ、</span><span class="ph">壺の中でじっくり焼く。</span><br><span class="ph">手間と時間をかけた分だけ、</span><span class="ph">お芋は甘くなります。</span></p>
   </div>
 </section>
 
 <section class="craft" id="craft">
   <div class="wrap grid">
-    <div class="step rv"><img src="img/gloves.jpg" alt="蔵で熟成させたさつまいも"><div class="tx"><div class="no">01</div><h3>蔵で、熟成。</h3><p>収穫したさつまいもを蔵でゆっくり眠らせ、甘さと奥深さを引き出します。</p></div></div>
-    <div class="step rv d1"><img src="img/tsubo.jpg" alt="炭火の壺"><div class="tx"><div class="no">02</div><h3>壺で、焼く。</h3><p>炭火の壺の中で、遠赤外線で1本1本じっくり。焼きムラの少ない、しっとりした焼き上がり。</p></div></div>
-    <div class="step rv d2"><img src="img/split.jpg" alt="とろける壺焼き芋"><div class="tx"><div class="no">03</div><h3>とろける、甘さ。</h3><p>皮はパリッと、中はねっとり。温かいままでも、冷やしても。</p></div></div>
+    <div class="step rv"><img src="img/gloves.jpg" alt="蔵で熟成させたさつまいも"><div class="no">STEP 01</div><div class="tx"><h3>蔵で、熟成。</h3><p>収穫したさつまいもを蔵でゆっくり眠らせ、甘さと奥深さを引き出します。</p></div></div>
+    <div class="step rv d1"><img src="img/tsubo.jpg" alt="炭火の壺"><div class="no">STEP 02</div><div class="tx"><h3>壺で、焼く。</h3><p>炭火の壺の中で、遠赤外線で1本1本じっくり。焼きムラの少ない、しっとりした焼き上がり。</p></div></div>
+    <div class="step rv d2"><img src="img/split.jpg" alt="とろける壺焼き芋"><div class="no">STEP 03</div><div class="tx"><h3>とろける、甘さ。</h3><p>皮はパリッと、中はねっとり。温かいままでも、冷やしても。</p></div></div>
   </div>
 </section>
 
@@ -311,7 +313,9 @@
     <div class="rv">
       <div class="label">AGING</div>
       <h2 class="t">さつまいもの熟成</h2>
-      <p class="main">さつまいもの収穫は九月〜十一月上旬。<br>収穫後〝蔵〟の中で眠りにつきます。<br>眠りについたさつまいもは、ゆっくりと呼吸をしながら時を重ね、甘さや奥深さを増し、熟成されていきます。<br>季節によって変化していく自然の恵みと美味しさを、是非お楽しみください。</p>
+      <p class="main"><span class="ph">さつまいもの収穫は、</span><span class="ph">九月〜十一月上旬。</span><br><span class="ph">収穫後〝蔵〟の中で</span><span class="ph">眠りにつきます。</span></p>
+      <p class="main"><span class="ph">眠りについたさつまいもは、</span><span class="ph">ゆっくりと呼吸をしながら</span><span class="ph">時を重ね、</span><span class="ph">甘さや奥深さを増し、</span><span class="ph">熟成されていきます。</span></p>
+      <p class="main"><span class="ph">季節によって変化していく</span><span class="ph">自然の恵みと美味しさを、</span><span class="ph">是非お楽しみください。</span></p>
     </div>
     <div class="side rv d1">
       <img class="logo-k" src="img/logo-gold.png" alt="SoiL">
