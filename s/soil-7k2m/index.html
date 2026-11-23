@@ -85,15 +85,11 @@
   @keyframes drop { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(0); transform-origin: bottom; } }
   @media (max-width: 760px) { .hero .vert { display: none; } .scroll { display: none; } }
 
-  /* marquee：黒 × グレーの細線で上品に */
-  .marquee { position: relative; background: #161616; color: #d9d9d9; overflow: hidden; white-space: nowrap; padding: 22px 0; }
-  .marquee::before, .marquee::after { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(190,190,190,.55) 20%, rgba(190,190,190,.55) 80%, transparent); }
-  .marquee::before { top: 7px; } .marquee::after { bottom: 7px; }
-  .marquee .track { display: inline-flex; align-items: center; animation: slide 60s linear infinite; }
-  .marquee span { display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; }
-  .marquee .en { font-family: var(--ital); font-style: italic; font-weight: 500; font-size: clamp(20px, 2.4vw, 28px); letter-spacing: .08em; color: #b8b8b8; }
-  .marquee .jp { font-family: var(--serif); font-weight: 600; font-size: clamp(14px, 1.6vw, 17px); letter-spacing: .4em; color: #ededed; }
-  .marquee i { width: 6px; height: 6px; background: #8f8f8f; transform: rotate(45deg); opacity: .8; flex: none; }
+  /* marquee（元のデザインのまま、色を黒に） */
+  .marquee { background: #161616; color: #fff; overflow: hidden; white-space: nowrap; padding: 14px 0; }
+  .marquee .track { display: inline-flex; animation: slide 28s linear infinite; }
+  .marquee span { font-family: var(--display); font-size: clamp(18px, 2.4vw, 28px); letter-spacing: .06em; padding-right: 48px; }
+  .marquee span b { font-family: var(--serif); font-weight: 800; letter-spacing: .1em; }
   @keyframes slide { to { transform: translateX(-50%); } }
 
   section { position: relative; }
@@ -293,7 +289,8 @@
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="track">
-  <span><em class="en">SoiL</em><i></i><b class="jp">本格壺焼き芋</b><i></i><em class="en">Tsubo-yaki Imo</em><i></i><b class="jp">福岡 今宿</b><i></i></span><span><em class="en">SoiL</em><i></i><b class="jp">本格壺焼き芋</b><i></i><em class="en">Tsubo-yaki Imo</em><i></i><b class="jp">福岡 今宿</b><i></i></span><span><em class="en">SoiL</em><i></i><b class="jp">本格壺焼き芋</b><i></i><em class="en">Tsubo-yaki Imo</em><i></i><b class="jp">福岡 今宿</b><i></i></span><span><em class="en">SoiL</em><i></i><b class="jp">本格壺焼き芋</b><i></i><em class="en">Tsubo-yaki Imo</em><i></i><b class="jp">福岡 今宿</b><i></i></span>
+  <span>SOIL ── TSUBO-YAKI IMO ── <b>本格壺焼き芋</b> ── IMAJUKU FUKUOKA ──</span><span>SOIL ── TSUBO-YAKI IMO ── <b>本格壺焼き芋</b> ── IMAJUKU FUKUOKA ──</span>
+  <span>SOIL ── TSUBO-YAKI IMO ── <b>本格壺焼き芋</b> ── IMAJUKU FUKUOKA ──</span><span>SOIL ── TSUBO-YAKI IMO ── <b>本格壺焼き芋</b> ── IMAJUKU FUKUOKA ──</span>
 </div></div>
 
 <section class="intro">
