@@ -85,15 +85,15 @@
   @keyframes drop { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(0); transform-origin: bottom; } }
   @media (max-width: 760px) { .hero .vert { display: none; } .scroll { display: none; } }
 
-  /* marquee：深い焦げ茶 × 金の細線で上品に */
-  .marquee { position: relative; background: linear-gradient(180deg, #24180f 0%, #1a110a 100%); color: #e9d6b0; overflow: hidden; white-space: nowrap; padding: 22px 0; }
-  .marquee::before, .marquee::after { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(214,184,132,.75) 20%, rgba(214,184,132,.75) 80%, transparent); }
+  /* marquee：黒 × グレーの細線で上品に */
+  .marquee { position: relative; background: #161616; color: #d9d9d9; overflow: hidden; white-space: nowrap; padding: 22px 0; }
+  .marquee::before, .marquee::after { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(190,190,190,.55) 20%, rgba(190,190,190,.55) 80%, transparent); }
   .marquee::before { top: 7px; } .marquee::after { bottom: 7px; }
   .marquee .track { display: inline-flex; align-items: center; animation: slide 60s linear infinite; }
   .marquee span { display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; }
-  .marquee .en { font-family: var(--ital); font-style: italic; font-weight: 500; font-size: clamp(20px, 2.4vw, 28px); letter-spacing: .08em; color: #d6b884; }
-  .marquee .jp { font-family: var(--serif); font-weight: 600; font-size: clamp(14px, 1.6vw, 17px); letter-spacing: .4em; color: #f1e3c8; }
-  .marquee i { width: 6px; height: 6px; background: #d6b884; transform: rotate(45deg); opacity: .8; flex: none; }
+  .marquee .en { font-family: var(--ital); font-style: italic; font-weight: 500; font-size: clamp(20px, 2.4vw, 28px); letter-spacing: .08em; color: #b8b8b8; }
+  .marquee .jp { font-family: var(--serif); font-weight: 600; font-size: clamp(14px, 1.6vw, 17px); letter-spacing: .4em; color: #ededed; }
+  .marquee i { width: 6px; height: 6px; background: #8f8f8f; transform: rotate(45deg); opacity: .8; flex: none; }
   @keyframes slide { to { transform: translateX(-50%); } }
 
   section { position: relative; }
