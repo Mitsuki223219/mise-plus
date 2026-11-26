@@ -104,13 +104,13 @@
 
   /* intro */
   .intro { position: relative; overflow: hidden; background: #6e6a66; color: #fff; text-align: center; padding: clamp(80px, 10vw, 120px) 0 0; }
-  .intro .bg { position: relative; order: 2; margin-top: clamp(40px, 6vw, 70px); }
+  .intro .bg { position: relative; order: 2; margin-top: clamp(80px, 12vw, 140px); }
   .intro .bg img { display: block; width: 100%; height: clamp(280px, 48vw, 620px); object-fit: cover; object-position: 70% 55%; }
   .intro .bg::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 40%; background: linear-gradient(180deg, #6e6a66 0%, rgba(110,106,102,0) 100%); }
   .intro { display: flex; flex-direction: column; }
   .intro .wrap { position: relative; }
   .intro .label { color: #f1e6d3; }
-  .intro .big { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 4.8vw, 54px); line-height: 1.55; letter-spacing: .14em; margin-top: 26px; text-shadow: 0 2px 14px rgba(0,0,0,.25); }
+  .intro .big { font-family: var(--serif); font-weight: 600; font-size: clamp(22px, 6vw, 46px); line-height: 1.55; letter-spacing: .12em; white-space: nowrap; margin-top: 26px; text-shadow: 0 2px 14px rgba(0,0,0,.25); }
   .intro p { max-width: 600px; margin: 30px auto 0; color: #f6f1ea; font-family: var(--serif); font-weight: 600; font-size: 15px; line-height: 2.1; letter-spacing: .06em; text-shadow: 0 1px 8px rgba(0,0,0,.3); }
   .ph { display: inline-block; }
 
@@ -209,7 +209,7 @@
   .owner .grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
   .owner .grid > div { min-width: 0; }
   .owner .ph { border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; }
-  .owner .ph img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; filter: grayscale(.15) contrast(1.05); }
+  .owner .ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
   .owner .label { color: #c9a662; }
   .owner .nm { margin-top: 18px; font-family: var(--serif); font-weight: 800; font-size: 26px; letter-spacing: .12em; color: #fff; }
   .owner .nm small { font-family: "Noto Sans JP"; font-weight: 500; font-size: 11px; letter-spacing: .24em; color: #8d8478; margin-left: 10px; }
@@ -220,7 +220,7 @@
   .owner .links a:hover { border-color: #c9a662; }
   .owner .links b { font-size: 14px; font-weight: 500; color: #f1e6d3; }
   .owner .links span { font-size: 12px; color: #8d8478; }
-  @media (max-width: 860px) { .owner .grid { grid-template-columns: 1fr; gap: 36px; } .owner .ph { aspect-ratio: 1; } }
+  @media (max-width: 860px) { .owner .grid { grid-template-columns: 1fr; gap: 36px; } .owner .ph { aspect-ratio: 4/5; } }
   /* event */
   .event { background: var(--red); color: #fff; padding: 56px 0; }
   .event .wrap { display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
@@ -322,7 +322,7 @@
   <div class="bg"><img src="img/earth.jpg" alt="壺から焼き芋を取り出すところ"></div>
   <div class="wrap">
     <div class="label rv" style="justify-content:center">OUR CRAFT</div>
-    <p class="big rv">大地の恵み、<br>そのままに</p>
+    <p class="big rv">大地の恵み、そのままに</p>
     <p class="rv"><span class="ph">厳選した熟成さつまいもを使用し、</span><br><span class="ph">専用の壺で約2時間</span><span class="ph">ゆっくりと丁寧に焼き上げます。</span><br><span class="ph">1本1本、丁寧に心を込めて。</span><br><span class="ph">こだわりの本格熟成</span><span class="ph">“壺焼き芋”を</span><span class="ph">ご賞味ください。</span></p>
   </div>
 </section>
@@ -425,7 +425,7 @@
 
 <section class="owner" id="owner">
   <div class="wrap grid">
-    <div class="ph rv"><img src="img/owner.jpg" alt="店主 古川雄大"></div>
+    <div class="ph rv"><img src="img/owner.jpg" alt="SoiLの店先に立つ店主 古川雄大"></div>
     <div class="tx rv d1">
       <div class="label">OWNER</div>
       <p class="nm">古川 雄大 <small>YUTA FURUKAWA</small></p>
