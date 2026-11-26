@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#121110">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cormorant+Garamond:ital,wght@1,500&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@1,500&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #121110; --ash: #1d1b19; --char: #2a2724;
@@ -85,11 +85,16 @@
   @keyframes drop { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(0); transform-origin: bottom; } }
   @media (max-width: 760px) { .hero .vert { display: none; } .scroll { display: none; } }
 
-  /* marquee（元のデザインのまま、色を黒に） */
-  .marquee { background: #161616; color: #fff; overflow: hidden; white-space: nowrap; padding: 14px 0; }
-  .marquee .track { display: inline-flex; animation: slide 28s linear infinite; }
-  .marquee span { font-family: var(--display); font-size: clamp(18px, 2.4vw, 28px); letter-spacing: .06em; padding-right: 48px; }
-  .marquee span b { font-family: var(--serif); font-weight: 800; letter-spacing: .1em; }
+  /* marquee：黒 × 金（ロゴ＋英語） */
+  .marquee { position: relative; background: #111; color: #c9a662; overflow: hidden; white-space: nowrap; padding: 20px 0; }
+  .marquee::before, .marquee::after { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: rgba(201,166,98,.7); }
+  .marquee::before { top: 7px; } .marquee::after { bottom: 7px; }
+  .marquee .track { display: inline-flex; align-items: center; animation: slide 40s linear infinite; }
+  .marquee span { display: inline-flex; flex: none; align-items: center; gap: 22px; padding-right: 22px; }
+  .marquee span > * { flex: none; }
+  .marquee img { height: 30px; width: auto; display: block; }
+  .marquee .cz { font-family: "Cinzel", serif; font-weight: 600; font-size: clamp(15px, 1.6vw, 19px); letter-spacing: .32em; }
+  .marquee .dia { width: 6px; height: 6px; transform: rotate(45deg); background: #c9a662; flex: none; }
   @keyframes slide { to { transform: translateX(-50%); } }
 
   section { position: relative; }
@@ -98,12 +103,15 @@
   h2 { font-family: var(--serif); font-weight: 800; font-size: clamp(30px, 5vw, 56px); line-height: 1.35; letter-spacing: .04em; margin: 16px 0 24px; }
 
   /* intro */
-  .intro { background: var(--paper); padding: clamp(96px, 14vw, 170px) 0 clamp(80px, 10vw, 130px); text-align: center; }
-  .intro .big { font-family: var(--serif); font-weight: 800; font-size: clamp(30px, 5.2vw, 62px); line-height: 1.55; letter-spacing: .06em; }
-  .intro .big span { position: relative; white-space: nowrap; }
-  .intro .big span::after { content: ""; position: absolute; left: 0; right: 0; bottom: .08em; height: .32em; background: rgba(214,184,132,.35); z-index: -1; }
-  .intro .label { color: #a98552; }
-  .intro p { max-width: 560px; margin: 34px auto 0; color: var(--sub); font-size: 15px; line-height: 2.1; }
+  .intro { position: relative; overflow: hidden; background: #6e6a66; color: #fff; text-align: center; padding: clamp(80px, 10vw, 120px) 0 0; }
+  .intro .bg { position: relative; order: 2; margin-top: clamp(40px, 6vw, 70px); }
+  .intro .bg img { display: block; width: 100%; height: clamp(280px, 48vw, 620px); object-fit: cover; object-position: 70% 55%; }
+  .intro .bg::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 40%; background: linear-gradient(180deg, #6e6a66 0%, rgba(110,106,102,0) 100%); }
+  .intro { display: flex; flex-direction: column; }
+  .intro .wrap { position: relative; }
+  .intro .label { color: #f1e6d3; }
+  .intro .big { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 4.8vw, 54px); line-height: 1.55; letter-spacing: .14em; margin-top: 26px; text-shadow: 0 2px 14px rgba(0,0,0,.25); }
+  .intro p { max-width: 600px; margin: 30px auto 0; color: #f6f1ea; font-family: var(--serif); font-weight: 600; font-size: 15px; line-height: 2.1; letter-spacing: .06em; text-shadow: 0 1px 8px rgba(0,0,0,.3); }
   .ph { display: inline-block; }
 
   /* craft */
@@ -196,23 +204,23 @@
   .media .tv { display: flex; gap: 10px; flex-wrap: wrap; margin: -4px 0 22px; }
   .media .tv span { font-family: var(--serif); font-weight: 800; font-size: 15px; border: 1px solid rgba(205,176,132,.7); color: var(--kraft); padding: 6px 16px; border-radius: 999px; }
 
-  /* owner */
-  .owner { background: var(--paper); padding: clamp(96px, 12vw, 140px) 0; }
+  /* owner（シンプルに暗め） */
+  .owner { background: #121110; color: #efe6d8; padding: clamp(96px, 12vw, 140px) 0; }
   .owner .grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
   .owner .grid > div { min-width: 0; }
   .owner .ph { border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; }
-  .owner .ph img { width: 100%; height: 100%; object-fit: cover; }
-  .owner .label { color: #a98552; }
-  .owner .nm { font-family: var(--serif); font-weight: 800; font-size: 24px; letter-spacing: .12em; }
-  .owner .nm small { font-family: "Noto Sans JP"; font-weight: 500; font-size: 11px; letter-spacing: .24em; color: var(--muted); margin-left: 10px; }
-  .owner .role { display: inline-block; margin-top: 8px; font-size: 12px; letter-spacing: .2em; border: 1px solid #c9a662; color: #8a6a32; padding: 3px 12px; }
-  .owner .bio { margin-top: 22px; color: var(--sub); font-size: 15px; line-height: 2.05; }
+  .owner .ph img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; filter: grayscale(.15) contrast(1.05); }
+  .owner .label { color: #c9a662; }
+  .owner .nm { margin-top: 18px; font-family: var(--serif); font-weight: 800; font-size: 26px; letter-spacing: .12em; color: #fff; }
+  .owner .nm small { font-family: "Noto Sans JP"; font-weight: 500; font-size: 11px; letter-spacing: .24em; color: #8d8478; margin-left: 10px; }
+  .owner .role { display: inline-block; margin-top: 10px; font-size: 12px; letter-spacing: .2em; border: 1px solid rgba(201,166,98,.7); color: #c9a662; padding: 3px 12px; }
+  .owner .bio { margin-top: 22px; color: #cfc5b6; font-size: 15px; line-height: 2.05; }
   .owner .links { margin-top: 30px; display: grid; gap: 10px; }
-  .owner .links a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 6px; text-decoration: none; background: #fff; transition: border-color .2s; }
+  .owner .links a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 15px 18px; border: 1px solid #34302b; border-radius: 6px; text-decoration: none; background: #1a1816; transition: border-color .2s; }
   .owner .links a:hover { border-color: #c9a662; }
-  .owner .links b { font-size: 14px; font-weight: 700; }
-  .owner .links span { font-size: 13px; color: var(--muted); }
-  @media (max-width: 860px) { .owner .grid { grid-template-columns: 1fr; gap: 36px; } .owner .ph { aspect-ratio: 4/3; } }
+  .owner .links b { font-size: 14px; font-weight: 500; color: #f1e6d3; }
+  .owner .links span { font-size: 12px; color: #8d8478; }
+  @media (max-width: 860px) { .owner .grid { grid-template-columns: 1fr; gap: 36px; } .owner .ph { aspect-ratio: 1; } }
   /* event */
   .event { background: var(--red); color: #fff; padding: 56px 0; }
   .event .wrap { display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
@@ -307,15 +315,15 @@
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="track">
-  <span>SOIL ── TSUBO-YAKI IMO ── <b>本格壺焼き芋</b> ── IMAJUKU FUKUOKA ──</span><span>SOIL ── TSUBO-YAKI IMO ── <b>本格壺焼き芋</b> ── IMAJUKU FUKUOKA ──</span>
-  <span>SOIL ── TSUBO-YAKI IMO ── <b>本格壺焼き芋</b> ── IMAJUKU FUKUOKA ──</span><span>SOIL ── TSUBO-YAKI IMO ── <b>本格壺焼き芋</b> ── IMAJUKU FUKUOKA ──</span>
+  <span><img src="img/logo-gold.png" alt=""><i class="dia"></i><b class="cz">TSUBO-YAKI IMO</b><i class="dia"></i><img src="img/logo-gold.png" alt=""><i class="dia"></i><b class="cz">IMAJUKU FUKUOKA</b><i class="dia"></i></span><span><img src="img/logo-gold.png" alt=""><i class="dia"></i><b class="cz">TSUBO-YAKI IMO</b><i class="dia"></i><img src="img/logo-gold.png" alt=""><i class="dia"></i><b class="cz">IMAJUKU FUKUOKA</b><i class="dia"></i></span><span><img src="img/logo-gold.png" alt=""><i class="dia"></i><b class="cz">TSUBO-YAKI IMO</b><i class="dia"></i><img src="img/logo-gold.png" alt=""><i class="dia"></i><b class="cz">IMAJUKU FUKUOKA</b><i class="dia"></i></span>
 </div></div>
 
 <section class="intro">
+  <div class="bg"><img src="img/earth.jpg" alt="壺から焼き芋を取り出すところ"></div>
   <div class="wrap">
     <div class="label rv" style="justify-content:center">OUR CRAFT</div>
-    <p class="big rv" style="margin-top:26px">急がない。<br>それが、<span>いちばんの</span><br><span>隠し味。</span></p>
-    <p class="rv"><span class="ph">SoiLの焼き芋は、</span><span class="ph">待つことから始まります。</span><br><span class="ph">蔵で眠らせ、</span><span class="ph">壺の中でじっくり焼く。</span><br><span class="ph">手間と時間をかけた分だけ、</span><span class="ph">お芋は甘くなります。</span></p>
+    <p class="big rv">大地の恵み、<br>そのままに</p>
+    <p class="rv"><span class="ph">厳選した熟成さつまいもを使用し、</span><br><span class="ph">専用の壺で約2時間</span><span class="ph">ゆっくりと丁寧に焼き上げます。</span><br><span class="ph">1本1本、丁寧に心を込めて。</span><br><span class="ph">こだわりの本格熟成</span><span class="ph">“壺焼き芋”を</span><span class="ph">ご賞味ください。</span></p>
   </div>
 </section>
 
@@ -417,17 +425,16 @@
 
 <section class="owner" id="owner">
   <div class="wrap grid">
-    <div class="ph rv"><img src="img/gloves.jpg" alt="店主の手"></div>
+    <div class="ph rv"><img src="img/owner.jpg" alt="店主 古川雄大"></div>
     <div class="tx rv d1">
       <div class="label">OWNER</div>
-      <h2>店主は、<br>こんなひと。</h2>
       <p class="nm">古川 雄大 <small>YUTA FURUKAWA</small></p>
       <p class="role">焼き芋屋と美容師</p>
       <p class="bio">美容師として働きながら、今宿で壺焼き芋のお店「SoiL」を営んでいます。<br>蔵でねかせたさつまいもを、壺でじっくり焼く。手間を惜しまずに焼いた一本を、ぜひ味わいに来てください。</p>
       <div class="links">
         <a href="https://www.instagram.com/soil_yakiimo/" target="_blank" rel="noopener"><b>SoiL 公式</b><span>@soil_yakiimo</span></a>
-        <a href="https://www.instagram.com/soil_yuta_95/" target="_blank" rel="noopener"><b>焼き芋屋と美容師 YUTA</b><span>@soil_yuta_95</span></a>
-        <a href="https://www.instagram.com/rust_eze_95_/" target="_blank" rel="noopener"><b>古川 雄大</b><span>@rust_eze_95_</span></a>
+        <a href="https://www.instagram.com/soil_yuta_95/" target="_blank" rel="noopener"><b>焼き芋と美容師の日常</b><span>@soil_yuta_95</span></a>
+        <a href="https://www.instagram.com/rust_eze_95_/" target="_blank" rel="noopener"><b>美容室のご予約はこちら</b><span>@rust_eze_95_</span></a>
       </div>
     </div>
   </div>
